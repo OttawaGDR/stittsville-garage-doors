@@ -4,6 +4,8 @@ import Base from './Base.astro';
 import Hero from '../components/Hero.astro';
 import PhoneLink from '../components/PhoneLink.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
+import JobGallery from '../components/JobGallery.astro';
+import { getPhotosForService } from '../data/jobPhotos';
 import ServiceSchema from '../components/Schema/Service.astro';
 import FAQSchema from '../components/Schema/FAQ.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
@@ -25,6 +27,8 @@ const relatedServices = content.relatedSlugs
 const title = `${content.h1} | ${site.phone}`;
 const description = content.metaDescription;
 
+const servicePhotos = getPhotosForService(content.slug, 3);
+
 const crumbs = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services/' },
@@ -44,6 +48,12 @@ const crumbs = [
   <article class="container-page section-pad">
     <div class="prose-content prose-wide max-w-none">
       {content.intro.map((p) => <p>{p}</p>)}
+
+      <JobGallery
+        photos={servicePhotos}
+        title={`${service.fullName} — recent work in Stittsville`}
+        columns={3}
+      />
 
       <h2>Signs you need {service.name.toLowerCase()}</h2>
       <ul class="mb-8 list-disc space-y-2 pl-6">

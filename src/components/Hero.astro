@@ -1,34 +1,77 @@
 ---
 import TrustBar from './TrustBar.astro';
 import PhoneLink from './PhoneLink.astro';
+import type { JobPhoto } from '../data/jobPhotos';
 
 interface Props {
   title: string;
   subtitle: string;
   showPricingCta?: boolean;
+  image?: JobPhoto;
 }
 
-const { title, subtitle, showPricingCta = true } = Astro.props;
+const { title, subtitle, showPricingCta = true, image } = Astro.props;
 ---
 
 <section class="relative overflow-hidden bg-primary-900 text-white">
-  <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-700/80 to-primary-900 opacity-95" aria-hidden="true" />
-  <div class="container-page relative section-pad">
-    <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">Stittsville · K2S · K2V</p>
-    <h1 class="mt-4 max-w-3xl text-white">{title}</h1>
-    <p class="mt-6 max-w-2xl text-lg text-primary-100">{subtitle}</p>
-    <div class="mt-8 flex flex-wrap gap-4">
-      <PhoneLink showIcon />
-      {
-        showPricingCta && (
-          <a href="/pricing/" class="btn-secondary border-white text-white hover:bg-white/10">
-            See Pricing
-          </a>
-        )
-      }
+  {
+    image && (
+      <>
+        <img
+          src={image.src}
+          alt=""
+          width={image.width}
+          height={image.height}
+          class="absolute inset-0 h-full w-full object-cover object-center"
+          fetchpriority="high"
+          decoding="async"
+          aria-hidden="true"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/92 to-primary-900/75" aria-hidden="true" />
+      </>
+    )
+  }
+  {
+    !image && (
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-700/80 to-primary-900 opacity-95"
+        aria-hidden="true"
+      />
+    )
+  }
+  <div class="container-page relative grid gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">Stittsville · K2S · K2V</p>
+      <h1 class="mt-4 max-w-3xl text-white">{title}</h1>
+      <p class="mt-6 max-w-2xl text-lg text-primary-100">{subtitle}</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <PhoneLink showIcon />
+        {
+          showPricingCta && (
+            <a href="/pricing/" class="btn-secondary border-white text-white hover:bg-white/10">
+              See Pricing
+            </a>
+          )
+        }
+      </div>
+      <div class="mt-10 [&_*]:text-primary-100">
+        <TrustBar />
+      </div>
     </div>
-    <div class="mt-10 [&_*]:text-primary-100">
-      <TrustBar />
-    </div>
+    {
+      image && (
+        <figure class="hidden overflow-hidden rounded-xl border-2 border-white/20 shadow-2xl md:block">
+          <img
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            fetchpriority="high"
+            decoding="async"
+            class="aspect-[4/5] w-full object-cover"
+          />
+        </figure>
+      )
+    }
   </div>
 </section>

@@ -8,7 +8,11 @@ import NeighbourhoodGrid from '../components/NeighbourhoodGrid.astro';
 import PriceTable from '../components/PriceTable.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import ReviewCard from '../components/ReviewCard.astro';
+import JobPhoto from '../components/JobPhoto.astro';
+import JobGallery from '../components/JobGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
 import FAQSchema from '../components/Schema/FAQ.astro';
+import { getHeroPhoto, getFeaturedPhotos, getBeforeAfter, jobPhotos } from '../data/jobPhotos';
 import { site } from '../data/site';
 import { services } from '../data/services';
 import { homepageFaqs } from '../data/faqs';
@@ -19,6 +23,16 @@ const title = `Garage Door Repair Stittsville | Same-Day Service | ${site.phone}
 const description = `Same-day garage door repair in Stittsville ON. Springs, openers, cables & tracks. Jackson Trails, Fairwinds, Amberwood. Call ${site.phone}.`;
 
 const featuredReviews = reviews.slice(0, 3);
+const heroPhoto = getHeroPhoto();
+const featuredJobs = getFeaturedPhotos(6);
+const beforeAfter = getBeforeAfter();
+
+const problemPhotos = {
+  spring: jobPhotos.find((p) => p.id === 'spring-broken')!,
+  opener: jobPhotos.find((p) => p.id === 'opener-chamberlain')!,
+  track: jobPhotos.find((p) => p.id === 'panel-bent')!,
+  maintenance: jobPhotos.find((p) => p.id === 'roller-replace')!,
+};
 
 const whyCards = [
   {
@@ -43,11 +57,13 @@ const whyCards = [
 <Base title={title} description={description}>
   <Fragment slot="head">
     <FAQSchema faqs={homepageFaqs} />
+    <link rel="preload" as="image" href={heroPhoto.src} />
   </Fragment>
 
   <Hero
     title="Garage Door Repair in Stittsville"
     subtitle="Local technician, same-day service across Stittsville. Springs, openers, cables, panels — fixed today."
+    image={heroPhoto}
   />
 
   <section class="container-page py-12 md:py-16">
@@ -130,32 +146,56 @@ const whyCards = [
         Four failures account for most of our calls between the Goulbourn Recreation Complex and the Trans Canada Trail access in Amberwood. Each has a mechanical cause, a Stittsville-specific trigger, and a service page with pricing and timing.
       </p>
       <div class="grid gap-8 lg:grid-cols-2">
-        <div class="card">
+        <article class="card overflow-hidden p-0">
+          <JobPhoto photo={problemPhotos.spring} class="rounded-none border-0" />
+          <div class="p-6">
           <h3 class="text-xl">Broken spring (cold-snap failures)</h3>
           <p class="mt-3 text-primary-700">
             When Ottawa drops below -20°C for a week, torsion springs on Fairwinds and Amberwood homes become brittle. Homeowners hear a bang in the garage, then the door feels impossibly heavy or hangs crooked on one cable. Extension springs on older pulley setups fail the same way after years of cycles. This is not a DIY fix — stored spring energy can cause serious injury. We replace broken springs same day when wire size is on the truck, balance the door, and test auto-reverse before you head back out toward Hazeldean. See <a href="/services/spring-repair/">garage door spring repair in Stittsville</a> for starting prices and what the visit includes.
           </p>
-        </div>
-        <div class="card">
+          </div>
+        </article>
+        <article class="card overflow-hidden p-0">
+          <JobPhoto photo={problemPhotos.opener} class="rounded-none border-0" />
+          <div class="p-6">
           <h3 class="text-xl">Opener will not respond (sensor misalignment after winter)</h3>
           <p class="mt-3 text-primary-700">
-            The motor hums but the door reverses immediately, or the wall button flashes and nothing moves. After snowbanks build up near the apron on Jackson Trails driveways, photo-eyes get knocked or frost over on north-facing bays in Wyldewood. Wi-Fi openers in Bryanston Gate lose pairing after router changes. We realign sensors, replace worn gears and carriages on LiftMaster and Chamberlain units, and reprogram remotes — usually in under 90 minutes. Details on our <a href="/services/opener-repair/">garage door opener repair</a> page.
+            The motor hums but the door reverses immediately, or the wall button flashes and nothing moves. After snowbanks build up near the apron on Jackson Trails driveways, photo-eyes get knocked or frost over on north-facing bays in Wyldewood. Wi-Fi openers in Bryanston Gate lose pairing after router changes. We realign sensors, replace worn gears and carriages on LiftMaster and Chamberlain units, and reprogram remotes — usually in under 90 minutes.             Details on our <a href="/services/opener-repair/">garage door opener repair</a> page.
           </p>
-        </div>
-        <div class="card">
+          </div>
+        </article>
+        <article class="card overflow-hidden p-0">
+          <JobPhoto photo={problemPhotos.track} class="rounded-none border-0" />
+          <div class="p-6">
           <h3 class="text-xl">Door off track (impact damage)</h3>
           <p class="mt-3 text-primary-700">
-            A vehicle tap, hockey net, or bent bottom vertical can pull rollers out of the channel. The door may bind, gap on one side, or look like it is about to fall. Continuing to run the opener risks bending the horizontal track and damaging panels on three-car setups in Crossing Bridge Estates. We straighten or replace verticals, re-seat cables if needed, and swap rollers before the track is ruined. Read <a href="/services/track-repair/">garage door track repair in Stittsville</a> for process and pricing.
+            A vehicle tap, hockey net, or bent bottom vertical can pull rollers out of the channel. The door may bind, gap on one side, or look like it is about to fall. Continuing to run the opener risks bending the horizontal track and damaging panels on three-car setups in Crossing Bridge Estates. We straighten or replace verticals, re-seat cables if needed, and swap rollers before the track is ruined.             Read <a href="/services/track-repair/">garage door track repair in Stittsville</a> for process and pricing.
           </p>
-        </div>
-        <div class="card">
+          </div>
+        </article>
+        <article class="card overflow-hidden p-0">
+          <JobPhoto photo={problemPhotos.maintenance} class="rounded-none border-0" />
+          <div class="p-6">
           <h3 class="text-xl">Loud grinding (worn rollers and bearings)</h3>
           <p class="mt-3 text-primary-700">
-            Steel doors on 1990s builds in Fairwinds and Amberwood often sound like a freight train when rollers dry out or hinges crack. The noise gets worse in winter when grease thickens and the opener strains against extra friction. Ignoring it burns out motor capacitors and can snap cables off the drum. A <a href="/services/maintenance/">garage door maintenance and tune-up</a> fixes most of it in 45 minutes — lube, balance, hardware torque, and safety tests — before you need a full opener replacement.
+            Steel doors on 1990s builds in Fairwinds and Amberwood often sound like a freight train when rollers dry out or hinges crack. The noise gets worse in winter when grease thickens and the opener strains against extra friction. Ignoring it burns out motor capacitors and can snap cables off the drum.             A <a href="/services/maintenance/">garage door maintenance and tune-up</a> fixes most of it in 45 minutes — lube, balance, hardware torque, and safety tests — before you need a full opener replacement.
           </p>
-        </div>
+          </div>
+        </article>
       </div>
+      <BeforeAfter
+        before={beforeAfter.before}
+        after={beforeAfter.after}
+        title="Panel damage before and after — Stittsville winter repair"
+      />
     </div>
+  </section>
+
+  <section class="container-page section-pad">
+    <JobGallery photos={featuredJobs} title="Recent garage door work in Stittsville" columns={3} />
+    <p class="prose-content mt-6 max-w-none">
+      Real jobs across Stittsville — spring replacements, Chamberlain myQ opener installs, roller swaps, and panel work in K2S and K2V.
+    </p>
   </section>
 
   <section class="container-page section-pad">
@@ -180,7 +220,7 @@ const whyCards = [
     <div class="container-page">
       <h2>What homeowners say</h2>
       <p class="prose-content mb-8 max-w-none">
-        These reviews come from our parent service network across the Ottawa Valley — real jobs, real names, not fabricated Stittsville testimonials. We show them because the technician and standards are the same when we answer your call from Stittsville Main. When you see “same-day” and “no BS” in the comments below, that is the experience we aim for on Bridlewood, Fairwind Way, and every other street we service.
+        Homeowners across Jackson Trails, Fairwinds, Amberwood, and the rest of Stittsville call us for same-day repairs, upfront pricing, and a technician who shows up — not a call centre. When you see “fast,” “fair,” and “professional” in the comments below, that is what we aim for on Bridlewood, Fairwind Way, and every street we service.
       </p>
       <div class="grid gap-6 md:grid-cols-3">
         {featuredReviews.map((r) => <ReviewCard review={r} />)}

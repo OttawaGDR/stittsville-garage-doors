@@ -16,8 +16,15 @@ const path = Astro.url.pathname;
 
 <header class="sticky top-0 z-40 border-b border-primary-100 bg-white/95 backdrop-blur">
   <div class="container-page flex items-center justify-between py-4">
-    <a href="/" class="nav-link font-display text-2xl font-extrabold uppercase tracking-tight text-primary-900 no-underline hover:no-underline">
-      {site.name}
+    <a href="/" class="nav-link flex shrink-0 items-center no-underline hover:no-underline">
+      <img
+        src="/images/logo.svg"
+        alt={site.name}
+        width="240"
+        height="42"
+        class="h-9 w-auto md:h-10"
+        fetchpriority="high"
+      />
     </a>
     <nav class="hidden items-center gap-6 lg:flex" aria-label="Main">
       {

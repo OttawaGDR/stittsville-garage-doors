@@ -8,7 +8,7 @@
 | https://stittsvillegaragedoors.ca | Custom domain (after DNS) |
 | https://www.stittsvillegaragedoors.ca | www (after DNS) |
 
-**Vercel project:** [gds-ottawa/stittsville-garage-doors](https://vercel.com/gds-ottawa/stittsville-garage-doors)
+**Vercel project:** stittsville-garage-doors (under your OttawaGDR / info-71196404 account)
 
 ---
 
@@ -74,7 +74,7 @@ Repo URL: `https://github.com/OttawaGDR/stittsville-garage-doors`
 
 ### C. Connect GitHub to Vercel (auto-deploy on push)
 
-1. Open https://vercel.com/gds-ottawa/stittsville-garage-doors/settings/git
+1. Open your Vercel project → **Settings** → **Git**
 2. Click **Connect Git Repository**
 3. Select **GitHub** → authorize (as the account that owns **OttawaGDR/stittsville-garage-doors**) → choose **stittsville-garage-doors**
 4. Production branch: **master** (or **main**)

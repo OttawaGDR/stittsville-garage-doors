@@ -1,0 +1,26 @@
+---
+import type { JobPhoto } from '../data/jobPhotos';
+import JobPhotoCard from './JobPhoto.astro';
+
+interface Props {
+  photos: JobPhoto[];
+  title?: string;
+  columns?: 2 | 3;
+}
+
+const { photos, title, columns = 3 } = Astro.props;
+const gridClass = columns === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
+---
+
+{
+  photos.length > 0 && (
+    <section class="my-10">
+      {title && <h2 class="mb-6">{title}</h2>}
+      <div class:list={['grid gap-6', gridClass]}>
+        {photos.map((photo) => (
+          <JobPhotoCard photo={photo} />
+        ))}
+      </div>
+    </section>
+  )
+}

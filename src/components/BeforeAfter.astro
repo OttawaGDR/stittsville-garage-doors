@@ -1,0 +1,45 @@
+---
+import type { JobPhoto } from '../data/jobPhotos';
+
+interface Props {
+  before: JobPhoto;
+  after: JobPhoto;
+  title?: string;
+}
+
+const { before, after, title = 'Recent repair in Stittsville' } = Astro.props;
+---
+
+<section class="my-10" aria-label={title}>
+  <h3 class="mb-6 text-2xl">{title}</h3>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <figure class="overflow-hidden rounded-xl border border-primary-100">
+      <p class="bg-primary-900 px-4 py-2 text-center text-sm font-bold uppercase tracking-wide text-white">
+        Before
+      </p>
+      <img
+        src={before.src}
+        alt={before.alt}
+        width={before.width}
+        height={before.height}
+        loading="lazy"
+        decoding="async"
+        class="aspect-[3/4] w-full object-cover"
+      />
+    </figure>
+    <figure class="overflow-hidden rounded-xl border border-primary-100">
+      <p class="bg-accent-500 px-4 py-2 text-center text-sm font-bold uppercase tracking-wide text-white">
+        After
+      </p>
+      <img
+        src={after.src}
+        alt={after.alt}
+        width={after.width}
+        height={after.height}
+        loading="lazy"
+        decoding="async"
+        class="aspect-[3/4] w-full object-cover"
+      />
+    </figure>
+  </div>
+</section>

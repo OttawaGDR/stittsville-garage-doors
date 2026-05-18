@@ -11,7 +11,7 @@ pnpm build
 pnpm preview
 ```
 
-## Before launch (Vitaliy)
+## Before launch
 
 - Confirm pricing in `src/data/pricing.ts` and `src/data/serviceContent.ts`
 - Set `email` and `legal.entity` in `src/data/site.ts`

@@ -68,7 +68,7 @@ const services = [
       'Most single torsion spring replacements on standard residential doors in Stittsville start around $250 for labour and a matched spring pair where both sides are due. Double-width doors, high-lift tracks in three-car garages near Crossing Bridge, or non-standard wire sizes can run higher because the parts cost more and the wind takes longer.',
       'Extension spring jobs on older Fairwinds and Amberwood setups often land in a similar range for a pair, but pulley wear or a cable that came off the drum adds line items. We will tell you before we install anything — no surprise invoice after the fact.',
       'If both springs failed and one cable is frayed, bundling cable replacement on the same visit saves a second service call. We do not upsell full door replacements when the panels and tracks are sound.',
-      'The starting prices on this page are placeholders pending Vitaliy\'s review — final quotes depend on door weight, headroom, and parts availability. You will always get a range on the phone and a confirmed price after we see the door in person.',
+      'The starting prices on this page are placeholders confirmed on site after we see your door — final quotes depend on door weight, headroom, and parts availability. You will always get a range on the phone and a confirmed price after we see the door in person.',
     ],
     durationNote:
       'Plan on 60–90 minutes for a straightforward torsion spring swap on a standard double-car door in Stittsville. Extension spring conversions, three-car garages, or a cable re-seat on the drum can push toward the longer end. We carry common sizes locally so you are not waiting on a warehouse run to Kanata unless you have an unusual commercial-size door.',
@@ -168,7 +168,7 @@ const services = [
       'Straightforward opener repairs in Stittsville — sensor realignment, limit adjustment, remote programming — often start around $150 for labour when no major parts are needed.',
       'Gear and carriage kits for common LiftMaster and Chamberlain models typically land between $150 and $350 parts plus labour, still well under a full replacement when the rail and motor are sound.',
       'Logic boards and jackshaft components on newer smart openers cost more; we quote after model identification, not from a generic menu.',
-      'Starting prices listed here are placeholders pending Vitaliy\'s review. We confirm parts pricing before ordering anything non-stock.',
+      'Starting prices listed here are placeholders confirmed on site after we see your door. We confirm parts pricing before ordering anything non-stock.',
     ],
     durationNote:
       'Most opener repairs in Stittsville take 45–90 minutes on site. Sensor and programming-only calls can be shorter; gear replacements on high ceilings in Crossing Bridge three-car garages run longer. If the door needs spring work, we may schedule that in the same visit when parts are on the truck.',
@@ -268,7 +268,7 @@ const services = [
       'Standard belt-drive or chain-drive opener installation in Stittsville typically starts around $550 labour plus the unit you choose — we can supply common models or install a homeowner-purchased opener if it is compatible.',
       'Jackshaft and wall-mount installs on three-car Crossing Bridge garages or high-lift tracks run higher due to extra hardware and programming time.',
       'Adding a new outlet, structural reinforcement for heavy doors, or converting extension springs to torsion is quoted separately before work starts.',
-      'All starting figures are placeholders pending Vitaliy\'s review; we give an itemized quote after seeing your ceiling layout and door weight.',
+      'All starting figures are placeholders confirmed on site after we see your door; we give an itemized quote after seeing your ceiling layout and door weight.',
     ],
     durationNote:
       'Most opener installations take 2–3 hours in Stittsville driveways. Jackshaft units, smart hub setup, or door balance corrections add time. We schedule half-day blocks so you are not rushing the safety tests before dinner.',
@@ -368,7 +368,7 @@ const services = [
       'Single lift cable replacement with a straightforward drum re-seat in Stittsville often starts around $180 for labour and standard cable.',
       'If both cables need replacement, drums are damaged, or a spring failed at the same time, pricing moves up — we bundle where it saves you a second visit.',
       'Bottom bracket replacement or track straightening from a crooked drop adds line items we quote on site.',
-      'Starting prices are placeholders pending Vitaliy\'s review; we confirm after seeing drum condition and door weight.',
+      'Starting prices are placeholders confirmed on site after we see your door; we confirm after seeing drum condition and door weight.',
     ],
     durationNote:
       'Expect 45–60 minutes for a standard cable swap when springs are stable and drums are healthy. Combined spring-and-cable jobs after a break take longer because tensioning must be done safely — plan 90+ minutes in those cases.',
@@ -463,7 +463,7 @@ const services = [
       'Simple track straightening and bracket tightening in Stittsville often starts around $200 for labour when parts are sound.',
       'Replacing a short vertical section, multiple rollers, or both lower verticals increases cost with material — we quote before cutting steel.',
       'If the door dropped because of springs or cables, those repairs are line items we explain separately.',
-      'Listed starting prices are placeholders pending Vitaliy\'s review; final numbers depend on track profile and damage extent.',
+      'Listed starting prices are placeholders confirmed on site after we see your door; final numbers depend on track profile and damage extent.',
     ],
     durationNote:
       'Straightforward track alignment runs 60–90 minutes. Full lower vertical replacement on a double-car door can approach two hours when we replace rollers and reset cables. We pad estimates so you are not late for pickup at Sacred Heart because we rushed a bind test.',
@@ -563,7 +563,7 @@ const services = [
       'Panel replacement in Stittsville typically starts around $400 per panel for labour on a standard section when a matching panel is available — panel material cost is additional and varies wildly by age and brand.',
       'Carriage-style and wood-look profiles on Crossing Bridge executive homes cost more to source; discontinued colours may need the closest match plus honest conversation about visibility from the street.',
       'If springs, cables, or multiple sections need work, we itemize everything before ordering steel.',
-      'Starting prices are placeholders pending Vitaliy\'s review; we do not order custom sections without your approval on the total.',
+      'Starting prices are placeholders confirmed on site after we see your door; we do not order custom sections without your approval on the total.',
     ],
     durationNote:
       'Plan 2–4 hours on site when the panel is on the truck. Discontinued profiles may need a second visit for install after delivery — we communicate lead time up front so you are not guessing while the door hangs open.',
@@ -663,7 +663,7 @@ const services = [
       'New garage door installation in Stittsville typically starts around $1,800 for a standard single insulated steel door installed — double doors, windows, and premium carriage profiles increase material cost significantly.',
       'Opener installation, structural framing repairs, and electrical work are quoted separately when needed.',
       'We provide written quotes with door model, insulation value, warranty, and labour — no vague "starting at" without context on the phone.',
-      'All starting figures are placeholders pending Vitaliy\'s review; custom sizes and commercial-height openings are priced after measurement.',
+      'All starting figures are placeholders confirmed on site after we see your door; custom sizes and commercial-height openings are priced after measurement.',
     ],
     durationNote:
       'Most residential installs take 4–6 hours with two technicians on a standard double-car opening. Odd sizes, rotted jambs, or combined opener upgrades extend the day — we book accordingly so quality does not get rushed before sunset on short winter days.',
@@ -768,7 +768,7 @@ const services = [
       'A standard residential garage door tune-up in Stittsville starts at $129 for the visit described above on a single door.',
       'Second doors on the same property, commercial-size doors, or repairs discovered during the tune-up are quoted separately before we proceed.',
       'We do not turn maintenance into a surprise parts bill — if a roller is bad, we show you and you decide.',
-      'The $129 starting price is a placeholder pending Vitaliy\'s review; multi-door packages may be discounted when booked together.',
+      'The $129 starting price is a placeholder confirmed on site after we see your door; multi-door packages may be discounted when booked together.',
     ],
     durationNote:
       'Most tune-ups take about 45 minutes per door when no repairs are needed. If we find a frayed cable or cracked spring, we may extend the visit or schedule a follow-up with parts — your choice, not pressure.',
@@ -960,7 +960,7 @@ const expansions = {
       'You want windows or carriage hardware but the current frame cannot support the weight — structural review first',
     ],
     pricing: [
-      'Financing and deposits follow whatever terms Vitaliy sets for the business — dollar amounts on this site remain placeholders until he confirms margin and supplier pricing.',
+      'Financing and deposit terms are explained in writing before we order custom doors — final totals depend on size, insulation, and hardware choices after measurement.',
     ],
     diyRisks: [
       'Ordering online without measuring headroom for track radius — doors arrive that cannot physically operate in low garages',
