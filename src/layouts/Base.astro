@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import { SEO } from 'astro-seo';
+import { site } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaBar from '../components/CtaBar.astro';
+import LocalBusiness from '../components/Schema/LocalBusiness.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonical, ogImage = '/images/og/home.jpg', noindex = false } = Astro.props;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
+---
+
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <LocalBusiness />
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonicalUrl}
+      noindex={noindex}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: new URL(ogImage, site.url).href,
+          url: canonicalUrl,
+        },
+        optional: { description, locale: 'en_CA', siteName: site.name },
+      }}
+      twitter={{ card: 'summary_large_image', title, description }}
+    />
+    <slot name="head" />
+  </head>
+  <body class="pb-20 md:pb-0">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <CtaBar />
+  </body>
+</html>

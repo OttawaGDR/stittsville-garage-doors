@@ -1,0 +1,26 @@
+---
+import type { Faq } from '../data/faqs';
+
+interface Props {
+  faqs: Faq[];
+  id?: string;
+}
+
+const { faqs, id = 'faq' } = Astro.props;
+---
+
+<div class="space-y-3" id={id}>
+  {
+    faqs.map((faq, i) => (
+      <details class="card group" open={i === 0}>
+        <summary class="cursor-pointer list-none font-display text-lg font-bold text-primary-900 marker:content-none [&::-webkit-details-marker]:hidden">
+          <span class="flex items-center justify-between gap-4">
+            {faq.question}
+            <span class="text-accent-500 transition group-open:rotate-45">+</span>
+          </span>
+        </summary>
+        <p class="mt-4 text-primary-700">{faq.answer}</p>
+      </details>
+    ))
+  }
+</div>

@@ -1,0 +1,101 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import NeighbourhoodGrid from '../components/NeighbourhoodGrid.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import { site } from '../data/site';
+import { neighbourhoods } from '../data/neighbourhoods';
+import { serviceCallFee } from '../data/pricing';
+
+const title = `About Stittsville Garage Doors | Local Technician`;
+const description = `Local Stittsville garage door repair — one technician answers the phone and shows up. Insured, WSIB, upfront pricing. Serving all Stittsville neighbourhoods. Call ${site.phone}.`;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title="About Stittsville Garage Doors"
+    subtitle="Stittsville's local garage door specialists — not a call centre, not a national franchise dispatch."
+    showPricingCta={false}
+  />
+
+  <article class="container-page section-pad prose-content prose-wide max-w-none">
+    <h2>Who we are</h2>
+    <p>
+      Stittsville Garage Doors is a local service focused on K2S and K2V — the neighbourhoods west of Kanata where garage doors see real Ottawa Valley weather, daily family use, and the wear that comes with Mattamy builds, 1990s Fairwinds stock, and executive three-car bays in Crossing Bridge Estates. When you call {site.phone}, you are not entering a phone tree. You speak with the technician who schedules the visit, loads the truck with common springs and opener parts, and pulls into your driveway off Stittsville Main, Hazeldean Road, or Bridlewood Drive.
+    </p>
+    <p>
+      We are not a storefront on Main Street with a showroom window — we are a mobile repair and installation operation built around response time and honest quotes. That matches how Stittsville homeowners actually hire for garage doors: something breaks, you need it fixed today, and you want to know the price before someone starts drilling.
+    </p>
+
+    <h2>Why we started</h2>
+    <p>
+      The gap in this market is not “another garage door company.” It is the space between corporate chains that quote low on the phone and add fees on site, and unlicensed handymen who should not touch torsion springs. Stittsville deserves a third option: insured work, published starting prices, and a technician who already runs Jackson Trails to Bryanston Gate in a normal week.
+    </p>
+    <p>
+      Homeowners told us the same stories — a $69 service call that became $400 before the van opened, a “technician” who could not explain why a spring failed, or a three-day wait while a door hung open toward the golf course in Amberwood. We built this site and this service model to answer those frustrations directly: same-day windows when possible, a written quote on site, and copy that names your neighbourhood instead of “the Ottawa area.”
+    </p>
+
+    <h2>What we believe</h2>
+    <p>
+      <strong>Upfront pricing.</strong> Our service call fee is ${serviceCallFee} and it covers diagnosis plus a written quote. If you approve the repair during the same visit, that fee applies toward the job. Starting prices for springs, openers, cables, and tracks live on our <a href="/pricing/">pricing page</a> — not buried in a PDF.
+    </p>
+    <p>
+      <strong>No upsells.</strong> If a tune-up fixes the grinding on your Fairwinds door, we do the tune-up. If a single panel replacement saves a sound door in Crossing Bridge Estates, we do not push a full install. We explain what failed, what options cost, and what happens if you wait.
+    </p>
+    <p>
+      <strong>Fix it right the first time.</strong> Balancing a door after a spring swap, testing auto-reverse after sensor work, and torquing hardware to spec is not optional — it is how you avoid a second call when the opener burns out on the next -25°C morning near Saunders Farm country.
+    </p>
+
+    <h2>Service area</h2>
+    <p>
+      We serve all six core Stittsville neighbourhoods below — plus surrounding K2S/K2V streets that share the same housing stock and commute patterns toward the 417, Carp Road, and Stittsville Main. If you are on the border of Kanata or Richmond, call and we will confirm drive time honestly.
+    </p>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      {neighbourhoods.map((n) => (
+        <li>
+          <a href={`/neighbourhoods/${n.slug}/`}>Garage door repair in {n.name}</a> — {n.landmarks[0]}, {n.streets[0]}
+        </li>
+      ))}
+    </ul>
+    <NeighbourhoodGrid />
+
+    <h2>How we work day to day</h2>
+    <p>
+      Trucks run Stittsville routes that follow how people actually live here — school traffic past Sacred Heart, arena nights at Johnny Leroux, Saturday errands on Main Street, and the winter commute down Carp Road when every garage bay faces north into the wind. We stock for that reality: bottom seals that handle slush, sensors that frost over on unheated garages, and springs rated for doors that cycle more than the manufacturer assumed because both adults work and the kids play hockey.
+    </p>
+    <p>
+      You will not get a scripted upsell on a “premium maintenance plan” you did not ask for. You will get a clear explanation, a fair quote, and work that respects your time — because in a village this size, reputation travels faster than any ad budget.
+    </p>
+
+    <h2>Credentials</h2>
+    <p>
+      We carry liability insurance and WSIB coverage — you get a written invoice for every job, whether it is a spring on Amberway Drive or a jackshaft opener near Stonebridge Boulevard. Training and field experience cover LiftMaster, Chamberlain, and Genie belt-drive and chain-drive systems sold in Canada, plus standard torsion and extension spring setups on single- and double-car doors.
+    </p>
+    <p>
+      Founded by a local Ottawa Valley technician with 5+ years in garage door repair across the Stittsville area — working the same cold snaps, sensor frost issues, and Mattamy opener failures you see on your own street.       We do not invent a decades-old “family business” story; we tell you who shows up and how we charge.
+    </p>
+    <p>
+      Questions about a quote you already received, winter prep, or whether your door is safe to use manually until we arrive? Call or email — we would rather spend two minutes on the phone than have you risk a DIY spring repair in a cold garage.
+    </p>
+
+    <div class="card mt-12 bg-primary-50 text-center">
+      <h2 class="text-2xl">Ready to book a visit?</h2>
+      <p class="mt-2 text-primary-700">Same-day repair across Stittsville — call or send a message with your address so we know your neighbourhood.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <PhoneLink showIcon />
+        <a href="/contact/" class="btn-secondary">Contact us</a>
+      </div>
+    </div>
+  </article>
+</Base>

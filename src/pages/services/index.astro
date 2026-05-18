@@ -1,0 +1,48 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+
+const title = `Garage Door Services in Stittsville | ${site.name}`;
+const description =
+  'Spring repair, opener service, cables, tracks, panels, and new doors across Stittsville — Jackson Trails, Fairwinds, Amberwood, and more.';
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema
+      crumbs={[
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services/' },
+      ]}
+    />
+  </Fragment>
+
+  <Hero
+    title="Garage Door Services in Stittsville"
+    subtitle="Eight repair and installation services — priced upfront, done same-day when trucks are west on Hazeldean."
+  />
+
+  <section class="container-page section-pad">
+    <div class="prose-content max-w-none">
+      <p>
+        Stittsville garages take a beating. January cold snaps snap torsion springs on Fairwinds homes built in the
+        1990s. Summer humidity off the Amberwood golf course swells older wooden jambs. Jackson Trails belt-drive
+        openers lose their limits after the kids hockey season. We handle the mechanical work — not a call centre in
+        another province.
+      </p>
+      <p>
+        Every service below includes a written quote on site, WSIB-covered labour, and a one-year warranty on parts we
+        supply. If you are not sure which card matches your problem, call {site.phone} — we route trucks from Main
+        Street through Crossing Bridge Estates daily.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {services.map((s) => <ServiceCard service={s} />)}
+    </div>
+  </section>
+</Base>

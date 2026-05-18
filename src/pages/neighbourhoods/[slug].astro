@@ -1,0 +1,85 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import PhoneLink from '../../components/PhoneLink.astro';
+import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import { neighbourhoods, getNeighbourhood } from '../../data/neighbourhoods';
+import { getService } from '../../data/services';
+import { site } from '../../data/site';
+
+export function getStaticPaths() {
+  return neighbourhoods.map((n) => ({ params: { slug: n.slug } }));
+}
+
+const { slug } = Astro.params;
+const hood = getNeighbourhood(slug!);
+if (!hood) return Astro.redirect('/404');
+
+const h1 = `Garage Door Repair in ${hood.name}, Stittsville`;
+const title = `${h1} | ${site.phone}`;
+const description = `Same-day garage door repair in ${hood.name}, Stittsville. Springs, openers, cables — local technician, upfront pricing. Call ${site.phone}.`;
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema
+      crumbs={[
+        { name: 'Home', path: '/' },
+        { name: hood.name, path: `/neighbourhoods/${hood.slug}/` },
+      ]}
+    />
+  </Fragment>
+
+  <Hero title={h1} subtitle={hood.summary} />
+
+  <article class="container-page section-pad prose-content max-w-none">
+    <p>
+      {hood.name} sits in the {site.serviceArea.postalCodes.join('/')} corridor — {hood.housingStock}. Streets like{' '}
+      {hood.streets.join(', ')} see steady traffic past {hood.landmarks[0]} and toward Hazeldean Road or Stittsville
+      Main Street depending on which way you turn.
+    </p>
+
+    <h2>Common garage door issues in {hood.name}</h2>
+    <p>{hood.commonIssues}</p>
+
+    <h2>Services we do most often in {hood.name}</h2>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      {
+        hood.topServices.map((slug) => {
+          const s = getService(slug)!;
+          return (
+            <li>
+              <a href={`/services/${slug}/`}>see our {s.fullName.toLowerCase()} page</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <h2>Recent jobs in {hood.name}</h2>
+    {
+      hood.recentJobs.map((job) => (
+        <>
+          <h3>{job.title}</h3>
+          <p>{job.body}</p>
+        </>
+      ))
+    }
+
+    <h2>Why a Stittsville-based technician matters</h2>
+    <p>
+      When your door is stuck open before school at Sacred Heart or before a shift down Carp Road, you do not need a
+      dispatcher in Toronto guessing drive time. Our trucks already run Jackson Trails to Bryanston Gate — average
+      response in {hood.name} is under 90 minutes when we are on the west Ottawa route. You get the technician who
+      answers {site.phone}, not a franchise sub you have never met.
+    </p>
+
+    <div class="card mt-12 bg-primary-50 text-center">
+      <h2 class="text-2xl">Need garage door repair in {hood.name}?</h2>
+      <div class="mt-6 flex justify-center">
+        <PhoneLink showIcon />
+      </div>
+    </div>
+  </article>
+</Base>

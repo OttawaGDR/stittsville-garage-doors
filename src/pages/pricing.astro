@@ -1,0 +1,126 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import PriceTable from '../components/PriceTable.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import { site } from '../data/site';
+import { pricingTable, serviceCallFee } from '../data/pricing';
+
+const title = `Garage Door Repair Pricing in Stittsville | Upfront Rates`;
+const description = `Upfront garage door repair pricing in Stittsville. $${serviceCallFee} service call, spring repair from $250, openers from $150. No bait-and-switch. Call ${site.phone}.`;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Pricing', path: '/pricing/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title="Garage Door Repair Pricing in Stittsville"
+    subtitle="Published starting rates — not a teaser quote that doubles when the van arrives on Hazeldean."
+  />
+
+  <article class="container-page section-pad prose-content prose-wide max-w-none">
+    <p>
+      Stittsville homeowners asked for one page that answers “what will this actually cost?” without a sales call. This is that page — tied to our live price table, service call policy, and the same numbers we use on site in Jackson Trails, Fairwinds, and the rest of K2S/K2V.
+    </p>
+
+    <h2>Service call fee — what it covers</h2>
+    <p>
+      Every visit starts with a <strong>${serviceCallFee} service call</strong> that includes diagnosis, a walkthrough of what failed, and a written quote before any repair begins. If you approve the work during the same visit, we apply that ${serviceCallFee} toward the job total. You are not paying twice for us to look at a spring on Bridlewood Drive or a sensor on Gatehouse Way.
+    </p>
+    <p>
+      That fee is how we avoid the $69 bait-and-switch you see on competitor ads — low dispatch quotes that balloon once someone is in your garage. We would rather tell you the real number upfront, even if it means fewer phone calls from price shoppers who never intended to book.
+    </p>
+
+    <h2>Starting prices for common jobs</h2>
+    <p>
+      The table below lists starting prices for the repairs we do most often in Stittsville. Final cost depends on door size (single vs double vs three-car), parts quality, and what we find once the door is on the ground — but these numbers are honest anchors, not footnotes in fine print.
+    </p>
+    <div class="not-prose my-8">
+      <PriceTable rows={pricingTable} />
+    </div>
+    <p>
+      Want deeper context on what drives price up or down? Read our <a href="/resources/stittsville-pricing-guide/">Stittsville garage door pricing guide (2026)</a>.
+    </p>
+
+    <h2>Why prices vary between homes</h2>
+    <p>
+      <strong>Door size and weight.</strong> A heavy wood-look carriage door on Crossing Bridge Way needs different springs and rollers than a standard steel double-car in Jackson Trails. More weight means higher-rated springs, more labour to balance, and sometimes upgraded hardware.
+    </p>
+    <p>
+      <strong>Opener brand and age.</strong> LiftMaster and Chamberlain belt-drive units from the late 2000s share common wear parts we stock. Older Genie screw-drive models or discontinued boards may need more time to source — we tell you before we order.
+    </p>
+    <p>
+      <strong>Parts quality.</strong> We can match OEM-grade springs and rollers or explain when a budget part is appropriate on an older door you plan to replace within a year. You choose after you see the quote — not after the work is half done.
+    </p>
+    <p>
+      <strong>What else failed at the same time.</strong> A spring snap often stresses cables and drums. A bent track may have damaged rollers and hinges. We list everything on the written quote so you are not surprised by “while we were here” add-ons.
+    </p>
+
+    <h2>What drives the price up</h2>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      <li>Three-car doors and custom carriage panels in Crossing Bridge Estates</li>
+      <li>High-cycle or oversized torsion springs on oversized double doors</li>
+      <li>Jackshaft or wall-mount opener installs where ceiling clearance is tight</li>
+      <li>Multiple failed components (spring + cable + drum) from continuing to run a crooked door</li>
+      <li>After-hours emergency dispatch between 10 PM and 7 AM — surcharge quoted before we roll out</li>
+    </ul>
+
+    <h2>What drives the price down</h2>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      <li>Single-component fixes (sensor alignment, limit adjustment, one roller set)</li>
+      <li>Standard-size doors with parts on the truck — common in Fairwinds and Wyldewood steel setups</li>
+      <li>Approving the repair during the same visit so the service call fee applies to the total</li>
+      <li>Annual <a href="/services/maintenance/">maintenance tune-ups</a> that prevent opener and cable failures later</li>
+    </ul>
+
+    <h2>Phone quotes vs on-site quotes</h2>
+    <p>
+      We can give ranges for common jobs if you describe door size and symptoms — a loud bang usually means <a href="/services/spring-repair/">spring repair</a>; a humming motor with no movement often means <a href="/services/opener-repair/">opener repair</a>. We will always tell you the ${serviceCallFee} service call fee and expected range before we drive out from the west Ottawa rotation.
+    </p>
+    <p>
+      <strong>We will not quote you a final price over the phone for a complex repair, because we would be guessing.</strong> But we will tell you the range and the service call fee before we drive out. That is the honest middle ground Stittsville homeowners asked for — transparency without pretending we can diagnose a frayed cable through a two-minute call.
+    </p>
+
+    <h2>Compare jobs side by side</h2>
+    <p>
+      Homeowners often ask whether to repair or replace. If a Fairwinds door from 1998 has a failed spring but sound panels and tracks, <a href="/services/spring-repair/">spring repair</a> plus a <a href="/services/maintenance/">tune-up</a> is usually the right economics. If Amberwood steel is rusted through the bottom section and the springs are original, <a href="/services/new-door-installation/">new door installation</a> may cost less over five years than repeated panel patches. We walk through that math on site — with real numbers from the table above, not a sales script.
+    </p>
+    <p>
+      Opener repair starting at $150 makes sense when the rail, motor, and door are sound. Opener installation from $550 makes sense when the unit is obsolete, loud, or missing modern safety features your insurer expects. Panel replacement at $400 per section makes sense when the rest of the door is square and insulated; it does not make sense when multiple sections are delaminating — we will say so.
+    </p>
+
+    <h2>Warranty and payment</h2>
+    <p>
+      Parts we supply carry a one-year warranty against defect; labour is covered for the same period on standard repairs. Payment is due on completion by e-transfer, card, or cheque — we leave a written invoice for your records and insurance if a panel was hit by a vehicle backing out toward Main Street.
+    </p>
+    <p>
+      Tax is applied as required on parts and labour. If a job needs a special-order panel or door, we quote lead time before you commit — no deposit surprises for Crossing Bridge carriage profiles or discontinued colours.
+    </p>
+
+    <h2>Get an exact quote in 60 seconds</h2>
+    <p>
+      Call {site.phone}, describe what the door is doing, and give your street — Jackson Trails, Amberwood, Bryanston Gate, or anywhere in K2S/K2V. We will slot a same-day window when possible and arrive with the ${serviceCallFee} diagnosis already explained.       Most homeowners know yes or no within a minute of reading the written quote on site.
+    </p>
+    <p>
+      For non-urgent work you can also use the <a href="/contact/">contact form</a> with your address and symptoms — we will call back with a range and the service call fee before anyone drives out past the Johnny Leroux Community Arena or west toward Saunders Farm.
+    </p>
+
+    <div class="card mt-12 bg-primary-50 text-center not-prose">
+      <h2 class="text-2xl">Ready for a written quote on site?</h2>
+      <p class="mt-2 text-primary-700">No surprise invoices — Stittsville pricing you can plan around.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <PhoneLink showIcon />
+        <a href="/contact/" class="btn-secondary">Send a message</a>
+      </div>
+    </div>
+  </article>
+</Base>

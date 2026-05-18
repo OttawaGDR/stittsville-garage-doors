@@ -1,0 +1,29 @@
+---
+import { site } from '../../data/site';
+
+interface Props {
+  serviceType: string;
+  minPrice: number;
+}
+
+const { serviceType, minPrice } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType,
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: { '@type': 'City', name: 'Stittsville' },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'CAD',
+    price: String(minPrice),
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      minPrice: String(minPrice),
+    },
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

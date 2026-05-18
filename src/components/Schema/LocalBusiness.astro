@@ -1,0 +1,50 @@
+---
+import { site } from '../../data/site';
+import { neighbourhoods } from '../../data/neighbourhoods';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  url: site.url,
+  telephone: site.phoneRaw,
+  image: `${site.url}/images/og/home.jpg`,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Stittsville',
+    addressRegion: 'ON',
+    postalCode: 'K2S',
+    addressCountry: 'CA',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.serviceArea.coords.lat,
+    longitude: site.serviceArea.coords.lng,
+  },
+  areaServed: [
+    { '@type': 'Place', name: 'Stittsville' },
+    ...neighbourhoods.map((n) => ({ '@type': 'Place', name: n.name })),
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '07:00',
+      closes: '22:00',
+    },
+  ],
+  sameAs: [],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

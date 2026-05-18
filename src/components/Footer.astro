@@ -1,0 +1,62 @@
+---
+import { site } from '../data/site';
+import { services } from '../data/services';
+import { neighbourhoods } from '../data/neighbourhoods';
+import PhoneLink from './PhoneLink.astro';
+---
+
+<footer class="border-t border-primary-100 bg-primary-900 text-primary-50">
+  <div class="container-page section-pad grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="font-display text-2xl font-extrabold uppercase text-white">{site.name}</p>
+      <p class="mt-2 text-primary-100">{site.tagline}</p>
+      <p class="mt-4 text-sm text-primary-100">{site.hours}</p>
+      <div class="mt-4">
+        <PhoneLink />
+      </div>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold uppercase text-white">Services</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          services.map((s) => (
+            <li>
+              <a href={`/services/${s.slug}/`} class="text-primary-100 no-underline hover:text-accent-400">
+                {s.fullName}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold uppercase text-white">Neighbourhoods</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          neighbourhoods.map((n) => (
+            <li>
+              <a href={`/neighbourhoods/${n.slug}/`} class="text-primary-100 no-underline hover:text-accent-400">
+                {n.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold uppercase text-white">Company</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a href="/about/" class="text-primary-100 no-underline hover:text-accent-400">About</a></li>
+        <li><a href="/pricing/" class="text-primary-100 no-underline hover:text-accent-400">Pricing</a></li>
+        <li><a href="/reviews/" class="text-primary-100 no-underline hover:text-accent-400">Reviews</a></li>
+        <li><a href="/emergency/" class="text-primary-100 no-underline hover:text-accent-400">Emergency</a></li>
+        <li><a href="/contact/" class="text-primary-100 no-underline hover:text-accent-400">Contact</a></li>
+        <li><a href="/resources/winter-garage-door-guide/" class="text-primary-100 no-underline hover:text-accent-400">Winter guide</a></li>
+        <li><a href="/resources/stittsville-pricing-guide/" class="text-primary-100 no-underline hover:text-accent-400">Pricing guide</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-primary-700 py-6 text-center text-sm text-primary-100">
+    <p>&copy; {new Date().getFullYear()} {site.legal.entity}. Serving {site.serviceArea.primary} ({site.serviceArea.postalCodes.join(', ')}).</p>
+  </div>
+</footer>

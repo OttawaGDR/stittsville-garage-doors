@@ -1,0 +1,114 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from './Base.astro';
+import Hero from '../components/Hero.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import ServiceSchema from '../components/Schema/Service.astro';
+import FAQSchema from '../components/Schema/FAQ.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import { site } from '../data/site';
+import { neighbourhoods } from '../data/neighbourhoods';
+import { services, getService } from '../data/services';
+import type { ServicePageContent } from '../data/serviceContent';
+
+interface Props {
+  content: ServicePageContent;
+}
+
+const { content } = Astro.props;
+const service = getService(content.slug)!;
+const relatedServices = content.relatedSlugs
+  .map((slug) => getService(slug))
+  .filter(Boolean);
+
+const title = `${content.h1} | ${site.phone}`;
+const description = content.metaDescription;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: content.h1, path: `/services/${content.slug}/` },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <ServiceSchema serviceType={service.fullName} minPrice={service.startingPrice} />
+    <FAQSchema faqs={content.faqs} />
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero title={content.h1} subtitle={content.heroSubtitle} showPricingCta />
+
+  <article class="container-page section-pad">
+    <div class="prose-content prose-wide max-w-none">
+      {content.intro.map((p) => <p>{p}</p>)}
+
+      <h2>Signs you need {service.name.toLowerCase()}</h2>
+      <ul class="mb-8 list-disc space-y-2 pl-6">
+        {content.signs.map((s) => <li>{s}</li>)}
+      </ul>
+
+      <h2>Why this happens</h2>
+      {content.whyHappens.map((p) => <p>{p}</p>)}
+
+      <h2>What we do when we arrive</h2>
+      <ol class="mb-8 list-decimal space-y-4 pl-6">
+        {
+          content.process.map((step) => (
+            <li>
+              <strong>{step.title}</strong> ({step.time}) — {step.body}
+            </li>
+          ))
+        }
+      </ol>
+
+      <h2>How much it costs in Stittsville</h2>
+      {content.pricing.map((p) => <p>{p}</p>)}
+
+      <h2>How long it takes</h2>
+      <p>{content.durationNote}</p>
+
+      <h2>Why DIY is risky</h2>
+      <ul class="mb-8 list-disc space-y-2 pl-6">
+        {content.diyRisks.map((r) => <li>{r}</li>)}
+      </ul>
+
+      <h2>Stittsville neighbourhoods we serve for {service.fullName.toLowerCase()}</h2>
+      <ul class="mb-8 grid gap-2 sm:grid-cols-2">
+        {
+          neighbourhoods.map((n) => (
+            <li>
+              <a href={`/neighbourhoods/${n.slug}/`}>
+                {service.fullName.toLowerCase()} in {n.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Related problems we also fix</h2>
+      <ul class="mb-8 list-disc space-y-2 pl-6">
+        {
+          relatedServices.map((s) => (
+            <li>
+              <a href={`/services/${s!.slug}/`}>see our {s!.fullName.toLowerCase()} page</a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <FaqAccordion faqs={content.faqs} id={`faq-${content.slug}`} />
+
+      <div class="card mt-12 bg-primary-50 text-center">
+        <h2 class="text-2xl">Garage door not working in Stittsville?</h2>
+        <p class="mt-2 text-primary-700">Same-day {service.fullName.toLowerCase()} — call now.</p>
+        <div class="mt-6 flex justify-center">
+          <PhoneLink showIcon />
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>

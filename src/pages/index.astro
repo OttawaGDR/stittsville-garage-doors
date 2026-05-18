@@ -1,0 +1,236 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import NeighbourhoodGrid from '../components/NeighbourhoodGrid.astro';
+import PriceTable from '../components/PriceTable.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import FAQSchema from '../components/Schema/FAQ.astro';
+import { site } from '../data/site';
+import { services } from '../data/services';
+import { homepageFaqs } from '../data/faqs';
+import { reviews } from '../data/reviews';
+import { homepagePricingSnapshot, serviceCallFee } from '../data/pricing';
+
+const title = `Garage Door Repair Stittsville | Same-Day Service | ${site.phone}`;
+const description = `Same-day garage door repair in Stittsville ON. Springs, openers, cables & tracks. Jackson Trails, Fairwinds, Amberwood. Call ${site.phone}.`;
+
+const featuredReviews = reviews.slice(0, 3);
+
+const whyCards = [
+  {
+    title: 'Same-day service',
+    body: 'Most K2S and K2V calls book a same-day window between 7 AM and 10 PM. When trucks are already west on Hazeldean — past the Tim Hortons at Fernbank or heading back from Jackson Trails — Bryanston Gate to Fairwinds is usually under 90 minutes.',
+  },
+  {
+    title: 'Real local technician',
+    body: `You are not routed through a national call centre. The person who answers ${site.phone} is the technician who pulls into your driveway off Stittsville Main or Abbeydale Circle — not a franchise sub you have never spoken to.`,
+  },
+  {
+    title: 'Upfront pricing',
+    body: `Our $${serviceCallFee} service call covers diagnosis and a written quote on site. If you approve the repair during the same visit, that fee applies toward the job. Starting prices for common repairs are published on our pricing page — no bait-and-switch.`,
+  },
+  {
+    title: 'Cold-weather expertise',
+    body: 'Ottawa Valley winters are hard on torsion springs, bottom seals, and photo-eye sensors. We stock common spring wire sizes, LiftMaster parts, and weather seals for the freeze-thaw cycle that hits Amberwood and Wyldewood every January.',
+  },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <FAQSchema faqs={homepageFaqs} />
+  </Fragment>
+
+  <Hero
+    title="Garage Door Repair in Stittsville"
+    subtitle="Local technician, same-day service across Stittsville. Springs, openers, cables, panels — fixed today."
+  />
+
+  <section class="container-page py-12 md:py-16">
+    <div class="prose-content max-w-none">
+      <p>
+        When your garage door fails at 6 AM on a January morning in Wyldewood or after the kids&apos; practice at the Johnny Leroux Community Arena, you need a technician who already knows Stittsville streets — not a national franchise that routes you through a call centre in another time zone. We answer {site.phone} locally, quote the ${serviceCallFee} service call up front, and carry common springs, cables, rollers, and opener parts for the housing stock you actually have here: Mattamy doubles in Bryanston Gate, 1990s extension-spring setups in Fairwinds, and carriage doors on executive lots in Crossing Bridge Estates.
+      </p>
+      <p>
+        This page is the hub for everything we fix in K2S and K2V — from a belt-drive Chamberlain that lost its limits on Trail Side Drive to a full insulated door swap on Amberway Drive when the original 1989 steel is done. Scroll for services, neighbourhood pages, starting prices, and the questions homeowners ask us at the Tim Hortons on Hazeldean and on Stittsville Main. If the door is stuck open right now, skip to our <a href="/emergency/">emergency garage door repair</a> line — we dispatch overnight when safety or security is on the line.
+      </p>
+      <p>
+        Every repair includes WSIB-covered labour, liability insurance, a written invoice, and a one-year warranty on parts we supply. We link to dedicated pages for <a href="/services/cable-repair/">cable repair</a>, <a href="/services/panel-replacement/">panel replacement</a>, <a href="/services/opener-installation/">opener installation</a>, and <a href="/services/new-door-installation/">new garage door installation</a> so you can read signs, timelines, and pricing before we arrive — not after.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page section-pad">
+    <h2>Why Stittsville homeowners call us</h2>
+    <div class="prose-content max-w-none">
+      <p>
+        Stittsville is not a suburb where you want to wait three days for a garage door. You have school runs past Sacred Heart Catholic High School, commutes down Carp Road or the 417, and winters that turn a small spring problem into a door that will not close before the next cold front. We built this service for homeowners who need a technician who already knows Jackson Trails from Bryanston Gate — not a dispatcher reading a script from another province.
+      </p>
+      <p>
+        Whether you are in a 1980s Amberwood Village build with original steel or a Mattamy double-car in Crossing Bridge Estates, you get the same standard: diagnose on site, quote before work starts, WSIB-covered labour, and a one-year warranty on parts we supply. No upsell theatre. No mystery invoices after the truck leaves Village Square Park.
+      </p>
+    </div>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        whyCards.map((card) => (
+          <div class="card">
+            <h3 class="text-xl">{card.title}</h3>
+            <p class="mt-3 text-sm text-primary-700">{card.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-primary-50/50 section-pad">
+    <div class="container-page">
+      <h2>Services we handle</h2>
+      <div class="prose-content max-w-none">
+        <p>
+          From a loud bang in the garage on Bridlewood Drive to a door that will not close after a hockey puck took out a bottom panel near Wyldewood Park, we cover the mechanical work Stittsville homes actually need. Every service below links to a dedicated page with signs, process, pricing ranges, and neighbourhood context — not a generic brochure.
+        </p>
+        <p>
+          Not sure which problem you have? Call {site.phone} and describe what the door is doing. We will tell you whether it sounds like a <a href="/services/spring-repair/">garage door spring repair</a>, an <a href="/services/opener-repair/">opener repair</a>, or something that needs a <a href="/services/track-repair/">track realignment</a> before we drive out.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {services.map((s) => <ServiceCard service={s} />)}
+      </div>
+      <p class="mt-8 text-center">
+        <a href="/services/" class="font-semibold text-primary-700 no-underline hover:text-accent-600">
+          View all garage door services in Stittsville →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page section-pad">
+    <h2>Neighbourhoods we serve in Stittsville</h2>
+    <div class="prose-content max-w-none">
+      <p>
+        We focus on Stittsville proper — K2S and K2V — not a vague “Ottawa west” blob on a map. That means realistic drive times when you are stuck on Amberway Drive, Gatehouse Way, or Wild Senna Way, and neighbourhood pages that reference real streets and landmarks instead of filler.
+      </p>
+      <p>
+        Jackson Trails homeowners often call us after a cold snap along Bridlewood Drive; Fairwinds owners after extension springs hit end-of-life near Village Square Park; Crossing Bridge residents when a carriage panel takes a vehicle tap backing toward Stonebridge Boulevard. Amberwood Village jobs cluster around the golf course humidity and thirty-year-old steel; Wyldewood sees bent tracks from driveway hockey; Bryanston Gate sees factory-set opener limits drift within the first five years. Each neighbourhood page names those patterns honestly.
+      </p>
+    </div>
+    <div class="mt-10">
+      <NeighbourhoodGrid />
+    </div>
+  </section>
+
+  <section class="bg-primary-50/50 section-pad">
+    <div class="container-page">
+      <h2>Common Stittsville garage door problems</h2>
+      <p class="prose-content mb-10 max-w-none">
+        Four failures account for most of our calls between the Goulbourn Recreation Complex and the Trans Canada Trail access in Amberwood. Each has a mechanical cause, a Stittsville-specific trigger, and a service page with pricing and timing.
+      </p>
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div class="card">
+          <h3 class="text-xl">Broken spring (cold-snap failures)</h3>
+          <p class="mt-3 text-primary-700">
+            When Ottawa drops below -20°C for a week, torsion springs on Fairwinds and Amberwood homes become brittle. Homeowners hear a bang in the garage, then the door feels impossibly heavy or hangs crooked on one cable. Extension springs on older pulley setups fail the same way after years of cycles. This is not a DIY fix — stored spring energy can cause serious injury. We replace broken springs same day when wire size is on the truck, balance the door, and test auto-reverse before you head back out toward Hazeldean. See <a href="/services/spring-repair/">garage door spring repair in Stittsville</a> for starting prices and what the visit includes.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">Opener will not respond (sensor misalignment after winter)</h3>
+          <p class="mt-3 text-primary-700">
+            The motor hums but the door reverses immediately, or the wall button flashes and nothing moves. After snowbanks build up near the apron on Jackson Trails driveways, photo-eyes get knocked or frost over on north-facing bays in Wyldewood. Wi-Fi openers in Bryanston Gate lose pairing after router changes. We realign sensors, replace worn gears and carriages on LiftMaster and Chamberlain units, and reprogram remotes — usually in under 90 minutes. Details on our <a href="/services/opener-repair/">garage door opener repair</a> page.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">Door off track (impact damage)</h3>
+          <p class="mt-3 text-primary-700">
+            A vehicle tap, hockey net, or bent bottom vertical can pull rollers out of the channel. The door may bind, gap on one side, or look like it is about to fall. Continuing to run the opener risks bending the horizontal track and damaging panels on three-car setups in Crossing Bridge Estates. We straighten or replace verticals, re-seat cables if needed, and swap rollers before the track is ruined. Read <a href="/services/track-repair/">garage door track repair in Stittsville</a> for process and pricing.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">Loud grinding (worn rollers and bearings)</h3>
+          <p class="mt-3 text-primary-700">
+            Steel doors on 1990s builds in Fairwinds and Amberwood often sound like a freight train when rollers dry out or hinges crack. The noise gets worse in winter when grease thickens and the opener strains against extra friction. Ignoring it burns out motor capacitors and can snap cables off the drum. A <a href="/services/maintenance/">garage door maintenance and tune-up</a> fixes most of it in 45 minutes — lube, balance, hardware torque, and safety tests — before you need a full opener replacement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page section-pad">
+    <h2>Upfront pricing for common jobs</h2>
+    <div class="prose-content max-w-none">
+      <p>
+        Stittsville homeowners told us the biggest frustration with garage door companies is showing up blind on price. We publish starting rates for the jobs we do most often. Final cost depends on door size, parts quality, and what we find on site — but you will see a written quote before work starts, and our ${serviceCallFee} diagnosis fee applies toward the repair if you proceed same visit.
+      </p>
+    </div>
+    <div class="mt-8">
+      <PriceTable rows={homepagePricingSnapshot} />
+    </div>
+    <p class="mt-6">
+      <a href="/pricing/" class="font-semibold">See full garage door repair pricing in Stittsville →</a>
+    </p>
+    <p class="prose-content mt-6 max-w-none">
+      Panel replacement, new door installation, and emergency after-hours surcharges are listed on the full pricing page with the same “starting at” honesty — so you can budget before we meet at your driveway.
+    </p>
+  </section>
+
+  <section class="bg-primary-50/50 section-pad">
+    <div class="container-page">
+      <h2>What homeowners say</h2>
+      <p class="prose-content mb-8 max-w-none">
+        These reviews come from our parent service network across the Ottawa Valley — real jobs, real names, not fabricated Stittsville testimonials. We show them because the technician and standards are the same when we answer your call from Stittsville Main. When you see “same-day” and “no BS” in the comments below, that is the experience we aim for on Bridlewood, Fairwind Way, and every other street we service.
+      </p>
+      <div class="grid gap-6 md:grid-cols-3">
+        {featuredReviews.map((r) => <ReviewCard review={r} />)}
+      </div>
+      <p class="mt-8 text-center">
+        <a href="/reviews/" class="font-semibold">Read all customer reviews →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page section-pad">
+    <h2>How a repair visit works</h2>
+    <div class="prose-content max-w-none">
+      <p>
+        You call {site.phone} or submit the <a href="/contact/">contact form</a> with your Stittsville address. We ask what the door is doing — bang, grind, gap on one side, opener light flashing — and whether it is a safety issue tonight. For emergencies we dispatch 24/7; for standard repairs we book a same-day window when trucks are west on Hazeldean.
+      </p>
+      <p>
+        On arrival we diagnose, show you what failed (springs, cables, sensors, tracks, panels), and hand you a written quote. The ${serviceCallFee} service call applies to the repair if you say yes on the spot. We carry common parts for LiftMaster, Chamberlain, and Genie openers plus standard spring sizes for double-car doors — most Jackson Trails and Fairwinds jobs finish in one visit.
+      </p>
+      <p>
+        Before we leave we balance the door, test auto-reverse, and tidy the work area. You get an invoice, warranty on supplied parts, and a direct line if something does not feel right the next morning — no ticket number, no “call the franchise.”
+      </p>
+      <p>
+        If you are comparing quotes from other companies, ask whether their dispatch fee applies to the repair, whether springs are single or dual replacement by policy, and whether balancing is included. Those three questions eliminate most sticker shock on Stittsville driveways — and they are the standard we hold ourselves to on every job from Wild Senna Way to Crossing Bridge Way.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page section-pad">
+    <h2>Frequently asked questions</h2>
+    <p class="prose-content mt-4 max-w-none">
+      Six questions we hear at the door in Stittsville — service call fee, response time, weekends, opener brands, insurance, and phone estimates.
+    </p>
+    <div class="mt-8 max-w-3xl">
+      <FaqAccordion faqs={homepageFaqs} id="homepage-faq" />
+    </div>
+  </section>
+
+  <section class="bg-primary-900 text-white section-pad">
+    <div class="container-page text-center">
+      <h2 class="text-white">Garage door not working?</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
+        Call {site.phone} — we answer 7 AM to 10 PM, 7 days a week. Emergency service available overnight when the door is stuck open or your vehicle is trapped inside.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <PhoneLink showIcon class="text-lg" />
+        <a href="/emergency/" class="btn-secondary border-white text-white hover:bg-white/10">
+          24/7 Emergency
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

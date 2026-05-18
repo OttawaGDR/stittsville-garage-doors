@@ -1,0 +1,26 @@
+---
+import type { Review } from '../data/reviews';
+
+interface Props {
+  review: Review;
+  showSource?: boolean;
+}
+
+const { review, showSource = true } = Astro.props;
+---
+
+<article class="card">
+  <div class="flex gap-1 text-accent-500" aria-label="5 out of 5 stars">
+    {Array.from({ length: 5 }).map(() => <span aria-hidden="true">★</span>)}
+  </div>
+  <blockquote class="mt-4 text-primary-700">&ldquo;{review.text}&rdquo;</blockquote>
+  <footer class="mt-4 text-sm font-semibold text-primary-900">
+    — {review.author}
+    <span class="block font-normal text-primary-500">{review.location} · {review.serviceType}</span>
+    {
+      showSource && review.source === 'parent-network' && (
+        <span class="mt-1 block text-xs text-primary-500">Review from our parent service network (Ottawa Valley)</span>
+      )
+    }
+  </footer>
+</article>

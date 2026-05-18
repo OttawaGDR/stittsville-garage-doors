@@ -1,0 +1,23 @@
+---
+import type { Service } from '../data/services';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+const price = service.priceLabel ?? `From $${service.startingPrice}`;
+---
+
+<article class="card flex h-full flex-col">
+  <h3 class="text-xl">
+    <a href={`/services/${service.slug}/`} class="nav-link text-primary-900 no-underline hover:text-primary-700">
+      {service.fullName}
+    </a>
+  </h3>
+  <p class="mt-2 flex-1 text-sm text-primary-700">{service.summary}</p>
+  <p class="mt-4 font-display text-lg font-bold text-accent-600">{price}</p>
+  <a href={`/services/${service.slug}/`} class="btn-primary mt-4 text-center text-xs">
+    Learn more
+  </a>
+</article>

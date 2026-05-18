@@ -1,0 +1,228 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import PhoneLink from '../../components/PhoneLink.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+import { pricingTable, serviceCallFee } from '../../data/pricing';
+
+const h1 = 'What Garage Door Repair Actually Costs in Stittsville (2026)';
+const title = `${h1} | ${site.phone}`;
+const description =
+  'Honest 2026 garage door repair pricing for Stittsville — service call fees, spring and opener costs, red flags, and what moves your quote up or down. K2S & K2V.';
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Stittsville Pricing Guide', path: '/resources/stittsville-pricing-guide/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title={h1}
+    subtitle="Starting prices for every common job we do in Stittsville — no hidden dispatch games, no bait-and-switch “$69 special” that becomes $600 on arrival."
+    showPricingCta={false}
+  />
+
+  <article class="container-page section-pad prose-content prose-wide max-w-none">
+    <p>
+      If you have ever searched “garage door repair cost” at 7 AM with a door stuck open, you have seen the same range: $89 to $89 to “call for quote.” That spread is not mystery — it is marketing. This page is the breakdown we wish every Stittsville homeowner had before booking: what our service call covers, what “starting at” means on each job, and how to spot quotes that will waste your morning.
+    </p>
+    <p>
+      All dollar amounts below match our published 2026 rate card — the same numbers we show on the <a href="/pricing/">pricing page</a> and quote on the phone. Prices are in Canadian dollars, for typical single residential doors in K2S/K2V unless noted.
+    </p>
+
+    <h2>2026 price list for common Stittsville jobs</h2>
+    <p>
+      Every repair visit starts with diagnosis. Our service call is <strong>${serviceCallFee}</strong> and is credited toward the repair if you approve work the same visit — you are not paying twice for the technician’s time.
+    </p>
+
+    <PriceTable rows={pricingTable} showServiceLinks />
+
+    <p class="text-sm text-primary-600">
+      “Starting at” means a standard single door, standard parts, no structural surprises. Double doors, high-lift tracks, commercial hardware, or doors that have been DIY-tensioned into damage can land above the starting price — we explain before we drill.
+    </p>
+
+    <h2>What each service includes (and where to read more)</h2>
+    <p>Below are the eight services we price most often in Stittsville. Each link goes to the full service page with signs, process, and FAQs.</p>
+    <ul class="mb-8 grid gap-3 sm:grid-cols-2">
+      {
+        services.map((s) => (
+          <li>
+            <a href={`/services/${s.slug}/`}>
+              <strong>{s.fullName}</strong> — from ${s.startingPrice}
+              {s.priceLabel ? ` (${s.priceLabel})` : ''}
+            </a>
+            <span class="block text-sm text-primary-600">{s.summary}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>What drives the price up</h2>
+    <p>
+      <strong>Double-width or heavy doors.</strong> Two torsion springs, heavier drums, and more labour to balance — especially carriage and wood-look doors common in Crossing Bridge Estates.
+    </p>
+    <p>
+      <strong>High-cycle or oversized springs.</strong> If you run a home gym business or cycle the door dozens of times a day, we may spec springs rated beyond builder-grade — worth it, but not the base price.
+    </p>
+    <p>
+      <strong>Corroded or damaged hardware beyond the failed part.</strong> A snapped cable often means a grooved drum, seized roller, or bent track section. Fixing only the cable without addressing the cause fails again in weeks.
+    </p>
+    <p>
+      <strong>Opener replacement vs. repair.</strong> Gear kits and circuit boards can save a LiftMaster that is otherwise sound; a 20-year-old unit with a cracked rail and weak motor may not be worth sinking parts into — we tell you which side of that line you are on.
+    </p>
+    <p>
+      <strong>Panel matching and freight.</strong> Panel replacement starts at $400 per section because colour, emboss, and window layout must match. Discontinued steel profiles in older Amberwood doors sometimes need creative matching or full-door conversation.
+    </p>
+    <p>
+      <strong>After-hours emergency.</strong> A door stuck open in a snowstorm costs more than a tune-up booked for Tuesday afternoon — we are transparent about emergency rates when you call {site.phone}.
+    </p>
+
+    <h2>What drives the price down</h2>
+    <p>
+      <strong>One clear failure on an otherwise healthy door.</strong> A single torsion spring on a standard 16×7 steel door, tracks straight, cables intact — that is the “starting at” scenario.
+    </p>
+    <p>
+      <strong>Maintenance before catastrophe.</strong> Our maintenance tune-up starts at $129 and catches loose hardware, dry rollers, and balance drift before the opener strips gears or the spring snaps at -25°C.
+    </p>
+    <p>
+      <strong>Approving repair during the same visit.</strong> The ${serviceCallFee} diagnosis fee rolls into the job — you are not nickel-and-dimed for “showing up” and again for “fixing it.”
+    </p>
+    <p>
+      <strong>Local stocking.</strong> We run Stittsville routes daily; when the spring or gear kit is on the truck, you skip freight delays and second-visit charges common with out-of-town dispatch models.
+    </p>
+    <p>
+      <strong>Honest repair-versus-replace advice.</strong> Sometimes the cheapest total cost is a new opener install starting at $550 instead of throwing parts at a tired unit — we would rather earn trust than maximize a single invoice.
+    </p>
+
+    <h2>Red flags in a quote (including the $69 bait-and-switch)</h2>
+    <p>
+      Ottawa–Gatineau classifieds and paid ads love “$69 garage door repair” or “$29 service call.” Those numbers are lead magnets. The technician arrives, lists “safety issues,” and the bill becomes $500–$900 before lunch. Here is what to watch for:
+    </p>
+    <ul class="mb-8 list-disc space-y-3 pl-6">
+      <li>
+        <strong>Service call far below market.</strong> Real diagnosis, fuel, insurance, and WSIB coverage cost more than $69. If the ad price cannot cover a legal payroll job, the upsell is the business model.
+      </li>
+      <li>
+        <strong>Refusal to put “starting at” parts and labour in writing</strong> before work starts — or pressure to sign a blank authorization form.
+      </li>
+      <li>
+        <strong>Quoting spring replacement without measuring door weight and height.</strong> Springs are sized in IPPT; guessing risks an under- or over-powered coil.
+      </li>
+      <li>
+        <strong>Recommending full door replacement for a single dented panel</strong> when a colour-matched section swap is feasible.
+      </li>
+      <li>
+        <strong>No WSIB / insurance proof</strong> when asked — you absorb liability if someone is hurt on your property.
+      </li>
+      <li>
+        <strong>Cash-only, no business name on the invoice</strong> — no warranty trail when the door fails again.
+      </li>
+      <li>
+        <strong>Charging a second “trip fee”</strong> because the part was not on the truck — local shops should know Stittsville stock patterns or communicate a parts delay upfront.
+      </li>
+    </ul>
+    <p>
+      Our model is simpler: ${serviceCallFee} to diagnose, clear starting prices on the table above, and a verbal + written estimate before work. If the final number will exceed the starting price, you hear why — drum wear, second spring, track straightening — not after the door is apart.
+    </p>
+
+    <h2>Understanding the service call vs. the repair total</h2>
+    <p>
+      Homeowners sometimes hear “$89 for the visit” and “$250 for the spring” and think the bill must be $339 no matter what. In practice, when you approve the spring replacement during that visit, the diagnosis fee is applied to the repair — you are paying for the outcome, not two stacked trips. What increases the total is additional parts: both springs when the matched pair is worn, cables, rollers, or a drum that failed because the door was run unbalanced for months.
+    </p>
+    <p>
+      If you decline repair, you still owe the service call — the technician spent time, fuel, and expertise identifying the fault. That is fair on both sides and still cheaper than a free “estimate” that magically becomes mandatory work. Ask on the phone: “If I go ahead today, does the service call come off the repair?” We answer yes for same-visit approvals.
+    </p>
+
+    <h2>New installation and panel work — why ranges are wider</h2>
+    <p>
+      <a href="/services/new-door-installation/">New garage door installation</a> starting at $1,800 reflects a standard two-car steel door swap on an existing opening — not a custom three-car carriage upgrade with windows and smart locks. Height, headroom, track configuration (standard vs. high-lift), and disposal of the old door affect labour. We measure on site before locking a number.
+    </p>
+    <p>
+      <a href="/services/panel-replacement/">Panel replacement</a> is priced per section because freight and factory colour matching drive cost more than labour alone. A bottom panel hit by a snowblower is a different conversation than a top window section on a discontinued profile. We photograph the door and check manufacturer availability before quoting.
+    </p>
+    <p>
+      <a href="/services/opener-installation/">Opener installation</a> from $550 assumes a compatible rail on a balanced door. If the door cannot be lifted smoothly by hand, installing a stronger opener does not fix the physics — springs or tracks come first, then the motor.
+    </p>
+
+    <h2>Repair categories in plain language</h2>
+    <p>
+      <strong>Spring repair</strong> — Torsion springs above the header or extension springs along the horizontal tracks store energy so a 200-pound door feels light. Replacement includes winding, balance, and a lift test. Never mix spring types or sizes without engineering data.
+    </p>
+    <p>
+      <strong>Opener repair</strong> — Motors, gears, capacitors, wall buttons, remotes, and safety sensors. We repair when parts are available and the rail is straight; we recommend replacement when the platform is obsolete or the door is mechanically unsafe.
+    </p>
+    <p>
+      <strong>Cable and track work</strong> — Lift cables run from bottom brackets to drums; tracks guide rollers. A door that lists to one side often involves more than one subsystem. <a href="/services/cable-repair/">Cable repair</a> and <a href="/services/track-repair/">track repair</a> starting prices assume straightforward access — rusted fasteners or a vehicle impact add time.
+    </p>
+    <p>
+      <strong>Maintenance</strong> — The lowest-cost way to avoid the highest-cost failures. Lubrication, fastener torque, force and limit settings, reversal tests, and a honest conversation about remaining spring life. Book in fall; thank yourself in January.
+    </p>
+
+    <h2>Payment, warranty, and what “insured” should mean</h2>
+    <p>
+      Ask any contractor — including us — whether WSIB is current and liability insurance covers property damage. A legitimate Stittsville operator names their business on the invoice, lists parts separately from labour when you request it, and stands behind workmanship for at least one year on standard repairs. If someone will only take cash and cannot email a receipt, compare that risk to saving $40 on the headline price.
+    </p>
+    <p>
+      Warranties are only as good as the company answering the phone next season. Local route density in Jackson Trails, Fairwinds, and Amberwood matters when a spring fails under warranty and you need someone back before the garage freezes open again.
+    </p>
+
+    <h2>How Stittsville compares to “Ottawa” generic quotes</h2>
+    <p>
+      National franchises quote a metro average. Stittsville jobs are not downtown condo stacks — they are detached doubles with insulated doors, side rooms over the garage, and long driveways off Stittsville Main or Hazeldean. Travel time, parts sizing, and even wind exposure on west-facing lots change the job. A neighbour in Jackson Trails paid $220 more than a Reddit thread suggested because their “standard” spring was actually a high-lift setup over a tall RV bay — the thread was wrong, not the tech.
+    </p>
+    <p>
+      Use local references: ask if the company can name neighbourhoods they served this week, whether the service call applies to repair, and what warranty covers parts and labour. We publish starting prices so you can sanity-check the first number you hear on the phone.
+    </p>
+
+    <h2>Sample scenarios (illustrative, not quotes)</h2>
+    <p>
+      <strong>Monday 6 AM — spring snap in Fairwinds.</strong> Service call ${serviceCallFee} + spring repair from $250 if one standard torsion spring, door otherwise healthy. Same visit if the tech has the coil on the truck.
+    </p>
+    <p>
+      <strong>Sensor flicker in Bryanston Gate.</strong> Often opener repair from $150 after diagnosis — alignment and bracket tighten, not a new $650 unit.
+    </p>
+    <p>
+      <strong>Frayed cable on a 18-year-old Amberwood door.</strong> Cable repair from $180; if drums are scored or springs are at cycle end, we bundle before you pay twice.
+    </p>
+    <p>
+      <strong>New belt-drive opener in Jackson Trails.</strong> Opener installation from $550 plus any optional battery backup or smart-home kit you choose — quoted before holes are drilled.
+    </p>
+
+    <h2>Every service page (detailed scope and FAQs)</h2>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      <li><a href="/services/spring-repair/">Garage door spring repair</a></li>
+      <li><a href="/services/opener-repair/">Garage door opener repair</a></li>
+      <li><a href="/services/opener-installation/">Garage door opener installation</a></li>
+      <li><a href="/services/cable-repair/">Garage door cable repair</a></li>
+      <li><a href="/services/track-repair/">Garage door track repair</a></li>
+      <li><a href="/services/panel-replacement/">Garage door panel replacement</a></li>
+      <li><a href="/services/new-door-installation/">New garage door installation</a></li>
+      <li><a href="/services/maintenance/">Garage door maintenance and tune-up</a></li>
+    </ul>
+
+    <p>
+      Winter failures are predictable — see our <a href="/resources/winter-garage-door-guide/">Winter Garage Door Survival Guide</a> for cold-weather prep. For emergency stuck doors, <a href="/emergency/">24/7 emergency service</a> is listed separately from routine pricing.
+    </p>
+    <p>
+      When in doubt, describe the door on the phone — width, single vs. double, what you heard before it failed — and we will tell you which starting price on this page applies before we schedule the visit.
+    </p>
+
+    <div class="card mt-12 bg-primary-50 text-center">
+      <h2 class="text-2xl">Want a straight number for your door?</h2>
+      <p class="mt-2 text-primary-700">Call with door size and what it is doing — we quote before we roll.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <PhoneLink showIcon />
+        <a href="/pricing/" class="btn-secondary">Full pricing table</a>
+      </div>
+    </div>
+  </article>
+</Base>

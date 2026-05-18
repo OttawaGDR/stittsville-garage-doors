@@ -1,0 +1,31 @@
+---
+import { site } from '../../data/site';
+import { reviews, aggregateRating } from '../../data/reviews';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: String(aggregateRating.ratingValue),
+    reviewCount: String(aggregateRating.reviewCount),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: reviews.slice(0, 8).map((r) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: r.author },
+    datePublished: r.date,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: String(r.rating),
+      bestRating: '5',
+    },
+    reviewBody: r.text,
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

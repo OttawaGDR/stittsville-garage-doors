@@ -1,0 +1,60 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import ReviewSchema from '../components/Schema/Review.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import { site } from '../data/site';
+import { reviews, aggregateRating } from '../data/reviews';
+
+const title = `Customer Reviews | Stittsville Garage Doors`;
+const description = `${aggregateRating.ratingValue}★ from ${aggregateRating.reviewCount}+ verified reviews. Real feedback from our Ottawa Valley garage door service network. Call ${site.phone}.`;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Reviews', path: '/reviews/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <ReviewSchema />
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title="Customer Reviews — Stittsville Garage Doors"
+    subtitle="Real reviews from homeowners we've served — labelled honestly when they come from our parent service network."
+    showPricingCta={false}
+  />
+
+  <section class="container-page section-pad">
+    <div class="card mx-auto max-w-xl text-center bg-primary-50">
+      <p class="font-display text-5xl font-extrabold text-accent-600">{aggregateRating.ratingValue}.0</p>
+      <p class="mt-2 text-lg font-semibold text-primary-900">out of 5 stars</p>
+      <p class="mt-2 text-sm text-primary-600">{aggregateRating.label}</p>
+    </div>
+
+    <div class="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-6 text-sm text-primary-800">
+      <p>
+        <strong>Transparency note:</strong> We do not yet have a large volume of reviews tied only to the Stittsville Garage Doors brand. The reviews below are real feedback from our parent service network (Garage Door Solutions Ottawa / GDS) — same technician standards, same upfront pricing approach. We label them clearly so we stay honest with Google and with you. When our Google Business Profile collects Stittsville-specific reviews, we will feature those here first.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {reviews.map((r) => <ReviewCard review={r} />)}
+    </div>
+
+    <div class="mt-12 card text-center">
+      <h2 class="text-2xl">Share your experience</h2>
+      <p class="mt-3 text-primary-700">
+        Had a repair in Stittsville? Email us at{' '}
+        <a href={`mailto:${site.email}?subject=Stittsville%20garage%20door%20review`} class="font-semibold">
+          {site.email}
+        </a>{' '}
+        with your neighbourhood, service type, and permission to publish your first name. When our Google profile is live, we will link a review form here as well.
+      </p>
+    </div>
+  </section>
+</Base>

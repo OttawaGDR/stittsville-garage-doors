@@ -1,0 +1,79 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource/barlow-condensed/800.css';
+@import '@fontsource/barlow-condensed/700.css';
+@import '@fontsource/barlow-condensed/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-sans text-base leading-relaxed text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-extrabold tracking-tight text-primary-900;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  a:not(.btn-primary):not(.btn-phone):not(.nav-link) {
+    @apply text-primary-700 underline-offset-2 hover:underline;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-accent-600;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-primary-700 px-6 py-4 text-sm font-bold uppercase tracking-wide text-primary-900 transition hover:bg-primary-50;
+  }
+
+  .btn-phone {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-accent-600;
+  }
+
+  .container-page {
+    @apply mx-auto max-w-6xl px-4;
+  }
+
+  .section-pad {
+    @apply py-16 md:py-24;
+  }
+
+  .card {
+    @apply rounded-xl border border-primary-100 bg-white p-6 transition hover:shadow-lg;
+  }
+
+  .prose-content {
+    @apply max-w-prose text-ink;
+  }
+
+  .prose-content p {
+    @apply mb-4;
+  }
+
+  .prose-wide {
+    @apply max-w-none;
+  }
+}

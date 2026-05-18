@@ -1,0 +1,21 @@
+---
+import { neighbourhoods } from '../data/neighbourhoods';
+---
+
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {
+    neighbourhoods.map((n) => (
+      <article class="card">
+        <h3 class="text-xl">
+          <a href={`/neighbourhoods/${n.slug}/`} class="nav-link text-primary-900 no-underline">
+            {n.name}
+          </a>
+        </h3>
+        <p class="mt-2 text-sm text-primary-700">{n.summary}</p>
+        <a href={`/neighbourhoods/${n.slug}/`} class="mt-4 inline-block text-sm font-semibold text-primary-700 no-underline hover:text-accent-600">
+          Garage door repair in {n.name} →
+        </a>
+      </article>
+    ))
+  }
+</div>

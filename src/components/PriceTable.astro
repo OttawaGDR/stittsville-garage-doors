@@ -1,0 +1,40 @@
+---
+import type { PriceRow } from '../data/pricing';
+
+interface Props {
+  rows: PriceRow[];
+  showServiceLinks?: boolean;
+}
+
+const { rows, showServiceLinks = true } = Astro.props;
+---
+
+<div class="overflow-x-auto rounded-xl border border-primary-100">
+  <table class="w-full min-w-[320px] text-left text-sm">
+    <thead class="bg-primary-50 text-primary-900">
+      <tr>
+        <th class="px-4 py-3 font-display font-bold uppercase">Job</th>
+        <th class="px-4 py-3 font-display font-bold uppercase">Starting at</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr class="border-t border-primary-100">
+            <td class="px-4 py-3">
+              {
+                showServiceLinks && row.serviceSlug ? (
+                  <a href={`/services/${row.serviceSlug}/`}>{row.job}</a>
+                ) : (
+                  row.job
+                )
+              }
+              {row.note && <span class="block text-xs text-primary-500">{row.note}</span>}
+            </td>
+            <td class="px-4 py-3 font-semibold">${row.startingAt}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

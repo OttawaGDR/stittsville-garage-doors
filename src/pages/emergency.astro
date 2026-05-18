@@ -1,0 +1,110 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import { site } from '../data/site';
+import { serviceCallFee } from '../data/pricing';
+
+const title = `24/7 Emergency Garage Door Repair Stittsville | ${site.phone}`;
+const description = `24/7 emergency garage door repair in Stittsville. Door stuck open, car trapped, broken spring — under 90 min response. Call ${site.phone} now.`;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Emergency', path: '/emergency/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <section class="bg-primary-900 text-white section-pad">
+    <div class="container-page text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">24/7 · Stittsville K2S · K2V</p>
+      <h1 class="mt-4 text-white">24/7 Emergency Garage Door Repair in Stittsville</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
+        Average response time in Stittsville: <strong class="text-white">under 90 minutes</strong> when we are on the west Ottawa route — Jackson Trails to Bryanston Gate, Hazeldean to Stittsville Main.
+      </p>
+      <a
+        href={`tel:${site.phoneRaw}`}
+        class="mt-8 inline-block font-display text-4xl font-extrabold tracking-tight text-accent-400 no-underline hover:text-accent-300 md:text-6xl"
+      >
+        {site.phone}
+      </a>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <PhoneLink showIcon class="text-lg px-8 py-5" />
+      </div>
+    </div>
+  </section>
+
+  <article class="container-page section-pad prose-content prose-wide max-w-none">
+    <p>
+      Stittsville winters do not wait for business hours. When a torsion spring snaps and the door hangs open toward Eaglewatch Drive, or a three-car door in Crossing Bridge Estates is crooked on one cable, you need a technician who can secure the opening — not a voicemail promising a callback Tuesday. We keep emergency slots on the west Ottawa rotation for true safety and security issues described below.
+    </p>
+
+    <h2>What counts as an emergency</h2>
+    <p>
+      Call anytime — day or night — if waiting until morning creates a safety or security problem. These are the Stittsville calls we treat as true emergencies:
+    </p>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      <li><strong>Door stuck open</strong> — garage exposed to weather, theft risk, or animals off the Trans Canada Trail edge in Amberwood</li>
+      <li><strong>Vehicle trapped inside</strong> — you cannot get to work, school at Sacred Heart, or a shift down Carp Road</li>
+      <li><strong>Broken spring with door hanging crooked</strong> — cables under tension, door may drop if forced</li>
+      <li><strong>Door fallen off tracks</strong> — gaping opening, risk of collapse if the opener is cycled again</li>
+    </ul>
+    <div class="not-prose my-8 text-center">
+      <PhoneLink showIcon />
+    </div>
+
+    <h2>What is not an emergency</h2>
+    <p>
+      We still help with these — usually on the next same-day window between 7 AM and 10 PM, not a midnight premium dispatch:
+    </p>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      <li>Cosmetic panel dents from basketball or hockey nets in the driveway</li>
+      <li>Noisy door that still opens and closes safely — book a <a href="/services/maintenance/">maintenance tune-up</a></li>
+      <li>Planning a new door or opener install when the current unit still works</li>
+      <li>Remote battery or keypad codes — often resolved without a truck roll</li>
+    </ul>
+    <p>
+      If you are unsure, call anyway. We will tell you honestly whether you need a truck tonight or whether you are safe to park outside until morning.
+    </p>
+
+    <h2>After-hours fee disclosure</h2>
+    <p>
+      Standard hours are 7 AM to 10 PM, seven days a week. Between <strong>10 PM and 7 AM</strong>, emergency dispatches include our ${serviceCallFee} diagnosis fee plus an <strong>after-hours dispatch surcharge</strong>. We quote the full amount before we leave for your address — whether you are off Fernbank Road, Wyldewood Drive, or Stittsville Main. No surprise totals when we pull into the driveway.
+    </p>
+    <p>
+      Approving the repair during the same visit still applies the service call fee toward the job, the same as daytime calls. We do not use emergencies as an excuse to double parts prices.
+    </p>
+
+    <div class="card mt-12 bg-primary-50 text-center not-prose">
+      <h2 class="text-2xl">Door stuck open right now?</h2>
+      <p class="mt-2 text-primary-700">Call — we answer 24/7 for true emergencies in Stittsville.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <PhoneLink showIcon />
+      </div>
+    </div>
+
+    <div class="card mt-8 text-center not-prose">
+      <h2 class="text-2xl">Not sure if it can wait?</h2>
+      <p class="mt-2 text-primary-700">Describe the problem — we will tell you if you need a truck tonight.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href={`tel:${site.phoneRaw}`} class="btn-primary">{site.phone}</a>
+        <a href="/contact/" class="btn-secondary">Send a message</a>
+      </div>
+    </div>
+
+    <div class="mt-12 rounded-xl bg-accent-500 p-8 text-center text-white not-prose">
+      <p class="font-display text-2xl font-bold uppercase tracking-wide">Stittsville emergency line</p>
+      <a href={`tel:${site.phoneRaw}`} class="mt-4 inline-block font-display text-3xl font-extrabold text-white no-underline md:text-4xl">
+        {site.phone}
+      </a>
+      <div class="mt-6">
+        <PhoneLink showIcon class="bg-white text-accent-600 hover:bg-primary-50" />
+      </div>
+    </div>
+  </article>
+</Base>
