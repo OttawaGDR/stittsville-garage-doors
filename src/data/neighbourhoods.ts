@@ -40,7 +40,7 @@ export const neighbourhoods: Neighbourhood[] = [
     name: 'Fairwinds',
     yearBuilt: '1990s–2000s',
     housingStock: 'Established suburb west of Stittsville Main St, double-car garages common',
-    topServices: ['spring-repair', 'panel-replacement', 'maintenance'],
+    topServices: ['spring-repair', 'panel-repair', 'maintenance'],
     landmarks: ['Fairwinds Park', 'Stittsville Main Street', 'Abbot Street'],
     streets: ['Fairwind Way', 'Granite Ridge Drive', 'West Ridge Drive'],
     summary:
@@ -63,7 +63,7 @@ export const neighbourhoods: Neighbourhood[] = [
     name: 'Crossing Bridge Estates',
     yearBuilt: '2000s–2010s',
     housingStock: 'Larger lots, executive homes, carriage-style doors, three-car garages',
-    topServices: ['new-door-installation', 'panel-replacement', 'opener-installation'],
+    topServices: ['new-door-installation', 'panel-repair', 'opener-installation'],
     landmarks: ['Crossing Bridge Park', 'Fernbank Road', 'Tim Hortons on Hazeldean'],
     streets: ['Crossing Bridge Way', 'Stonebridge Boulevard', 'Fernbank Road'],
     summary:
@@ -72,8 +72,8 @@ export const neighbourhoods: Neighbourhood[] = [
       'Heavy wood-look doors stress hinges and rollers on three-car setups — we replace worn rollers before tracks bend. Carriage panels with faux hardware also take impact dents from basketball nets and hockey nets in the driveway. Jackshaft opener installs are popular when ceiling storage is tight near the Goulbourn Recreation Complex commute route.',
     recentJobs: [
       {
-        title: 'Carriage panel replacement — Crossing Bridge Way',
-        body: 'Vehicle contact cracked one section on a three-car door. Matched panel profile, swapped section, adjusted spring tension for the added weight.',
+        title: 'Carriage panel repair — Crossing Bridge Way',
+        body: 'Vehicle contact creased the lower section on a three-car door. Straightened steel, reinforced hinges, added strut — no section swap. Balance check and opener limits verified.',
       },
       {
         title: 'Jackshaft opener installation',

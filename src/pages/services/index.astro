@@ -2,14 +2,49 @@
 import { Fragment } from 'astro/jsx-runtime';
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
+import PhoneLink from '../../components/PhoneLink.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import NeighbourhoodGrid from '../../components/NeighbourhoodGrid.astro';
 import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import FAQSchema from '../../components/Schema/FAQ.astro';
 import { site } from '../../data/site';
 import { services } from '../../data/services';
+import { pricingPolicy } from '../../data/pricing';
+import { metaDescription } from '../../data/seo';
 
-const title = `Garage Door Services in Stittsville | ${site.name}`;
-const description =
-  'Spring repair, opener service, cables, tracks, panels, and new doors across Stittsville — Jackson Trails, Fairwinds, Amberwood, and more.';
+const title = `Garage Door Services in Stittsville | ${site.phone}`;
+const description = metaDescription(
+  'Eight garage door services in Stittsville — springs, openers, cables, tracks, panels, new doors & tune-ups. Free on-site quotes, same-day when trucks are west. Call (613) 777-6401.',
+);
+
+const hubFaqs = [
+  {
+    question: 'Which service do I need if I am not sure?',
+    answer:
+      'Loud bang and the door will not lift — spring repair. Opener hums or flashes but the door barely moves — opener repair after we rule out balance. One side higher, cable hanging — cable repair. Grinding or door off vertical — track repair. Dent or rust on a section — panel repair (in place only; we do not swap sections). Multiple bad sections or a sagging door — new door installation. No emergency but the door feels heavy or noisy — maintenance tune-up. Call and describe the symptom; we route the right truck.',
+  },
+  {
+    question: 'Is the on-site estimate free?',
+    answer:
+      'Yes — diagnosis and a written quote on site before any repair. No dispatch fee and no charge that only rolls into the job if you approve same-day work. Typical ranges are on our pricing page; the written quote on your driveway is the number you approve. Seniors and veterans receive 10% off labour when mentioned at booking.',
+  },
+  {
+    question: 'Can you handle multiple problems in one visit?',
+    answer:
+      'Yes — springs plus cables, track align after a spring break, or balance and limits after panel work are common combined jobs. We quote the full picture so you are not paying for two trips when one thorough visit fixes the root cause.',
+  },
+  {
+    question: 'How fast is same-day service in Stittsville?',
+    answer:
+      'When technicians are already west on Hazeldean or returning from Jackson Trails, Fairwinds, Amberwood, or Wyldewood, many repairs finish the same day. Winter peaks and trapped-car calls get priority. We give a real arrival window when you call, not a vague “between 8 and 5.”',
+  },
+  {
+    question: 'Do you install doors and openers from big-box stores?',
+    answer:
+      'We install customer-supplied openers when the model is safety-certified and fits your door. We warranty our labour; manufacturer warranty stays on the unit. Full door installs are usually quoted as supply-and-install so sizing, springs, and seal match Ottawa winters.',
+  },
+];
 ---
 
 <Base title={title} description={description}>
@@ -20,29 +55,185 @@ const description =
         { name: 'Services', path: '/services/' },
       ]}
     />
+    <FAQSchema faqs={hubFaqs} />
   </Fragment>
 
   <Hero
     title="Garage Door Services in Stittsville"
-    subtitle="Eight repair and installation services — priced upfront, done same-day when trucks are west on Hazeldean."
+    subtitle="Eight repair and installation services — published price ranges, free on-site quotes, same-day when trucks are west on Hazeldean."
+    showPricingCta
   />
 
-  <section class="container-page section-pad">
-    <div class="prose-content max-w-none">
-      <p>
-        Stittsville garages take a beating. January cold snaps snap torsion springs on Fairwinds homes built in the
-        1990s. Summer humidity off the Amberwood golf course swells older wooden jambs. Jackson Trails belt-drive
-        openers lose their limits after the kids hockey season. We handle the mechanical work — not a call centre in
-        another province.
-      </p>
-      <p>
-        Every service below includes a written quote on site, WSIB-covered labour, and a one-year warranty on parts we
-        supply. If you are not sure which card matches your problem, call {site.phone} — we route trucks from Main
-        Street through Crossing Bridge Estates daily.
-      </p>
-    </div>
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <article class="container-page section-pad prose-content prose-wide max-w-none">
+    <h2>Repair and installation built for Stittsville homes</h2>
+    <p>
+      Stittsville garages take a beating. January cold snaps snap torsion springs on Fairwinds homes built in the
+      1990s. Summer humidity off the Amberwood golf course swells older jambs. Jackson Trails belt-drive openers
+      lose their limits after hockey season. Crossing Bridge three-car bays need heavier hardware than a standard
+      double. We handle the mechanical work — not a call centre in another province.
+    </p>
+    <p>
+      Every service below links to a dedicated page with signs to watch for, why failures happen in Ottawa Valley
+      weather, what we do on site, honest pricing ranges, and Stittsville-specific notes from jobs on Bridlewood
+      Drive, Gatehouse Way, and Fernbank Road. If you are not sure which card matches your problem, call{' '}
+      <a href={`tel:${site.phoneRaw}`}>{site.phone}</a> — we diagnose from symptoms and route the right truck.
+    </p>
+    <p>
+      Compare published numbers on our <a href="/pricing/">pricing page</a> or the{' '}
+      <a href="/resources/stittsville-pricing-guide/">Stittsville pricing guide</a>. Read what neighbours report
+      after visits on our <a href="/reviews/">reviews page</a>.
+    </p>
+
+    <div class="not-prose my-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {services.map((s) => <ServiceCard service={s} />)}
     </div>
-  </section>
+
+    <h2>How to choose the right service</h2>
+    <p>
+      Garage door problems stack — a broken spring lets the door slam, which unspools cable and bends track. Fixing
+      only the symptom you see first often means a callback two weeks later. Use this quick guide; each row links to
+      the full write-up.
+    </p>
+    <ul class="mb-8 list-disc space-y-3 pl-6">
+      <li>
+        <strong>Loud bang, door too heavy to lift, gap at the top</strong> —{' '}
+        <a href="/services/spring-repair/">spring repair</a> (often $250–$350 per spring; both sides recommended on
+        double doors).
+      </li>
+      <li>
+        <strong>Opener runs but door barely moves, flashing lights, reverses at floor</strong> —{' '}
+        <a href="/services/opener-repair/">opener repair</a> after balance check ($150–$300 typical).
+      </li>
+      <li>
+        <strong>New opener, belt-drive for bedroom above garage, jackshaft on high ceiling</strong> —{' '}
+        <a href="/services/opener-installation/">opener installation</a> ($650–$950 installed).
+      </li>
+      <li>
+        <strong>Cable frayed, snapped, or one side of door sits higher</strong> —{' '}
+        <a href="/services/cable-repair/">cable repair</a> ($150–$250; stop using the opener if uneven).
+      </li>
+      <li>
+        <strong>Grinding metal, roller out of track, bent vertical near the floor</strong> —{' '}
+        <a href="/services/track-repair/">track repair</a> ($150–$250 for align and minor; more if sections
+        replace).
+      </li>
+      <li>
+        <strong>One dented or rusted section, rest of door sound</strong> —{' '}
+        <a href="/services/panel-repair/">panel repair</a> ($150–$400 in-place — we do not replace sections).
+      </li>
+      <li>
+        <strong>Multiple rusted sections, sagging middle, frame failing</strong> —{' '}
+        <a href="/services/new-door-installation/">new door installation</a> (from about $1,800 supply and install).
+      </li>
+      <li>
+        <strong>No emergency — door works but feels rough, noisy, or overdue</strong> —{' '}
+        <a href="/services/maintenance/">maintenance and tune-up</a> ($150–$180).
+      </li>
+    </ul>
+
+    <h2>What every visit includes</h2>
+    <p>
+      {pricingPolicy.freeOnSiteEstimate
+        ? 'Free on-site estimate before we start — you approve a written quote on the driveway.'
+        : 'Written quote on site before we start.'}{' '}
+      Parts warranty on components we supply, and a safety test on openers and auto-reverse when
+      relevant. We test springs, cables, and balance in the right order so you are not paying for a new motor on a
+      door that is still too heavy.
+    </p>
+    <ol class="mb-8 list-decimal space-y-3 pl-6">
+      <li>
+        <strong>You call with the symptom</strong> — trapped car, security concern, or schedule flexibility. Cross
+        streets in Jackson Trails or Fairwinds help us slot you on the west route.
+      </li>
+      <li>
+        <strong>We arrive with common parts</strong> — springs, cables, rollers, sensors, and frequent opener
+        components on the truck for standard 16-foot doors.
+      </li>
+      <li>
+        <strong>Diagnose root cause, quote, then repair</strong> — no surprise add-ons after the van is open. If a
+        special-order door is needed, we quote lead time before you pay a parts deposit.
+      </li>
+      <li>
+        <strong>Balance, limits, and walkthrough</strong> — you see the door cycle cleanly before we leave.
+      </li>
+    </ol>
+
+    <h2>Typical price ranges (Stittsville)</h2>
+    <p>
+      Ranges below match our main pricing table — final price depends on door size, hardware condition, and whether
+      multiple components failed together.{' '}
+      {pricingPolicy.seniorsVeteransDiscountPercent > 0 &&
+        `${pricingPolicy.seniorsVeteransDiscountPercent}% off labour for seniors and veterans when mentioned at booking.`}
+    </p>
+    <div class="not-prose overflow-x-auto">
+      <table class="w-full min-w-[320px] border-collapse text-left text-sm">
+        <thead>
+          <tr class="border-b border-primary-200 bg-primary-50">
+            <th class="p-3 font-semibold">Service</th>
+            <th class="p-3 font-semibold">Typical range</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            services.map((s) => (
+              <tr class="border-b border-primary-100">
+                <td class="p-3">
+                  <a href={`/services/${s.slug}/`}>{s.fullName}</a>
+                </td>
+                <td class="p-3 text-primary-700">
+                  {s.priceLabel ?? (s.priceHigh ? `$${s.startingPrice}–$${s.priceHigh}` : `from $${s.startingPrice}`)}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4">
+      <a href="/pricing/">See full pricing table →</a>
+    </p>
+
+    <h2>Winter and Ottawa Valley climate</h2>
+    <p>
+      Freeze-thaw at the slab, road salt on the apron, and -25°C nights are why Stittsville is not a mild-climate
+      market for garage doors. Springs fail in waves after cold snaps. Photo-eyes frost over in unheated bays.
+      Bottom seals ice to the floor and force openers into constant reverse. Maintenance in September or October is
+      cheaper than an emergency spring call on the coldest school morning of the year.
+    </p>
+    <p>
+      We use cold-weather lubricants, set opener force with winter bind in mind, and recommend insulated doors when
+      the garage shares a wall with heated living space — common on Jackson Trails splits and Fairwinds layouts
+      facing the commute on Hazeldean.
+    </p>
+
+    <h2>Neighbourhoods we serve</h2>
+    <p>
+      Same technicians and same price ranges across the service area — not a downtown depot guessing drive time.
+      Each neighbourhood page lists local streets and what we commonly see on that side of town.
+    </p>
+    <NeighbourhoodGrid />
+
+    <h2>Related resources</h2>
+    <ul class="mb-8 list-disc space-y-2 pl-6">
+      <li><a href="/resources/winter-garage-door-guide/">Winter garage door guide for Stittsville</a></li>
+      <li><a href="/services/spring-repair/">When springs fail — repair page</a></li>
+      <li><a href="/resources/stittsville-pricing-guide/">Stittsville garage door pricing guide</a></li>
+      <li><a href="/about/">About our team and service model</a></li>
+      <li><a href="/contact/">Contact — phone, email, service area map</a></li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <FaqAccordion faqs={hubFaqs} id="faq-services-hub" />
+
+    <div class="card mt-12 bg-primary-50 text-center">
+      <h2 class="text-2xl">Not sure which service you need?</h2>
+      <p class="mt-2 text-primary-700">
+        Describe what the door is doing — we will tell you what to book and whether it is safe to use until we
+        arrive.
+      </p>
+      <div class="mt-6 flex justify-center">
+        <PhoneLink showIcon />
+      </div>
+    </div>
+  </article>
 </Base>

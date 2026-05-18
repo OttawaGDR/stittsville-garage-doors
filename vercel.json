@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/services/panel-replacement",
+      "destination": "/services/panel-repair/",
+      "permanent": true
+    },
+    {
+      "source": "/services/panel-replacement/",
+      "destination": "/services/panel-repair/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",

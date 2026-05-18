@@ -13,7 +13,6 @@ export const site = {
   legal: {
     entity: 'Stittsville Garage Doors',
     insured: true,
-    wsib: true,
   },
   social: {},
 } as const;

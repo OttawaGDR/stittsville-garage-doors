@@ -97,15 +97,15 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Bent garage door panel after winter impact in Stittsville',
     width: 900,
     height: 1200,
-    services: ['panel-replacement', 'track-repair', 'emergency'],
+    services: ['panel-repair', 'track-repair', 'emergency'],
   },
   {
     id: 'panel-after',
     src: '/images/jobs/garage-door-panel-replacement-after-stittsville.png',
-    alt: 'Garage door panel replacement completed in Stittsville winter',
+    alt: 'Garage door panel repair completed in Stittsville winter',
     width: 900,
     height: 1200,
-    services: ['panel-replacement', 'new-door-installation'],
+    services: ['panel-repair', 'new-door-installation'],
     featured: true,
   },
   {

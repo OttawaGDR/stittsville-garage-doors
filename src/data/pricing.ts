@@ -45,11 +45,11 @@ export const pricingTable: PriceRow[] = [
     priceHigh: 400,
   },
   {
-    job: 'Panel section repair or replacement',
-    startingAt: 250,
-    priceHigh: 500,
-    serviceSlug: 'panel-replacement',
-    note: 'Per section when profile is available — full panels from $400',
+    job: 'Garage door panel repair',
+    startingAt: 150,
+    priceHigh: 400,
+    serviceSlug: 'panel-repair',
+    note: 'Dents, rust treatment, hinges, struts — in-place repair only',
   },
   {
     job: 'Photo-eye sensor repair',

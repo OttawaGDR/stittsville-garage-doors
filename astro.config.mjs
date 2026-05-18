@@ -10,6 +10,7 @@ function sitemapPriority(item) {
   else if (pathname.startsWith('/services/') || pathname === '/emergency/' || pathname === '/pricing/')
     item.priority = 0.9;
   else if (pathname.startsWith('/neighbourhoods/')) item.priority = 0.85;
+  else if (pathname.startsWith('/blog/')) item.priority = 0.8;
   else if (pathname.startsWith('/resources/')) item.priority = 0.75;
   else item.priority = 0.7;
   item.changefreq = pathname === '/' ? 'weekly' : 'monthly';
@@ -26,10 +27,10 @@ export default defineConfig({
       filter: (page) => !page.includes('/api/'),
       serialize: sitemapPriority,
     }),
-    tailwind({ applyBaseStyles: false }),
+    tailwind({ applyBaseStyles: true }),
   ],
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
     assets: 'assets',
   },
   image: {

@@ -1,0 +1,71 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../../layouts/Base.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import { site } from '../../data/site';
+import { blogCategories, blogPosts, getFeaturedPost } from '../../data/blog';
+import { metaDescription } from '../../data/seo';
+
+const featured = getFeaturedPost();
+const rest = blogPosts.filter((p) => p.slug !== featured.slug);
+
+const title = `Garage Door Blog | Stittsville Tips & Pricing Guides`;
+const description = metaDescription(
+  'Expert garage door blog for Stittsville — winter repair tips, 2026 pricing, spring failures, opener troubleshooting, and local guides. Updated by working technicians.',
+);
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <header class="border-b border-primary-100 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white">
+    <div class="container-page py-16 md:py-20">
+      <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">Stittsville Garage Doors Blog</p>
+      <h1 class="mt-4 max-w-3xl text-white">Garage door repair guides for Stittsville homeowners</h1>
+      <p class="mt-6 max-w-2xl text-lg text-slate-200">
+        Accurate, updated articles on Ottawa Valley winters, real 2026 pricing ranges, safety, and when to call a
+        technician — written for Jackson Trails, Fairwinds, Amberwood, and every neighbourhood we service daily.
+      </p>
+    </div>
+  </header>
+
+  <section class="container-page section-pad">
+    <h2 class="sr-only">Featured article</h2>
+    <BlogCard post={featured} featured />
+
+    <div class="mt-16 flex flex-wrap gap-2" role="list" aria-label="Categories">
+      {
+        blogCategories.map((cat) => (
+          <span class="rounded-full border border-primary-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary-700">
+            {cat}
+          </span>
+        ))
+      }
+    </div>
+
+    <h2 class="mt-16 text-3xl">Latest articles</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {rest.map((post) => <BlogCard post={post} />)}
+    </div>
+
+    <aside class="mt-16 rounded-xl border border-primary-100 bg-primary-50 p-8 text-center md:p-10">
+      <h2 class="text-2xl">Rather talk to a technician?</h2>
+      <p class="mx-auto mt-3 max-w-xl text-primary-700">
+        Call {site.phone} for a free on-site estimate and written quote before any repair — same-day when trucks are west
+        on Hazeldean.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href={`tel:${site.phoneRaw}`} class="btn-phone">{site.phone}</a>
+        <a href="/services/" class="btn-secondary">View services</a>
+      </div>
+    </aside>
+  </section>
+</Base>

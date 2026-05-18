@@ -1,0 +1,36 @@
+---
+import { site } from '../../data/site';
+import { absoluteUrl } from '../../data/seo';
+import type { BlogPost } from '../../data/blog/types';
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const url = absoluteUrl(`/blog/${post.slug}/`);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.metaDescription,
+  datePublished: post.publishedAt,
+  dateModified: post.updatedAt,
+  author: {
+    '@type': 'Organization',
+    name: site.legal.entity,
+    url: site.url,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: site.legal.entity,
+    url: site.url,
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  url,
+  articleSection: post.category,
+  inLanguage: 'en-CA',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

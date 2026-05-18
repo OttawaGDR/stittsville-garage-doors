@@ -103,6 +103,14 @@ export const serviceContents: Record<string, ServicePageContent> = {
         question: 'Is spring repair covered by home insurance?',
         answer: 'Usually not — wear items are maintenance. If the failure caused panel damage or vehicle impact, your policy may cover the collateral damage but not the spring itself. We can provide a detailed invoice for your records.',
       },
+      {
+        question: 'How fast can you get to Jackson Trails or Fairwinds for a spring call?',
+        answer: 'When trucks are already west on Hazeldean, many spring jobs are same-day. Trapped-car calls get priority. Call with your cross street — we give a realistic window, not a four-hour “sometime today” block from across the city.',
+      },
+      {
+        question: 'Do you replace extension springs on older Stittsville homes?',
+        answer: 'Yes. Amberwood and early Fairwinds stock often still use extension springs along the horizontal track. We carry common sizes and convert to torsion only when the header and framing make it the right long-term fix — not as an automatic upsell.',
+      },
     ],
   },
   'opener-repair': {
@@ -275,7 +283,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'Adding a new outlet, structural reinforcement for heavy doors, or converting extension springs to torsion is quoted separately before work starts.',
       'All starting figures are starting points — we confirm the final price on site after we see your door; we give an itemized quote after seeing your ceiling layout and door weight.',
       'Package pricing when we install a door and opener together on a new-door job is quoted as one project — ask when scheduling a full replacement in Crossing Bridge or Amberwood.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve all of Stittsville — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Crossing Bridge, Bryanston Gate, and surrounding streets. Same typical price ranges whether you are five minutes from Main Street or west toward Fernbank.',
     ],
     durationNote: 'Most opener installations take 2–3 hours in Stittsville driveways. Jackshaft units, smart hub setup, or door balance corrections add time. We schedule half-day blocks so you are not rushing the safety tests before dinner.',
     diyRisks: [
@@ -380,8 +388,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'Bottom bracket replacement or track straightening from a crooked drop adds line items we quote on site.',
       'Starting prices are starting points — we confirm the final price on site after we see your door; we confirm after seeing drum condition and door weight.',
       'Emergency cable securing when the door is stuck partially open may cost more than a scheduled repair — we stabilize first, then quote full replacement.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve all of Stittsville — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Crossing Bridge, Bryanston Gate, and surrounding streets. Same typical price ranges whether you are five minutes from Main Street or west toward Fernbank.',
     ],
     durationNote: 'Expect 45–60 minutes for a standard cable swap when springs are stable and drums are healthy. Combined spring-and-cable jobs after a break take longer because tensioning must be done safely — plan 90+ minutes in those cases.',
     diyRisks: [
@@ -414,6 +421,14 @@ export const serviceContents: Record<string, ServicePageContent> = {
       {
         question: 'How do I know if the drum also needs replacement?',
         answer: 'We inspect grooves and end bearings. Shiny worn grooves or wobble mean drum replacement — we show you before we order parts.',
+      },
+      {
+        question: 'My cable snapped on one side — can I pull the emergency release?',
+        answer: 'Only if the door is fully closed and you understand it may drop unevenly. If one side is already higher, do not cycle the opener — call us. We secure the door with proper locking before we touch springs or cables.',
+      },
+      {
+        question: 'Do you service Wyldewood and Crossing Bridge the same day as Main Street?',
+        answer: 'Yes — same service area and same price ranges. We route west daily; distance inside Stittsville does not change how we quote cable or drum work.',
       },
     ],
   },
@@ -449,7 +464,6 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'High-cycle commercial-style rollers on residential doors in busy households wear flat — the flat spot hammers the track every rotation until the steel mushrooms outward. Swapping rollers during track service prevents a callback before Christmas travel.',
       'Settling garage slabs tilt the vertical track relative to the header over decades — common on 1980s Amberwood pads. Shimming brackets correctly matters more than muscling the door through a bind every day.',
       'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
-      'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
     ],
     process: [
       {
@@ -484,8 +498,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'If the door dropped because of springs or cables, those repairs are line items we explain separately.',
       'Listed starting prices are starting points — we confirm the final price on site after we see your door; final numbers depend on track profile and damage extent.',
       'Multi-door properties with the same bend from a shared basketball net get per-door quotes — we do not assume both bays are identical without looking.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve all of Stittsville — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Crossing Bridge, Bryanston Gate, and surrounding streets. Same typical price ranges whether you are five minutes from Main Street or west toward Fernbank.',
     ],
     durationNote: 'Straightforward track alignment runs 60–90 minutes. Full lower vertical replacement on a double-car door can approach two hours when we replace rollers and reset cables. We pad estimates so you are not late for pickup at Sacred Heart because we rushed a bind test.',
     diyRisks: [
@@ -496,9 +509,8 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'Cutting track without supporting the door risks sudden drop',
       'Prying a bent vertical with a crowbar without unloading spring tension can snap the track into the car windshield',
       'YouTube fixes filmed in warm climates do not account for -30°C hardware and frozen seals — what works in Texas binds in Stittsville.',
-      'YouTube fixes filmed in warm climates do not account for -30°C hardware and frozen seals — what works in Texas binds in Stittsville.',
     ],
-    relatedSlugs: ['cable-repair', 'panel-replacement', 'spring-repair'],
+    relatedSlugs: ['cable-repair', 'panel-repair', 'spring-repair'],
     faqs: [
       {
         question: 'Can bent track be straightened instead of replaced?',
@@ -518,119 +530,119 @@ export const serviceContents: Record<string, ServicePageContent> = {
       },
       {
         question: 'Can a dented bottom section be saved?',
-        answer: 'Panel dents are separate from track. If the panel is structurally fine, track work alone may be enough. Cracked panels need replacement.',
+        answer: 'Panel dents are separate from track. If the panel is structurally fine, track work alone may be enough. Cracked or rusted-through steel may need a new door — we repair dents and edges where the section is still sound.',
       },
       {
-        question: 'Should I fix track before replacing panels?',
-        answer: 'Yes. Bent tracks will damage new panels on the first cycle. We align track first, then quote panel work if still needed.',
+        question: 'Should I fix track before panel repair?',
+        answer: 'Yes. Bent tracks will damage repaired panels on the first cycle. We align track first, then quote panel work if still needed.',
       },
     ],
   },
-  'panel-replacement': {
-    slug: 'panel-replacement',
-    h1: 'Garage Door Panel Replacement in Stittsville',
-    metaDescription: 'Damaged garage door panel replacement in Stittsville from $250/section. Match profiles on wood-look steel. Fairwinds, Crossing Bridge. (613) 777-6401.',
-    heroSubtitle: 'Backed into a section, hockey puck dent, or rust-through at the bottom — we swap single panels when the rest of the door is worth keeping.',
+  'panel-repair': {
+    slug: 'panel-repair',
+    h1: 'Garage Door Panel Repair in Stittsville',
+    metaDescription:
+      'Garage door panel repair in Stittsville from $150. Dents, rust edges, hinges, struts — in-place repair only. We do not swap sections. (613) 777-6401.',
+    heroSubtitle:
+      'Hockey puck dent, slow backup crease, or rust at the bottom edge — we repair panels in place. We do not remove or replace full sections.',
     intro: [
-      'Garage door panel replacement in Stittsville makes sense when one or two sections are damaged but the tracks, springs, and remaining panels are sound. A full door swap is expensive; a matched panel restores curb appeal on Fairwind Way and fixes a cracked section from winter shrinkage in Amberwood without throwing away good hardware.',
-      'The hard part is matching — profile, embossing, colour, and window layout on carriage-style doors in Crossing Bridge. We measure and source compatible sections, swap hinges and struts as needed, and re-balance the door because weight changed. A heavier panel without spring adjustment wears the opener.',
-      'We see impact dents from vehicles on tight driveways near Main Street, rust-out at the bottom seal on 1990s steel, and basketball damage on Jackson Trails courts beside the garage. If the door is sagging in the middle or multiple sections are delaminating, we will tell you honestly when replacement beats repeated panel swaps.',
-      'Panel work takes longer than a spring call because sections are bulky and wind-rated doors need proper strut placement. We schedule half-day windows and protect your driveway finish while old sections come down.',
-      'Panel replacement is a curb-appeal decision as much as a mechanical one on streets where neighbours walk to Village Square Park or the arena on Main. We talk about sight lines from the sidewalk — a slightly different emboss is less noticeable on the third section than on the bottom two feet everyone sees.',
-      'HOA and builder colour palettes on newer Bryanston and Crossing Bridge homes mean we pull codes from the door label when it is still legible. When labels are gone, we compare samples in natural light at your driveway, not under fluorescent shop light.',
-      'We also handle strut upgrades when a new panel changes stiffness — a heavier bottom section without reinforcement bows the middle over time. Your opener and springs feel that bow as extra weight even if the panel looks fine from the street.',
-      'Insurance claims for vehicle impact sometimes cover panel work minus deductible — we photograph hinge lines, serial labels, and impact points the way adjusters expect. We do not adjust claims; we supply clear documentation so your conversation with the insurer is factual, not a debate about whether the dent was "pre-existing."',
+      'Garage door panel repair in Stittsville is for damage you can fix without swapping an entire section. We straighten minor dents where the steel is not cracked, treat rust at the bottom edge before it eats through, tighten hinge lines, add or replace struts, and touch up seal contact — all with the existing sections still on the door.',
+      'We do not supply or install replacement panels. If a section is rusted through, cracked across the face, or a discontinued profile cannot be matched, we tell you upfront and discuss new door installation when that is the honest answer — not a patch that fails in one winter.',
+      'Most panel calls on Fairwind Way, Jackson Trails, and Amberwood are impact dents from vehicles on tight driveways, basketball damage beside the court, or salt holding moisture on the lowest two feet of 1990s steel. When the panel skin is still structurally sound, in-place repair restores operation and curb appeal without freight, factory matching, or half a day to swap a 16-foot section.',
+      'Repair is mechanical as well as cosmetic. A creased bottom edge binds rollers; loose hinges transfer stress every cycle; missing struts let wide doubles flex toward Saunders Farm winds. We fix the failure mode, not only what you see from the driveway.',
+      'We photograph before and after for your records — useful if insurance covers vehicle impact minus deductible. We do not adjust claims; we document hinge lines and impact points so your conversation with the insurer stays factual.',
+      'If rollers or track caused the panel damage, we quote that work too. Repairing steel while a seized roller keeps yanking the same edge is how dents come back before the next hockey season.',
     ],
     signs: [
-      'A single section is cracked, dented, or rusted through while upper panels look fine',
-      'The door sags in the middle but tracks and springs test OK — sometimes a weak or bent section',
-      'You want to remove a window section match after breakage without replacing the whole door',
-      'Vehicle contact damaged the bottom two feet but left the top decorative profile intact',
-      'Insulation facing is torn inside one panel — moisture will spread if ignored',
-      'Colour fade is uneven on one section from sun exposure on south-facing Amberwood garages',
-      'A previous DIY patch looks worse than the dent — professional section swap cleans the line',
-      'Interior insulation facing delaminating on one section while exterior paint looks fine — hidden moisture damage',
+      'A dent or crease in one section but no crack through the face — door still moves',
+      'Surface rust or bubbled paint at the bottom edge before it rusts through',
+      'Hinge bolts loose or elongated holes at a panel joint — door rattles on the way up',
+      'One section flexes more than its neighbours — often missing or bent strut',
+      'Bottom seal gap after impact — panel lip bent, not a full section failure',
+      'DIY body filler or clamp marks that need proper prep and paint touch-up',
+      'Vehicle tap that kinked the lower two feet but left upper decorative sections intact',
     ],
     whyHappens: [
-      'Panels are sheet steel or composite over foam — strong in compression, weak to point impacts. A slow backup into a corner kinks the lower section where there is no interior strut.',
-      'Salt and slush rot bottom seals and hold moisture against the lowest panel edge. Freeze-thaw pops paint and rusts through from the inside out on doors older than 20 years.',
-      'Hinges transfer stress. A seized roller yanks the same panel edge every cycle until the steel creases. Fixing only the panel without rollers repeats the story.',
-      'Factory paint fades unevenly on south-facing doors; replacing one sun-bleached section next to a shaded upper panel can still look acceptable if we orient the new steel to match sheen as closely as possible — we set expectations honestly.',
-      'Wind bracing matters on wide double doors facing open fields toward Saunders Farm — missing struts let panels flex until steel fatigues at the hinge line. We add or replace struts during panel swaps when engineering calls for it.',
-      'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
-      'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
+      'Sheet steel handles compression along the panel face but folds on point impacts — hockey pucks, car corners, and bike bumps on Wyldewood driveways.',
+      'Salt and slush sit on the bottom seal and wick into the lowest edge. Early rust repair stops a pinhole from becoming a full rust-through that only a new door fixes.',
+      'Hinges and rollers transfer cyclic stress. A flat-spotted roller pulls the same panel corner until the steel creases — we repair the panel and fix the roller cause when needed.',
+      'Wide double doors without struts flex in wind toward open fields; fatigue shows at hinge lines first. Adding strut is repair, not replacement.',
+      'Ottawa Valley freeze-thaw makes minor binds worse — a small crease that scraped the track in October becomes a loud grind by January if ignored.',
     ],
     process: [
       {
-        title: 'Match assessment',
-        time: '20 min on site / follow-up',
-        body: 'We photograph profile, measure section height and width, note windows and colour codes. Some matches order from manufacturer; common profiles may be on hand.',
+        title: 'Damage assessment',
+        time: '15–20 min',
+        body: 'We inspect dents, rust depth, hinge lines, struts, and rollers. If the section is cracked through or delaminating, we stop and discuss new door options instead of promising a repair.',
       },
       {
-        title: 'Door secured and springs',
-        time: '15 min',
-        body: 'We release tension safely, support the door, and remove the damaged section without twisting the track.',
+        title: 'Door secured',
+        time: '10–15 min',
+        body: 'We support the door and release spring tension only when hinge or strut work requires it — not for every cosmetic dent.',
       },
       {
-        title: 'Panel swap',
-        time: '60–90 min',
-        body: 'We install the new section, transfer hinges and struts, align with adjacent panels, and verify smooth joint lines.',
+        title: 'Panel repair',
+        time: '45–90 min',
+        body: 'Dent straightening where safe, rust grind and prime, hinge reinforcement, strut install or straighten, and seal edge alignment — all in place on the existing section.',
       },
       {
-        title: 'Balance and seal',
-        time: '30–45 min',
-        body: 'We adjust spring tension for new weight, set opener limits, and check bottom seal contact across the full width.',
+        title: 'Hardware and balance check',
+        time: '20–30 min',
+        body: 'We verify rollers, track, and spring balance so the repaired panel is not fighting the rest of the system.',
       },
       {
-        title: 'Finish test',
-        time: '15 min',
-        body: 'We cycle the door multiple times, listen for bind, and touch up minor hardware torque on brackets affected by the swap.',
+        title: 'Cycle test',
+        time: '10–15 min',
+        body: 'Multiple full cycles, listen for bind, confirm opener limits and bottom seal contact.',
       },
     ],
     pricing: [
-      'Panel replacement in Stittsville typically runs $250–$500 per section for labour and matching when a panel is available — material cost varies by age and brand; discontinued profiles may need a full-door conversation.',
-      'Carriage-style and wood-look profiles on Crossing Bridge executive homes cost more to source; discontinued colours may need the closest match plus honest conversation about visibility from the street.',
-      'If springs, cables, or multiple sections need work, we itemize everything before ordering steel.',
-      'Starting prices are starting points — we confirm the final price on site after we see your door; we do not order custom sections without your approval on the total.',
-      'Disposal of the old section is included in labour on standard jobs; asbestos-era materials are not in scope — we flag if we see non-standard old composites.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'Panel repair in Stittsville typically runs $150–$400 for labour on in-place work — rust treatment, dent work, hinges, and struts. Material for struts or touch-up paint is extra when needed.',
+      'We do not quote section replacement or factory panel orders. Severe damage is quoted as new door installation or declined honestly if repair would not last a season.',
+      'Combined jobs (panel repair plus rollers, track, or spring balance) are itemized on one written quote before work starts.',
+      'Starting prices are starting points — final price is confirmed on site after we see the steel, not from a phone photo alone.',
+      'We serve all of Stittsville — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Crossing Bridge, Bryanston Gate, and surrounding streets. Same typical price ranges whether you are five minutes from Main Street or west toward Fernbank.',
     ],
-    durationNote: 'Plan 2–4 hours on site when the panel is on the truck. Discontinued profiles may need a second visit for install after delivery — we communicate lead time up front so you are not guessing while the door hangs open.',
+    durationNote:
+      'Most panel repairs finish in 1–3 hours on site when parts are on the truck. Larger rust jobs or strut installs on wide doubles may run toward the top of that window.',
     diyRisks: [
-      'Removing a section without controlling spring tension drops the door on you or the car',
-      'Mismatch panels show a colour band from the street — wasted money',
-      'Improper hinge torque cracks the new section at the bolt holes',
-      'Skipping rebalance burns out the opener on the first heavy cycle',
-      'Two people are not always enough for long sections — back injuries are common',
-      'Clamping a damaged section with C-clamps and operating the door — clamps shift and tear the hinge bar through the panel',
-      'YouTube fixes filmed in warm climates do not account for -30°C hardware and frozen seals — what works in Texas binds in Stittsville.',
+      'Hammering a dent without supporting the back side stretches steel and cracks paint — worse than the original bump',
+      'Grinding rust without primer lets moisture return under the paint bubble within one winter',
+      'Clamping a bent section and cycling the opener — clamps shift and tear hinge bar holes through the panel',
+      'Body filler on a flexing section cracks the first time the door bows in cold weather',
+      'Ignoring loose hinges — repaired metal fails again at the same bolt line',
     ],
     relatedSlugs: ['new-door-installation', 'track-repair', 'spring-repair'],
     faqs: [
       {
-        question: 'Can you match any door colour?',
-        answer: 'We match most factory colours on doors still in production. Faded sun-aged paint may never be perfect — we show samples in daylight before you commit.',
+        question: 'Do you replace garage door panels?',
+        answer:
+          'No. We repair panels in place — dents, rust edges, hinges, struts, and seal lines. If a section needs to be swapped, we discuss new door installation or refer you to a supplier who specializes in section replacement.',
       },
       {
-        question: 'Is one panel enough or do I need a full door?',
-        answer: 'If one section is damaged and the rest is structurally sound, one panel is enough. Multiple rusted sections or a sagging frame mean full replacement is smarter economics.',
+        question: 'Can you fix a dent from backing into the door?',
+        answer:
+          'Often yes when the steel is not cracked and the section still tracks smoothly. We assess on site and set realistic expectations for how it will look from the street after repair.',
       },
       {
-        question: 'Will my HOA or subdivision care about the match?',
-        answer: 'Stittsville communities vary. We document colour codes and profiles for your records if architectural compliance matters on your street.',
+        question: 'What if the panel is rusted through?',
+        answer:
+          'Rust-through means the section is no longer structurally sound for in-place repair. We quote a new door when multiple sections are gone, or explain options if only one area failed but the rest of the door is near end of life.',
       },
       {
-        question: 'How long to get a special-order panel?',
-        answer: 'Lead times range from days to a few weeks depending on manufacturer. We give realistic dates before you pay a deposit on parts.',
+        question: 'Will panel repair match my door colour?',
+        answer:
+          'We touch up small areas where practical. We do not factory-match embossed sections or order replacement steel. Expect improvement, not a brand-new panel appearance.',
       },
       {
-        question: 'Can you replace just the bottom panel?',
-        answer: 'Yes — bottom panels take the most abuse and are the most common swap. We still check springs and seal afterward.',
+        question: 'Should I repair the panel or replace the whole door?',
+        answer:
+          'If one area is damaged and the door is otherwise sound, repair is usually the right call. Multiple rusted sections, a sagging frame, or a 25-year-old door often mean new installation is better economics — we say that plainly on site.',
       },
       {
-        question: 'Can you replace glass inserts in a window section?',
-        answer: 'Sometimes the whole window section swaps as a unit. We measure lite layout and quote based on manufacturer availability.',
+        question: 'Do you repair window sections or glass inserts?',
+        answer:
+          'We address frame and hinge issues around window sections. Broken glass or full lite replacement is outside our in-place repair scope — we tell you what we can and cannot do before you book.',
       },
     ],
   },
@@ -650,7 +662,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'Post-install we leave you with spring color codes written on the jamb, maintenance intervals, and opener force settings recorded — the next tech or future you knows what was done. A new door is a fifteen-to-twenty-year decision in this climate; five minutes of documentation at handoff prevents guesswork later.',
     ],
     signs: [
-      'Multiple sections rusted or delaminating — panel swaps will not last',
+      'Multiple sections rusted or delaminating — in-place panel repair will not last',
       'The door sags in the middle despite spring and track service',
       'You are renovating and the old door profile clashes with new siding on Main Street',
       'Energy bills and cold rooms suggest poor insulation on a garage attached to the house',
@@ -665,7 +677,6 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'Builder-grade doors on 2000s subdivisions prioritize cost over insulation and cycle rating. Replacing before the third spring failure saves cumulative repair bills.',
       'Tax credits and energy programs change year to year — we do not promise rebates, but we document insulation values on your invoice if your accountant or energy auditor needs them for a home upgrade file.',
       'City snow clearing and narrow plow piles on some Main Street area driveways mean wider doors or side-mounted openers get considered during replacement — we advise on clearance before you order.',
-      'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
       'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
     ],
     process: [
@@ -701,8 +712,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'We provide written quotes with door model, insulation value, warranty, and labour — no vague "starting at" without context on the phone.',
       'All starting figures are starting points — we confirm the final price on site after we see your door; custom sizes and commercial-height openings are priced after measurement.',
       'Financing and deposit terms are explained in writing before we order custom doors — final totals depend on size, insulation, and hardware choices after measurement.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve all of Stittsville — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Crossing Bridge, Bryanston Gate, and surrounding streets. Same typical price ranges whether you are five minutes from Main Street or west toward Fernbank.',
     ],
     durationNote: 'Most residential installs take 4–6 hours with two technicians on a standard double-car opening. Odd sizes, rotted jambs, or combined opener upgrades extend the day — we book accordingly so quality does not get rushed before sunset on short winter days.',
     diyRisks: [
@@ -714,7 +724,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'Ordering online without measuring headroom for track radius — doors arrive that cannot physically operate in low garages',
       'YouTube fixes filmed in warm climates do not account for -30°C hardware and frozen seals — what works in Texas binds in Stittsville.',
     ],
-    relatedSlugs: ['panel-replacement', 'opener-installation', 'maintenance'],
+    relatedSlugs: ['panel-repair', 'opener-installation', 'maintenance'],
     faqs: [
       {
         question: 'What R-value do I need for a Stittsville garage?',
@@ -768,7 +778,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'You are buying a home in Stittsville and want a baseline before winter possession',
       'Remote works but auto-reverse has never been tested with a real obstruction',
       'Rust dust on the floor under the bottom brackets after a wet spring',
-      'You are planning a panel swap or opener install and want the rest of the system verified first',
+      'You are planning panel repair or opener install and want the rest of the system verified first',
       'Door shakes the house frame on the top section — hinge wear or loose flag bracket, caught early at tune-up',
     ],
     whyHappens: [
@@ -777,7 +787,6 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'Stittsville climate accelerates wear: salt on the apron, UV on seals, cold on springs. Annual tune-ups align with how Ottawa Valley homes actually live.',
       'Paint and caulk on wooden jambs around older Fairwinds garages crack in freeze-thaw — water rots the jamb and shifts the vertical track. Maintenance notes catch early rot before a full reframing job.',
       'Garage door neglect often continues until a real estate inspection lists "service recommended" — we provide a written summary you can attach to a listing or keep for your file.',
-      'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
       'Ottawa Valley weather is the hidden mechanic on every garage door: freeze-thaw at the slab, salt on the apron, humidity in unheated bays, and UV on seals. Repairs that ignore climate fail again. We choose lubricants, seals, and hardware torque with winter in mind because Stittsville is not a mild-climate market — and your door cycles in that reality every day.',
     ],
     process: [
@@ -813,8 +822,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'We do not turn maintenance into a surprise parts bill — if a roller is bad, we show you and you decide.',
       'The $150 tune-up is our standard single-door rate; multi-door packages may be discounted when booked together.',
       'Booking maintenance the same week as a neighbour on your street sometimes qualifies for a block discount — ask when scheduling multiple homes in Jackson Trails or Fairwinds.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve all of Stittsville — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Crossing Bridge, Bryanston Gate, and surrounding streets. Same typical price ranges whether you are five minutes from Main Street or west toward Fernbank.',
     ],
     durationNote: 'Most tune-ups take about 45 minutes per door when no repairs are needed. If we find a frayed cable or cracked spring, we may extend the visit or schedule a follow-up with parts — your choice, not pressure.',
     diyRisks: [

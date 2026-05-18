@@ -2,9 +2,9 @@ export type Faq = { question: string; answer: string };
 
 export const homepageFaqs: Faq[] = [
   {
-    question: 'Do you charge a service call fee?',
+    question: 'Is the on-site estimate free?',
     answer:
-      'No separate dispatch fee — we provide a free on-site estimate and a written quote before any repair begins. You approve the price on site before we start work.',
+      'Yes. We diagnose on site and give you a written quote before any repair — no dispatch fee and no charge that only counts toward the job if you approve same-day work. You decide yes or no after you see the number.',
   },
   {
     question: 'How fast can you get to my house in Stittsville?',
@@ -24,7 +24,7 @@ export const homepageFaqs: Faq[] = [
   {
     question: 'Are you insured?',
     answer:
-      'Yes — liability insurance and WSIB coverage. You get a written invoice for every job, whether it is a spring on Amberway Drive or a full door in Crossing Bridge Estates.',
+      'Yes — liability insurance. You get a written invoice for every job, whether it is a spring on Amberway Drive or a full door in Crossing Bridge Estates.',
   },
   {
     question: 'Do you do estimates over the phone?',

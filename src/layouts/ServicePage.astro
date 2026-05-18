@@ -13,6 +13,7 @@ import { site } from '../data/site';
 import { neighbourhoods } from '../data/neighbourhoods';
 import { services, getService } from '../data/services';
 import type { ServicePageContent } from '../data/serviceContent';
+import { serviceLocalInsights } from '../data/serviceLocalInsights';
 
 interface Props {
   content: ServicePageContent;
@@ -28,6 +29,7 @@ const title = `${content.h1} | ${site.phone}`;
 const description = content.metaDescription;
 
 const servicePhotos = getPhotosForService(content.slug, 3);
+const localInsights = serviceLocalInsights[content.slug] ?? [];
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -68,6 +70,15 @@ const crumbs = [
 
       <h2>Why this happens</h2>
       {content.whyHappens.map((p) => <p>{p}</p>)}
+
+      {
+        localInsights.length > 0 && (
+          <>
+            <h2>What we see in Stittsville for {service.name.toLowerCase()}</h2>
+            {localInsights.map((p) => <p>{p}</p>)}
+          </>
+        )
+      }
 
       <h2>What we do when we arrive</h2>
       <ol class="mb-8 list-decimal space-y-4 pl-6">
