@@ -7,7 +7,7 @@ import NeighbourhoodGrid from '../components/NeighbourhoodGrid.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
 import { site } from '../data/site';
 import { neighbourhoods } from '../data/neighbourhoods';
-import { serviceCallFee } from '../data/pricing';
+import { pricingPolicy } from '../data/pricing';
 
 const title = `About Stittsville Garage Doors | Local Technician`;
 const description = `Local Stittsville garage door repair — one technician answers the phone and shows up. Insured, WSIB, upfront pricing. Serving all Stittsville neighbourhoods. Call ${site.phone}.`;
@@ -32,7 +32,7 @@ const crumbs = [
   <article class="container-page section-pad prose-content prose-wide max-w-none">
     <h2>Who we are</h2>
     <p>
-      Stittsville Garage Doors is a local service focused on K2S and K2V — the neighbourhoods west of Kanata where garage doors see real Ottawa Valley weather, daily family use, and the wear that comes with Mattamy builds, 1990s Fairwinds stock, and executive three-car bays in Crossing Bridge Estates. When you call {site.phone}, you are not entering a phone tree. You speak with the technician who schedules the visit, loads the truck with common springs and opener parts, and pulls into your driveway off Stittsville Main, Hazeldean Road, or Bridlewood Drive.
+      Stittsville Garage Doors is a local service focused on Stittsville — the neighbourhoods west of Kanata where garage doors see real Ottawa Valley weather, daily family use, and the wear that comes with Mattamy builds, 1990s Fairwinds stock, and executive three-car bays in Crossing Bridge Estates. When you call {site.phone}, you are not entering a phone tree. You speak with the technician who schedules the visit, loads the truck with common springs and opener parts, and pulls into your driveway off Stittsville Main, Hazeldean Road, or Bridlewood Drive.
     </p>
     <p>
       We are not a storefront on Main Street with a showroom window — we are a mobile repair and installation operation built around response time and honest quotes. That matches how Stittsville homeowners actually hire for garage doors: something breaks, you need it fixed today, and you want to know the price before someone starts drilling.
@@ -48,7 +48,7 @@ const crumbs = [
 
     <h2>What we believe</h2>
     <p>
-      <strong>Upfront pricing.</strong> Our service call fee is ${serviceCallFee} and it covers diagnosis plus a written quote. If you approve the repair during the same visit, that fee applies toward the job. Starting prices for springs, openers, cables, and tracks live on our <a href="/pricing/">pricing page</a> — not buried in a PDF.
+      <strong>Upfront pricing.</strong> Free on-site estimate and a written quote before work — no separate dispatch fee. Typical ranges for springs, openers, cables, and tracks live on our <a href="/pricing/">pricing page</a>. Seniors and veterans receive {pricingPolicy.seniorsVeteransDiscountPercent}% off repairs.
     </p>
     <p>
       <strong>No upsells.</strong> If a tune-up fixes the grinding on your Fairwinds door, we do the tune-up. If a single panel replacement saves a sound door in Crossing Bridge Estates, we do not push a full install. We explain what failed, what options cost, and what happens if you wait.
@@ -59,7 +59,7 @@ const crumbs = [
 
     <h2>Service area</h2>
     <p>
-      We serve all six core Stittsville neighbourhoods below — plus surrounding K2S/K2V streets that share the same housing stock and commute patterns toward the 417, Carp Road, and Stittsville Main. If you are on the border of Kanata or Richmond, call and we will confirm drive time honestly.
+      We serve all six core Stittsville neighbourhoods below — plus surrounding Stittsville streets that share the same housing stock and commute patterns toward the 417, Carp Road, and Stittsville Main. If you are on the border of Kanata or Richmond, call and we will confirm drive time honestly.
     </p>
     <ul class="mb-8 list-disc space-y-2 pl-6">
       {neighbourhoods.map((n) => (

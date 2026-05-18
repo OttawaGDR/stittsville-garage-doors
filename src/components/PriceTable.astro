@@ -14,7 +14,7 @@ const { rows, showServiceLinks = true } = Astro.props;
     <thead class="bg-primary-50 text-primary-900">
       <tr>
         <th class="px-4 py-3 font-display font-bold uppercase">Job</th>
-        <th class="px-4 py-3 font-display font-bold uppercase">Starting at</th>
+        <th class="px-4 py-3 font-display font-bold uppercase">Typical range</th>
       </tr>
     </thead>
     <tbody>
@@ -31,7 +31,9 @@ const { rows, showServiceLinks = true } = Astro.props;
               }
               {row.note && <span class="block text-xs text-primary-500">{row.note}</span>}
             </td>
-            <td class="px-4 py-3 font-semibold">${row.startingAt}</td>
+            <td class="px-4 py-3 font-semibold">
+              {row.priceHigh ? `$${row.startingAt}–$${row.priceHigh}` : `$${row.startingAt}+`}
+            </td>
           </tr>
         ))
       }

@@ -7,7 +7,7 @@ import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
 import { site } from '../data/site';
 
 const title = `Contact Stittsville Garage Doors | ${site.phone}`;
-const description = `Contact Stittsville garage door repair. Call ${site.phone} or send a message — same-day service across K2S & K2V. Hours: ${site.hours}.`;
+const description = `Contact Stittsville garage door repair. Call ${site.phone} or send a message — same-day service across Stittsville. Hours: ${site.hours}.`;
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -15,6 +15,12 @@ const crumbs = [
 ];
 
 const mapEmbed = `https://maps.google.com/maps?q=${site.serviceArea.coords.lat},${site.serviceArea.coords.lng}&z=13&hl=en&output=embed`;
+
+const status = Astro.url.searchParams.get('sent')
+  ? 'sent'
+  : Astro.url.searchParams.get('error')
+    ? 'error'
+    : null;
 ---
 
 <Base title={title} description={description}>
@@ -43,7 +49,7 @@ const mapEmbed = `https://maps.google.com/maps?q=${site.serviceArea.coords.lat},
         <ul class="mt-6 space-y-4 text-primary-700">
           <li><strong>Hours:</strong> {site.hours}</li>
           <li><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
-          <li><strong>Service area:</strong> {site.serviceArea.primary} ({site.serviceArea.postalCodes.join(', ')})</li>
+          <li><strong>Service area:</strong> {site.serviceArea.primary}</li>
           <li><strong>Response time:</strong> Most Stittsville calls get a same-day window; average under 90 minutes when trucks are on the west Ottawa route.</li>
         </ul>
         <div class="mt-8">
@@ -57,8 +63,30 @@ const mapEmbed = `https://maps.google.com/maps?q=${site.serviceArea.coords.lat},
       <div class="card">
         <h2 class="text-2xl">Request a callback</h2>
         <p class="mt-2 text-sm text-primary-600">
-          Form posts to <code class="text-xs">/api/contact</code>. On Vercel, wire this to Vercel Forms or your serverless handler — no CAPTCHA puzzles, honeypot only.
+          We email your request to {site.email} and call you back — usually the same day for Stittsville addresses.
         </p>
+        {
+          status === 'sent' && (
+            <p class="mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900" role="status">
+              Thanks — your message was sent. We will call you at the number you provided.
+            </p>
+          )
+        }
+        {
+          status === 'error' && (
+            <p class="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900" role="alert">
+              Something went wrong sending your message. Please call{' '}
+              <a href={`tel:${site.phoneRaw}`} class="font-semibold underline">
+                {site.phone}
+              </a>{' '}
+              or email{' '}
+              <a href={`mailto:${site.email}`} class="font-semibold underline">
+                {site.email}
+              </a>{' '}
+              directly.
+            </p>
+          )
+        }
         <form class="mt-6 space-y-4" method="POST" action="/api/contact">
           <div class="absolute -left-[9999px]" aria-hidden="true">
             <label for="company">Company</label>
@@ -106,7 +134,7 @@ const mapEmbed = `https://maps.google.com/maps?q=${site.serviceArea.coords.lat},
           <button type="submit" class="btn-primary w-full">Send message</button>
         </form>
         <p class="mt-4 text-xs text-primary-500">
-          Prefer email only? Write to <a href={`mailto:${site.email}?subject=Stittsville%20garage%20door%20repair`}>{site.email}</a> with the same details. If the form is not yet connected in production, calling {site.phone} is always fastest.
+          Prefer email only? Write to <a href={`mailto:${site.email}?subject=Stittsville%20garage%20door%20repair`}>{site.email}</a> with the same details.
         </p>
       </div>
     </div>
@@ -114,7 +142,7 @@ const mapEmbed = `https://maps.google.com/maps?q=${site.serviceArea.coords.lat},
     <div class="mt-16">
       <h2 class="text-center text-3xl">Stittsville service area</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-primary-700">
-        We do not list a fake storefront address — this map shows where we work: Stittsville, Ontario (K2S, K2V), centred on the village core near Stittsville Main Street and Hazeldean Road.
+        We do not list a fake storefront address — this map shows where we work: Stittsville, Ontario, centred on the village core near Stittsville Main Street and Hazeldean Road.
       </p>
       <div class="mt-8 overflow-hidden rounded-xl border border-primary-100 shadow-lg">
         <iframe

@@ -1,27 +1,35 @@
 ---
 import { site } from '../../data/site';
+import { absoluteUrl } from '../../data/seo';
 
 interface Props {
   serviceType: string;
+  slug: string;
   minPrice: number;
+  maxPrice?: number;
+  description?: string;
 }
 
-const { serviceType, minPrice } = Astro.props;
+const { serviceType, slug, minPrice, maxPrice, description } = Astro.props;
+const serviceUrl = absoluteUrl(`/services/${slug}`);
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  '@id': `${serviceUrl}#service`,
+  name: serviceType,
   serviceType,
+  description: description ?? `${serviceType} in Stittsville, Ontario.`,
+  url: serviceUrl,
   provider: { '@id': `${site.url}/#business` },
   areaServed: { '@type': 'City', name: 'Stittsville' },
   offers: {
-    '@type': 'Offer',
+    '@type': 'AggregateOffer',
     priceCurrency: 'CAD',
-    price: String(minPrice),
-    priceSpecification: {
-      '@type': 'PriceSpecification',
-      minPrice: String(minPrice),
-    },
+    lowPrice: String(minPrice),
+    highPrice: String(maxPrice ?? minPrice),
+    offerCount: '1',
+    url: serviceUrl,
   },
 };
 ---

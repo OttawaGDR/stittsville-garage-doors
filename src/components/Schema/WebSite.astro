@@ -1,0 +1,17 @@
+---
+import { site } from '../../data/site';
+import { defaultDescription } from '../../data/seo';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${site.url}/#website`,
+  url: site.url,
+  name: site.name,
+  description: defaultDescription,
+  inLanguage: 'en-CA',
+  publisher: { '@id': `${site.url}/#business` },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

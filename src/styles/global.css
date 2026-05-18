@@ -35,8 +35,17 @@
     @apply text-2xl;
   }
 
-  a:not(.btn-primary):not(.btn-phone):not(.nav-link) {
+  /* Prose links only — footer/dark sections use their own link colours */
+  main a:not(.btn-primary):not(.btn-phone):not(.nav-link) {
     @apply text-primary-700 underline-offset-2 hover:underline;
+  }
+
+  footer a {
+    @apply font-medium text-white no-underline underline-offset-2 hover:text-accent-400 hover:underline;
+  }
+
+  .bg-primary-900 a:not(.btn-primary):not(.btn-phone):not(.nav-link) {
+    @apply text-white underline-offset-2 hover:text-accent-400 hover:underline;
   }
 }
 

@@ -17,54 +17,50 @@ import PhoneLink from './PhoneLink.astro';
           class="h-9 w-auto"
         />
       </a>
-      <p class="mt-3 text-primary-100">{site.tagline}</p>
-      <p class="mt-4 text-sm text-primary-100">{site.hours}</p>
+      <p class="mt-3 text-slate-200">{site.tagline}</p>
+      <p class="mt-4 text-sm text-slate-200">{site.hours}</p>
       <div class="mt-4">
         <PhoneLink />
       </div>
     </div>
     <div>
-      <h2 class="text-lg font-bold uppercase text-white">Services</h2>
-      <ul class="mt-4 space-y-2 text-sm">
+      <h2 class="text-lg font-bold uppercase tracking-wide text-white">Services</h2>
+      <ul class="mt-4 space-y-2.5 text-base leading-snug">
         {
           services.map((s) => (
             <li>
-              <a href={`/services/${s.slug}/`} class="text-primary-100 no-underline hover:text-accent-400">
-                {s.fullName}
-              </a>
+              <a href={`/services/${s.slug}/`}>{s.fullName}</a>
             </li>
           ))
         }
       </ul>
     </div>
     <div>
-      <h2 class="text-lg font-bold uppercase text-white">Neighbourhoods</h2>
-      <ul class="mt-4 space-y-2 text-sm">
+      <h2 class="text-lg font-bold uppercase tracking-wide text-white">Neighbourhoods</h2>
+      <ul class="mt-4 space-y-2.5 text-base leading-snug">
         {
           neighbourhoods.map((n) => (
             <li>
-              <a href={`/neighbourhoods/${n.slug}/`} class="text-primary-100 no-underline hover:text-accent-400">
-                {n.name}
-              </a>
+              <a href={`/neighbourhoods/${n.slug}/`}>{n.name}</a>
             </li>
           ))
         }
       </ul>
     </div>
     <div>
-      <h2 class="text-lg font-bold uppercase text-white">Company</h2>
-      <ul class="mt-4 space-y-2 text-sm">
-        <li><a href="/about/" class="text-primary-100 no-underline hover:text-accent-400">About</a></li>
-        <li><a href="/pricing/" class="text-primary-100 no-underline hover:text-accent-400">Pricing</a></li>
-        <li><a href="/reviews/" class="text-primary-100 no-underline hover:text-accent-400">Reviews</a></li>
-        <li><a href="/emergency/" class="text-primary-100 no-underline hover:text-accent-400">Emergency</a></li>
-        <li><a href="/contact/" class="text-primary-100 no-underline hover:text-accent-400">Contact</a></li>
-        <li><a href="/resources/winter-garage-door-guide/" class="text-primary-100 no-underline hover:text-accent-400">Winter guide</a></li>
-        <li><a href="/resources/stittsville-pricing-guide/" class="text-primary-100 no-underline hover:text-accent-400">Pricing guide</a></li>
+      <h2 class="text-lg font-bold uppercase tracking-wide text-white">Company</h2>
+      <ul class="mt-4 space-y-2.5 text-base leading-snug">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/emergency/">Emergency</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/resources/winter-garage-door-guide/">Winter guide</a></li>
+        <li><a href="/resources/stittsville-pricing-guide/">Pricing guide</a></li>
       </ul>
     </div>
   </div>
-  <div class="border-t border-primary-700 py-6 text-center text-sm text-primary-100">
-    <p>&copy; {new Date().getFullYear()} {site.legal.entity}. Serving {site.serviceArea.primary} ({site.serviceArea.postalCodes.join(', ')}).</p>
+  <div class="border-t border-white/20 py-6 text-center text-sm text-slate-300">
+    <p>&copy; {new Date().getFullYear()} {site.legal.entity}. Serving {site.serviceArea.primary}.</p>
   </div>
 </footer>

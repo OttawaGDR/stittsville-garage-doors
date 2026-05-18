@@ -3,12 +3,13 @@ export type Faq = { question: string; answer: string };
 export const homepageFaqs: Faq[] = [
   {
     question: 'Do you charge a service call fee?',
-    answer: `Yes — $89 covers diagnosis and a written quote on site. If you approve the repair during the same visit, we apply that fee toward the job. No surprise charges when we pull into your driveway off Hazeldean or Main Street.`,
+    answer:
+      'No separate dispatch fee — we provide a free on-site estimate and a written quote before any repair begins. You approve the price on site before we start work.',
   },
   {
     question: 'How fast can you get to my house in Stittsville?',
     answer:
-      'Most Stittsville calls (K2S, K2V) get a same-day window between 7 AM and 10 PM. Jackson Trails to Bryanston Gate is usually under 90 minutes when trucks are in the west Ottawa rotation.',
+      'Most Stittsville calls get a same-day window between 7 AM and 10 PM. Jackson Trails to Bryanston Gate is usually under 90 minutes when trucks are in the west Ottawa rotation.',
   },
   {
     question: 'Do you work on weekends?',
@@ -28,6 +29,6 @@ export const homepageFaqs: Faq[] = [
   {
     question: 'Do you do estimates over the phone?',
     answer:
-      'We can quote ranges for common jobs (springs, openers, cables) if you describe the door size and problem. Complex repairs need a quick look — we will tell you the service call fee and expected range before we drive out.',
+      'We can quote ranges for common jobs (springs, openers, cables) if you describe the door size and problem. Complex repairs need a quick look — we will give you an expected range before we drive out, then confirm with a written quote on site.',
   },
 ];

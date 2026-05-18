@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import { site } from '../data/site';
+
+const title = `Page Not Found | ${site.name}`;
+const description = 'This page could not be found. Browse garage door repair services in Stittsville or call for same-day help.';
+---
+
+<Base title={title} description={description} noindex>
+  <section class="container-page section-pad text-center">
+    <p class="text-sm font-semibold uppercase tracking-widest text-accent-600">404</p>
+    <h1 class="mt-4">Page not found</h1>
+    <p class="mx-auto mt-6 max-w-lg text-primary-700">
+      The page you requested is not on this site. Try our <a href="/services/">services</a>,{' '}
+      <a href="/pricing/">pricing</a>, or <a href="/contact/">contact</a> pages — or call for immediate help in
+      Stittsville.
+    </p>
+    <div class="mt-8 flex justify-center">
+      <PhoneLink showIcon />
+    </div>
+  </section>
+</Base>

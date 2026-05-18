@@ -114,7 +114,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'When the garage door opener stops doing its job in Stittsville, the cause is rarely "the motor is dead." More often it is a safety sensor knocked out of alignment after you cleared ice off the apron, a worn gear set in a belt-drive unit that has cycled thousands of times since the house was built on Bryanston Avenue, or a door that is so out of balance the opener hits its force limit and gives up.',
       'We repair LiftMaster, Chamberlain, Genie, and most chain- and belt-drive units found in Jackson Trails Mattamy garages, Fairwinds split-levels, and Amberwood originals still running first-generation openers. You get a technician who tests the door mechanically first — springs, cables, rollers — before blaming the box on the ceiling. That order matters because replacing a motor on a door that is too heavy is throwing money away.',
       'Stittsville driveways see real wear: slush spray on photo-eyes near Wyldewood Park, Wi-Fi openers losing pairing after a router swap on Gatehouse Way, and wall buttons with intermittent contacts in unheated garages. We carry common wear parts — gears, couplers, safety sensors, wall stations — so most repairs finish in one trip.',
-      'If you are commuting on Hazeldean or Main Street and the door will not close behind you, call before you leave it open all day. We schedule same-day opener repair across K2S and K2V so you are not manually heaving a 200-pound door every night through the winter.',
+      'If you are commuting on Hazeldean or Main Street and the door will not close behind you, call before you leave it open all day. We schedule same-day opener repair across Stittsville so you are not manually heaving a 200-pound door every night through the winter.',
       'Stittsville homes mix detached heated garages, cold rooms above the bay, and long commutes — your opener cycles more than you think. A door that closes fine at 5 PM but reverses at 6 AM often traces to frost on the sensor lens or a stiff bottom seal, not a dead motor. We document what we find so you are not guessing whether to buy a $600 unit when a $150 alignment fixes it.',
       'We are not a dispatch centre routing you to whoever is closest to Kanata. The person who answers has likely already worked on your model opener in another Stittsville driveway this month. That matters when a Chamberlain belt-drive on Bryanston Avenue needs a specific gear kit and a big-box store shelf part does not fit.',
       'Opener repair also covers the small failures that waste an evening: a wall control with a cracked wire where the garage meets the house, a trolley that disengaged after someone pulled the red rope and did not re-engage it correctly, or a vacation lock switch bumped on by storage boxes. We trace electrical and mechanical paths until the symptom matches the cause — not until we have sold you hardware you do not need.',
@@ -212,7 +212,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
   'opener-installation': {
     slug: 'opener-installation',
     h1: 'Garage Door Opener Installation in Stittsville',
-    metaDescription: 'New garage door opener installed in Stittsville from $550. Belt-drive, chain-drive, jackshaft. LiftMaster & Chamberlain. Same-week booking. (613) 777-6401.',
+    metaDescription: 'New garage door opener installed in Stittsville from $650. Belt-drive, chain-drive, jackshaft. LiftMaster & Chamberlain. Same-week booking. (613) 777-6401.',
     heroSubtitle: 'Quiet belt-drive for a bedroom above the garage, jackshaft when ceiling storage is tight, or a straight swap when the old unit is done — installed and programmed in your driveway.',
     intro: [
       'A new garage door opener installation in Stittsville is more than hanging a motor on a bracket. The rail has to follow the door\'s path, the header lag screws need solid wood, safety sensors must sit low enough to see a child or pet but not catch snowbanks, and the travel limits have to match how your door actually hits the seal on a -20°C morning when the rubber is stiff.',
@@ -270,12 +270,12 @@ export const serviceContents: Record<string, ServicePageContent> = {
       },
     ],
     pricing: [
-      'Standard belt-drive or chain-drive opener installation in Stittsville typically starts around $550 labour plus the unit you choose — we can supply common models or install a homeowner-purchased opener if it is compatible.',
+      'Standard belt-drive or chain-drive opener installation in Stittsville typically starts around $650 labour plus the unit you choose — we can supply common models or install a homeowner-purchased opener if it is compatible.',
       'Jackshaft and wall-mount installs on three-car Crossing Bridge garages or high-lift tracks run higher due to extra hardware and programming time.',
       'Adding a new outlet, structural reinforcement for heavy doors, or converting extension springs to torsion is quoted separately before work starts.',
       'All starting figures are starting points — we confirm the final price on site after we see your door; we give an itemized quote after seeing your ceiling layout and door weight.',
       'Package pricing when we install a door and opener together on a new-door job is quoted as one project — ask when scheduling a full replacement in Crossing Bridge or Amberwood.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
     ],
     durationNote: 'Most opener installations take 2–3 hours in Stittsville driveways. Jackshaft units, smart hub setup, or door balance corrections add time. We schedule half-day blocks so you are not rushing the safety tests before dinner.',
     diyRisks: [
@@ -317,7 +317,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
   'cable-repair': {
     slug: 'cable-repair',
     h1: 'Garage Door Cable Repair in Stittsville',
-    metaDescription: 'Frayed or snapped garage door cable in Stittsville? Lift cable repair from $180. Drum re-seat, spring-related fixes. Same-day. (613) 777-6401.',
+    metaDescription: 'Frayed or snapped garage door cable in Stittsville? Lift cable repair from $150. Drum re-seat, spring-related fixes. Same-day. (613) 777-6401.',
     heroSubtitle: 'Cable off the drum, door hanging crooked, or frayed strands near the bottom bracket — we re-seat, replace, and balance so both sides lift evenly.',
     intro: [
       'Garage door lift cables do the unglamorous work of connecting the bottom bracket to the drum while the springs rotate. When a cable frays or jumps the drum, the door skews, binds in the track, or drops on one corner — and the opener should not be used until it is fixed. We see cable calls across Stittsville after spring failures, after someone tried to force a stuck door, and on older Amberwood doors where corrosion met Ottawa slush.',
@@ -375,13 +375,13 @@ export const serviceContents: Record<string, ServicePageContent> = {
       },
     ],
     pricing: [
-      'Single lift cable replacement with a straightforward drum re-seat in Stittsville often starts around $180 for labour and standard cable.',
+      'Single lift cable replacement with a straightforward drum re-seat in Stittsville often starts around $150 for labour and standard cable.',
       'If both cables need replacement, drums are damaged, or a spring failed at the same time, pricing moves up — we bundle where it saves you a second visit.',
       'Bottom bracket replacement or track straightening from a crooked drop adds line items we quote on site.',
       'Starting prices are starting points — we confirm the final price on site after we see your door; we confirm after seeing drum condition and door weight.',
       'Emergency cable securing when the door is stuck partially open may cost more than a scheduled repair — we stabilize first, then quote full replacement.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
     ],
     durationNote: 'Expect 45–60 minutes for a standard cable swap when springs are stable and drums are healthy. Combined spring-and-cable jobs after a break take longer because tensioning must be done safely — plan 90+ minutes in those cases.',
     diyRisks: [
@@ -420,7 +420,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
   'track-repair': {
     slug: 'track-repair',
     h1: 'Garage Door Track Repair in Stittsville',
-    metaDescription: 'Bent garage door track repair in Stittsville from $200. Verticals, brackets, rollers back in line. Same-day. Wyldewood, Jackson Trails. (613) 777-6401.',
+    metaDescription: 'Bent garage door track repair in Stittsville from $150. Verticals, brackets, rollers back in line. Same-day. Wyldewood, Jackson Trails. (613) 777-6401.',
     heroSubtitle: 'Door jammed, gap at the vertical track, or rollers popping out — we straighten, replace sections, and realign so the door glides without grinding.',
     intro: [
       'Garage door track repair in Stittsville usually starts with a sound — metal grinding, a thump when the roller hits a bent spot, or silence because the door will not move past a certain height. Tracks guide the door; when verticals shift or horizontals sag, the whole system fights itself and the opener pays the price.',
@@ -479,13 +479,13 @@ export const serviceContents: Record<string, ServicePageContent> = {
       },
     ],
     pricing: [
-      'Simple track straightening and bracket tightening in Stittsville often starts around $200 for labour when parts are sound.',
+      'Simple track straightening and bracket tightening in Stittsville often starts around $150 for labour when parts are sound.',
       'Replacing a short vertical section, multiple rollers, or both lower verticals increases cost with material — we quote before cutting steel.',
       'If the door dropped because of springs or cables, those repairs are line items we explain separately.',
       'Listed starting prices are starting points — we confirm the final price on site after we see your door; final numbers depend on track profile and damage extent.',
       'Multi-door properties with the same bend from a shared basketball net get per-door quotes — we do not assume both bays are identical without looking.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
     ],
     durationNote: 'Straightforward track alignment runs 60–90 minutes. Full lower vertical replacement on a double-car door can approach two hours when we replace rollers and reset cables. We pad estimates so you are not late for pickup at Sacred Heart because we rushed a bind test.',
     diyRisks: [
@@ -529,7 +529,7 @@ export const serviceContents: Record<string, ServicePageContent> = {
   'panel-replacement': {
     slug: 'panel-replacement',
     h1: 'Garage Door Panel Replacement in Stittsville',
-    metaDescription: 'Damaged garage door panel replacement in Stittsville from $400/panel. Match profiles on wood-look steel. Fairwinds, Crossing Bridge. (613) 777-6401.',
+    metaDescription: 'Damaged garage door panel replacement in Stittsville from $250/section. Match profiles on wood-look steel. Fairwinds, Crossing Bridge. (613) 777-6401.',
     heroSubtitle: 'Backed into a section, hockey puck dent, or rust-through at the bottom — we swap single panels when the rest of the door is worth keeping.',
     intro: [
       'Garage door panel replacement in Stittsville makes sense when one or two sections are damaged but the tracks, springs, and remaining panels are sound. A full door swap is expensive; a matched panel restores curb appeal on Fairwind Way and fixes a cracked section from winter shrinkage in Amberwood without throwing away good hardware.',
@@ -588,13 +588,13 @@ export const serviceContents: Record<string, ServicePageContent> = {
       },
     ],
     pricing: [
-      'Panel replacement in Stittsville typically starts around $400 per panel for labour on a standard section when a matching panel is available — panel material cost is additional and varies wildly by age and brand.',
+      'Panel replacement in Stittsville typically runs $250–$500 per section for labour and matching when a panel is available — material cost varies by age and brand; discontinued profiles may need a full-door conversation.',
       'Carriage-style and wood-look profiles on Crossing Bridge executive homes cost more to source; discontinued colours may need the closest match plus honest conversation about visibility from the street.',
       'If springs, cables, or multiple sections need work, we itemize everything before ordering steel.',
       'Starting prices are starting points — we confirm the final price on site after we see your door; we do not order custom sections without your approval on the total.',
       'Disposal of the old section is included in labour on standard jobs; asbestos-era materials are not in scope — we flag if we see non-standard old composites.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
     ],
     durationNote: 'Plan 2–4 hours on site when the panel is on the truck. Discontinued profiles may need a second visit for install after delivery — we communicate lead time up front so you are not guessing while the door hangs open.',
     diyRisks: [
@@ -701,8 +701,8 @@ export const serviceContents: Record<string, ServicePageContent> = {
       'We provide written quotes with door model, insulation value, warranty, and labour — no vague "starting at" without context on the phone.',
       'All starting figures are starting points — we confirm the final price on site after we see your door; custom sizes and commercial-height openings are priced after measurement.',
       'Financing and deposit terms are explained in writing before we order custom doors — final totals depend on size, insulation, and hardware choices after measurement.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
     ],
     durationNote: 'Most residential installs take 4–6 hours with two technicians on a standard double-car opening. Odd sizes, rotted jambs, or combined opener upgrades extend the day — we book accordingly so quality does not get rushed before sunset on short winter days.',
     diyRisks: [
@@ -749,13 +749,13 @@ export const serviceContents: Record<string, ServicePageContent> = {
   'maintenance': {
     slug: 'maintenance',
     h1: 'Garage Door Maintenance & Tune-Up in Stittsville',
-    metaDescription: 'Garage door tune-up in Stittsville from $129. Lube, balance, safety test, hardware tighten. Before winter hits. (613) 777-6401.',
+    metaDescription: 'Garage door tune-up in Stittsville from $150. Lube, balance, safety test, hardware tighten. Before winter hits. (613) 777-6401.',
     heroSubtitle: 'Forty-five minutes that catches worn rollers, loose bolts, and a door heading for a spring snap — scheduled before Ottawa winter or after a noisy season.',
     intro: [
       'Garage door maintenance in Stittsville is the cheapest way to avoid the expensive call — the spring break on the coldest morning, the cable off the drum before you drive to Saunders Farm, or the opener gear stripped because the door was out of balance all summer. A tune-up is lube where it belongs, hardware torqued to spec, balance checked with the opener disconnected, and safety devices tested the way they would matter if a kid ducked under a closing door.',
       'We see maintenance spikes in September and October when homeowners along Hazeldean and in Fairwinds remember what -25°C feels like on a door that has not been touched in years. Jackson Trails owners book after the first noisy season on a new-to-them home; Amberwood owners book because they know their original springs are living on borrowed time.',
       'A proper tune-up is not spray-and-pray. We hit hinges and rollers with the right product for cold climates, avoid greasing tracks where rollers need to roll not slide, tighten flag brackets and spring anchor plates, and test force and auto-reverse on the opener. We tell you if a spring is counting down cycles — honest notice beats a surprise bang.',
-      'At $129 starting, maintenance pays for itself if it prevents one emergency visit. We service every Stittsville neighbourhood from Bryanston Gate new builds to 1980s Amberwood Village stock before the Village Square Park rink season fills your calendar.',
+      'At $150 starting, maintenance pays for itself if it prevents one emergency visit. We service every Stittsville neighbourhood from Bryanston Gate new builds to 1980s Amberwood Village stock before the Village Square Park rink season fills your calendar.',
       'Maintenance visits are when we meet your door before it is an emergency — kids heading back to Sacred Heart, snow tires stacked against the wall, the opener cycling four times before breakfast. A tuned door is boring, and boring is good.',
       'Landlords with rentals near Stittsville Main and property managers with multiple doors on one cul-de-sac book maintenance on a schedule so tenants are not calling at midnight with a spring bang. We keep records of what we tightened last year so repeat issues are visible.',
       'We also check weather seal contact along the full width — a seal that gaps on one corner lets mice and slush in, and tricks the opener into thinking it hit an obstruction. Replacing a retainer during maintenance is cheaper than diagnosing mysterious reversals all winter on Wyldewood Drive.',
@@ -808,13 +808,13 @@ export const serviceContents: Record<string, ServicePageContent> = {
       },
     ],
     pricing: [
-      'A standard residential garage door tune-up in Stittsville starts at $129 for the visit described above on a single door.',
+      'A standard residential garage door tune-up in Stittsville starts at $150 for the visit described above on a single door.',
       'Second doors on the same property, commercial-size doors, or repairs discovered during the tune-up are quoted separately before we proceed.',
       'We do not turn maintenance into a surprise parts bill — if a roller is bad, we show you and you decide.',
-      'The $129 tune-up is our standard single-door rate; multi-door packages may be discounted when booked together.',
+      'The $150 tune-up is our standard single-door rate; multi-door packages may be discounted when booked together.',
       'Booking maintenance the same week as a neighbour on your street sometimes qualifies for a block discount — ask when scheduling multiple homes in Jackson Trails or Fairwinds.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
-      'We serve Stittsville K2S and K2V postal codes daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
+      'We serve Stittsville daily — from the Tim Hortons corner on Hazeldean out to Fernbank and the Jackson Trails loop. Distance to Kanata or Bells Corners does not change how we quote; if you are in the service area, you get the same upfront starting numbers and the same technician standards as a job five minutes from Main Street.',
     ],
     durationNote: 'Most tune-ups take about 45 minutes per door when no repairs are needed. If we find a frayed cable or cracked spring, we may extend the visit or schedule a follow-up with parts — your choice, not pressure.',
     diyRisks: [

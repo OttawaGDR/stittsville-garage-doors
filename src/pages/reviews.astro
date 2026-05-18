@@ -3,7 +3,7 @@ import { Fragment } from 'astro/jsx-runtime';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ReviewCard from '../components/ReviewCard.astro';
-import ReviewSchema from '../components/Schema/Review.astro';
+import BusinessReviewsSchema from '../components/Schema/BusinessReviews.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
 import { site } from '../data/site';
 import { reviews, aggregateRating } from '../data/reviews';
@@ -19,7 +19,7 @@ const crumbs = [
 
 <Base title={title} description={description}>
   <Fragment slot="head">
-    <ReviewSchema />
+    <BusinessReviewsSchema />
     <BreadcrumbSchema crumbs={crumbs} />
   </Fragment>
 

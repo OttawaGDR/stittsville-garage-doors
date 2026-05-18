@@ -1,21 +1,25 @@
 ---
 import { site } from '../../data/site';
 import { neighbourhoods } from '../../data/neighbourhoods';
+import { services } from '../../data/services';
+import { defaultDescription } from '../../data/seo';
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
   '@id': `${site.url}/#business`,
   name: site.name,
+  description: defaultDescription,
   url: site.url,
   telephone: site.phoneRaw,
-  image: `${site.url}/images/og/home.jpg`,
+  email: site.email,
+  image: [`${site.url}/images/og/home.jpg`, `${site.url}/images/logo.svg`],
+  logo: `${site.url}/images/logo.svg`,
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Stittsville',
     addressRegion: 'ON',
-    postalCode: 'K2S',
     addressCountry: 'CA',
   },
   geo: {
@@ -24,25 +28,42 @@ const schema = {
     longitude: site.serviceArea.coords.lng,
   },
   areaServed: [
-    { '@type': 'Place', name: 'Stittsville' },
+    { '@type': 'City', name: 'Stittsville', containedInPlace: { '@type': 'AdministrativeArea', name: 'Ontario' } },
     ...neighbourhoods.map((n) => ({ '@type': 'Place', name: n.name })),
   ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday',
-      ],
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       opens: '07:00',
       closes: '22:00',
     },
   ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Garage door services',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      itemOffered: {
+        '@type': 'Service',
+        name: s.fullName,
+        url: `${site.url}/services/${s.slug}/`,
+      },
+    })),
+  },
+  potentialAction: {
+    '@type': 'CommunicateAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `tel:${site.phoneRaw}`,
+      actionPlatform: [
+        'http://schema.org/DesktopWebPlatform',
+        'http://schema.org/MobileWebPlatform',
+      ],
+    },
+    name: 'Call for garage door service',
+  },
   sameAs: [],
 };
 ---

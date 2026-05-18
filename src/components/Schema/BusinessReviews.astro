@@ -2,11 +2,11 @@
 import { site } from '../../data/site';
 import { reviews, aggregateRating } from '../../data/reviews';
 
+/** Extends #business on the reviews page — same @id merges with LocalBusiness in Google. */
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'HomeAndConstructionBusiness',
   '@id': `${site.url}/#business`,
-  name: site.name,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: String(aggregateRating.ratingValue),
@@ -14,7 +14,7 @@ const schema = {
     bestRating: '5',
     worstRating: '1',
   },
-  review: reviews.slice(0, 8).map((r) => ({
+  review: reviews.map((r) => ({
     '@type': 'Review',
     author: { '@type': 'Person', name: r.author },
     datePublished: r.date,
@@ -24,6 +24,7 @@ const schema = {
       bestRating: '5',
     },
     reviewBody: r.text,
+    itemReviewed: { '@id': `${site.url}/#business` },
   })),
 };
 ---

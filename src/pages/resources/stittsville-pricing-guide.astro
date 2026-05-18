@@ -7,12 +7,12 @@ import PriceTable from '../../components/PriceTable.astro';
 import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
 import { site } from '../../data/site';
 import { services } from '../../data/services';
-import { pricingTable, serviceCallFee } from '../../data/pricing';
+import { pricingTable, pricingPolicy } from '../../data/pricing';
 
 const h1 = 'What Garage Door Repair Actually Costs in Stittsville (2026)';
 const title = `${h1} | ${site.phone}`;
 const description =
-  'Honest 2026 garage door repair pricing for Stittsville — service call fees, spring and opener costs, red flags, and what moves your quote up or down. K2S & K2V.';
+  'Honest 2026 garage door repair pricing for Stittsville — service call fees, spring and opener costs, red flags, and what moves your quote up or down.';
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -33,15 +33,15 @@ const crumbs = [
 
   <article class="container-page section-pad prose-content prose-wide max-w-none">
     <p>
-      If you have ever searched “garage door repair cost” at 7 AM with a door stuck open, you have seen the same range: $89 to $89 to “call for quote.” That spread is not mystery — it is marketing. This page is the breakdown we wish every Stittsville homeowner had before booking: what our service call covers, what “starting at” means on each job, and how to spot quotes that will waste your morning.
+      If you have ever searched “garage door repair cost” at 7 AM with a door stuck open, you have seen the same range: $69 specials to “call for quote.” That spread is not mystery — it is marketing. This page is the breakdown we wish every Stittsville homeowner had before booking: typical Ottawa-area ranges for each job, what affects your quote, and how to spot bait-and-switch ads.
     </p>
     <p>
-      All dollar amounts below match our published 2026 rate card — the same numbers we show on the <a href="/pricing/">pricing page</a> and quote on the phone. Prices are in Canadian dollars, for typical single residential doors in K2S/K2V unless noted.
+      All dollar amounts below match our published 2026 rate card — the same numbers we show on the <a href="/pricing/">pricing page</a> and quote on the phone. Prices are in Canadian dollars, for typical single residential doors in Stittsville unless noted.
     </p>
 
     <h2>2026 price list for common Stittsville jobs</h2>
     <p>
-      Every repair visit starts with diagnosis. Our service call is <strong>${serviceCallFee}</strong> and is credited toward the repair if you approve work the same visit — you are not paying twice for the technician’s time.
+      Every repair visit starts with diagnosis and a <strong>written quote on site before work begins</strong> — no separate dispatch fee. You are not paying twice for the technician’s time.
     </p>
 
     <PriceTable rows={pricingTable} showServiceLinks />
@@ -57,8 +57,7 @@ const crumbs = [
         services.map((s) => (
           <li>
             <a href={`/services/${s.slug}/`}>
-              <strong>{s.fullName}</strong> — from ${s.startingPrice}
-              {s.priceLabel ? ` (${s.priceLabel})` : ''}
+              <strong>{s.fullName}</strong> — {s.priceLabel ?? `from $${s.startingPrice}`}
             </a>
             <span class="block text-sm text-primary-600">{s.summary}</span>
           </li>
@@ -80,7 +79,7 @@ const crumbs = [
       <strong>Opener replacement vs. repair.</strong> Gear kits and circuit boards can save a LiftMaster that is otherwise sound; a 20-year-old unit with a cracked rail and weak motor may not be worth sinking parts into — we tell you which side of that line you are on.
     </p>
     <p>
-      <strong>Panel matching and freight.</strong> Panel replacement starts at $400 per section because colour, emboss, and window layout must match. Discontinued steel profiles in older Amberwood doors sometimes need creative matching or full-door conversation.
+      <strong>Panel matching and freight.</strong> Panel work typically runs <strong>$250–$500 per section</strong> because colour, emboss, and window layout must match. Discontinued steel profiles in older Amberwood doors sometimes need creative matching or full-door conversation.
     </p>
     <p>
       <strong>After-hours emergency.</strong> A door stuck open in a snowstorm costs more than a tune-up booked for Tuesday afternoon — we are transparent about emergency rates when you call {site.phone}.
@@ -91,16 +90,16 @@ const crumbs = [
       <strong>One clear failure on an otherwise healthy door.</strong> A single torsion spring on a standard 16×7 steel door, tracks straight, cables intact — that is the “starting at” scenario.
     </p>
     <p>
-      <strong>Maintenance before catastrophe.</strong> Our maintenance tune-up starts at $129 and catches loose hardware, dry rollers, and balance drift before the opener strips gears or the spring snaps at -25°C.
+      <strong>Maintenance before catastrophe.</strong> Our 21-point tune-up runs <strong>$150–$180</strong> and catches loose hardware, dry rollers, and balance drift before the opener strips gears or the spring snaps at -25°C.
     </p>
     <p>
-      <strong>Approving repair during the same visit.</strong> The ${serviceCallFee} diagnosis fee rolls into the job — you are not nickel-and-dimed for “showing up” and again for “fixing it.”
+      <strong>Same-visit approval.</strong> When you approve the repair during the visit, we finish in one trip — you are not nickel-and-dimed for multiple dispatch charges.
     </p>
     <p>
       <strong>Local stocking.</strong> We run Stittsville routes daily; when the spring or gear kit is on the truck, you skip freight delays and second-visit charges common with out-of-town dispatch models.
     </p>
     <p>
-      <strong>Honest repair-versus-replace advice.</strong> Sometimes the cheapest total cost is a new opener install starting at $550 instead of throwing parts at a tired unit — we would rather earn trust than maximize a single invoice.
+      <strong>Honest repair-versus-replace advice.</strong> Sometimes the cheapest total cost is a new opener install ($650–$950 installed) instead of throwing parts at a tired unit — we would rather earn trust than maximize a single invoice.
     </p>
 
     <h2>Red flags in a quote (including the $69 bait-and-switch)</h2>
@@ -131,12 +130,12 @@ const crumbs = [
       </li>
     </ul>
     <p>
-      Our model is simpler: ${serviceCallFee} to diagnose, clear starting prices on the table above, and a verbal + written estimate before work. If the final number will exceed the starting price, you hear why — drum wear, second spring, track straightening — not after the door is apart.
+      Our model is simpler: free on-site estimate, clear ranges on the table above, and a written quote before work. If the final number will exceed the low end of the range, you hear why — drum wear, second spring, track straightening — not after the door is apart. Seniors and veterans receive {pricingPolicy.seniorsVeteransDiscountPercent}% off repairs.
     </p>
 
     <h2>Understanding the service call vs. the repair total</h2>
     <p>
-      Homeowners sometimes hear “$89 for the visit” and “$250 for the spring” and think the bill must be $339 no matter what. In practice, when you approve the spring replacement during that visit, the diagnosis fee is applied to the repair — you are paying for the outcome, not two stacked trips. What increases the total is additional parts: both springs when the matched pair is worn, cables, rollers, or a drum that failed because the door was run unbalanced for months.
+      Homeowners sometimes hear “$250 for the spring” and worry about hidden fees on top. In practice, a standard single-door spring replacement typically lands in the <strong>$250–$350</strong> range including parts, labour, and a safety check. What increases the total is additional parts: both springs when the matched pair is worn ($380–$480 on many doubles), cables, rollers, or a drum that failed because the door was run unbalanced for months.
     </p>
     <p>
       If you decline repair, you still owe the service call — the technician spent time, fuel, and expertise identifying the fault. That is fair on both sides and still cheaper than a free “estimate” that magically becomes mandatory work. Ask on the phone: “If I go ahead today, does the service call come off the repair?” We answer yes for same-visit approvals.
@@ -150,7 +149,7 @@ const crumbs = [
       <a href="/services/panel-replacement/">Panel replacement</a> is priced per section because freight and factory colour matching drive cost more than labour alone. A bottom panel hit by a snowblower is a different conversation than a top window section on a discontinued profile. We photograph the door and check manufacturer availability before quoting.
     </p>
     <p>
-      <a href="/services/opener-installation/">Opener installation</a> from $550 assumes a compatible rail on a balanced door. If the door cannot be lifted smoothly by hand, installing a stronger opener does not fix the physics — springs or tracks come first, then the motor.
+      <a href="/services/opener-installation/">Opener installation</a> ($650–$950 installed) assumes a compatible rail on a balanced door. Chain-drive from $650, belt-drive $750–$850, smart WiFi $850–$950. If the door cannot be lifted smoothly by hand, installing a stronger opener does not fix the physics — springs or tracks come first, then the motor.
     </p>
 
     <h2>Repair categories in plain language</h2>
@@ -185,16 +184,16 @@ const crumbs = [
 
     <h2>Sample scenarios (illustrative, not quotes)</h2>
     <p>
-      <strong>Monday 6 AM — spring snap in Fairwinds.</strong> Service call ${serviceCallFee} + spring repair from $250 if one standard torsion spring, door otherwise healthy. Same visit if the tech has the coil on the truck.
+      <strong>Monday 6 AM — spring snap in Fairwinds.</strong> Spring replacement <strong>$250–$350</strong> for a typical single door if hardware is otherwise healthy. Same visit if the tech has the coil on the truck.
     </p>
     <p>
       <strong>Sensor flicker in Bryanston Gate.</strong> Often opener repair from $150 after diagnosis — alignment and bracket tighten, not a new $650 unit.
     </p>
     <p>
-      <strong>Frayed cable on a 18-year-old Amberwood door.</strong> Cable repair from $180; if drums are scored or springs are at cycle end, we bundle before you pay twice.
+      <strong>Frayed cable on a 18-year-old Amberwood door.</strong> Cable repair <strong>$150–$250</strong>; if drums are scored or springs are at cycle end, we bundle before you pay twice.
     </p>
     <p>
-      <strong>New belt-drive opener in Jackson Trails.</strong> Opener installation from $550 plus any optional battery backup or smart-home kit you choose — quoted before holes are drilled.
+      <strong>New belt-drive opener in Jackson Trails.</strong> Opener installation <strong>$750–$850</strong> for a typical belt unit, or <strong>$850–$950</strong> for smart WiFi with battery backup — quoted before holes are drilled.
     </p>
 
     <h2>Every service page (detailed scope and FAQs)</h2>

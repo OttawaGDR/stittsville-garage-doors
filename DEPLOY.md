@@ -88,11 +88,35 @@ In Vercel → **Domains** → set primary domain to `stittsvillegaragedoors.ca` 
 
 ---
 
+## Contact form email (quote requests → Gmail)
+
+Form submissions go to **stittsvillegd@gmail.com** via [Resend](https://resend.com).
+
+1. Sign up at [resend.com](https://resend.com) (use **stittsvillegd@gmail.com** if you want test emails in the same inbox).
+2. **API Keys** → Create API Key → copy the `re_…` value.
+3. Vercel → **stittsville-garage-doors** → **Settings** → **Environment Variables** → add:
+
+   | Name | Value |
+   |------|--------|
+   | `RESEND_API_KEY` | your `re_…` key |
+   | `CONTACT_TO_EMAIL` | `stittsvillegd@gmail.com` (optional; this is the default) |
+
+4. Redeploy (or push a commit) so the serverless function at `/api/contact` picks up the key.
+
+Until you verify **stittsvillegaragedoors.ca** in Resend, the sender stays `onboarding@resend.dev` (Resend’s test address). After domain verification, set:
+
+`CONTACT_FROM_EMAIL=Stittsville Garage Doors <quotes@stittsvillegaragedoors.ca>`
+
+Local testing: copy `.env.example` to `.env` and add your `RESEND_API_KEY`, then run `vercel dev` (the Astro dev server alone does not run `/api/contact`).
+
+---
+
 ## Quick commands
 
 ```bash
 pnpm dev          # local preview
 pnpm build        # test build
+vercel dev        # local site + /api/contact
 vercel --prod     # manual deploy (if not using Git)
 git push          # deploy via GitHub (after Step 2C)
 ```

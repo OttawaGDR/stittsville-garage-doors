@@ -38,7 +38,13 @@ const crumbs = [
 
 <Base title={title} description={description}>
   <Fragment slot="head">
-    <ServiceSchema serviceType={service.fullName} minPrice={service.startingPrice} />
+    <ServiceSchema
+      serviceType={service.fullName}
+      slug={content.slug}
+      minPrice={service.startingPrice}
+      maxPrice={service.priceHigh}
+      description={content.metaDescription}
+    />
     <FAQSchema faqs={content.faqs} />
     <BreadcrumbSchema crumbs={crumbs} />
   </Fragment>

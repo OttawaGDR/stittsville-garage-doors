@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { SEO } from 'astro-seo';
 import { site } from '../data/site';
+import { absoluteUrl, defaultOgImage, metaDescription, ogImageDimensions } from '../data/seo';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CtaBar from '../components/CtaBar.astro';
@@ -15,8 +16,10 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title, description, canonical, ogImage = '/images/og/home.jpg', noindex = false } = Astro.props;
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
+const { title, description, canonical, ogImage = defaultOgImage, noindex = false } = Astro.props;
+const canonicalUrl = canonical ?? absoluteUrl(Astro.url.pathname);
+const ogImageUrl = new URL(ogImage, site.url).href;
+const safeDescription = metaDescription(description);
 ---
 
 <!doctype html>
@@ -24,30 +27,57 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="theme-color" content="#0e1f36" />
+    <meta name="geo.region" content="CA-ON" />
+    <meta name="geo.placename" content="Stittsville" />
+    <meta name="geo.position" content={`${site.serviceArea.coords.lat};${site.serviceArea.coords.lng}`} />
+    <meta name="ICBM" content={`${site.serviceArea.coords.lat}, ${site.serviceArea.coords.lng}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/images/logo-mark.svg" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site summary" />
     <LocalBusiness />
     <SEO
       title={title}
-      description={description}
+      description={safeDescription}
       canonical={canonicalUrl}
       noindex={noindex}
       openGraph={{
         basic: {
           title,
           type: 'website',
-          image: new URL(ogImage, site.url).href,
+          image: ogImageUrl,
           url: canonicalUrl,
         },
-        optional: { description, locale: 'en_CA', siteName: site.name },
+        optional: {
+          description: safeDescription,
+          locale: 'en_CA',
+          siteName: site.name,
+        },
+        image: {
+          alt: `${site.name} — garage door repair in Stittsville, Ontario`,
+          width: ogImageDimensions.width,
+          height: ogImageDimensions.height,
+        },
       }}
-      twitter={{ card: 'summary_large_image', title, description }}
+      twitter={{
+        card: 'summary_large_image',
+        title,
+        description: safeDescription,
+        image: ogImageUrl,
+        imageAlt: `${site.name} — Stittsville garage door repair`,
+      }}
+      extend={{
+        meta: [
+          { name: 'robots', content: noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large' },
+        ],
+      }}
     />
     <slot name="head" />
   </head>
   <body class="pb-20 md:pb-0">
     <Header />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
