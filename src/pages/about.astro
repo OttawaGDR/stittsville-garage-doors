@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import PhoneLink from '../components/PhoneLink.astro';
 import NeighbourhoodGrid from '../components/NeighbourhoodGrid.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
 import { neighbourhoods } from '../data/neighbourhoods';
 import { services } from '../data/services';
@@ -33,6 +34,10 @@ const crumbs = [
     showPricingCta={false}
   />
 
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
   <article class="container-page section-pad prose-content prose-wide max-w-none">
     <h2>Who we are</h2>
     <p>
@@ -51,7 +56,7 @@ const crumbs = [
     <p>
       That matches how homeowners here actually hire: something breaks, you need it fixed today, and you want
       the real number before anyone starts drilling. If you want to see what neighbours say after a visit,
-      read our <a href="/reviews/">customer reviews</a> — then compare that to how we describe every job on our{' '}
+      see <a href="/reviews/">how we handle reviews</a> — then compare that to how we describe every job on our{' '}
       <a href="/pricing/">pricing page</a> and in the <a href="/resources/stittsville-pricing-guide/">Stittsville pricing guide</a>.
     </p>
 
@@ -251,7 +256,7 @@ const crumbs = [
     <p>
       <strong>“Can you tell me the exact price before you come?”</strong> We can usually give a range from
       symptoms and door size. The written quote on site is the number you approve — see our pricing guide for
-      what moves a spring job from $250 to $380 on a double door.
+      what moves a spring job from $250 to $450 on a double door.
     </p>
     <p>
       <strong>“Should I replace both springs?”</strong> On torsion doors, yes in most cases — if one broke, the

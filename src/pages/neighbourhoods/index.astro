@@ -1,0 +1,51 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import NeighbourhoodGrid from '../../components/NeighbourhoodGrid.astro';
+import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import { site } from '../../data/site';
+import { metaDescription } from '../../data/seo';
+
+const title = `Garage Door Repair by Neighbourhood | ${site.phone}`;
+const description = metaDescription(
+  `Same-day garage door repair across Stittsville neighbourhoods — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Bryanston Gate & more. Free on-site quote. Call ${site.phone}.`,
+);
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Neighbourhoods', path: '/neighbourhoods/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title="Garage door repair by neighbourhood"
+    subtitle="Stittsville is not one housing stock — drive time, door age, and typical failures change block by block. Pick your area for plain-language notes on what we see most often."
+    showPricingCta
+    eyebrow={null}
+  />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
+  <section class="container-page section-pad">
+    <div class="prose-content mx-auto max-w-3xl">
+      <p>
+        Each page below covers the garage door issues we see most often in that pocket of Stittsville — spring wire
+        sizes common on Mattamy doubles, older extension setups in 1990s builds, and how fast we can be on site when
+        trucks are already west on Hazeldean. All neighbourhoods share the same phone number and pricing policy; the
+        pages just save you scrolling through generic Ottawa copy.
+      </p>
+    </div>
+    <div class="mt-12">
+      <NeighbourhoodGrid />
+    </div>
+  </section>
+</Base>

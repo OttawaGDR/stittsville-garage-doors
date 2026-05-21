@@ -1,0 +1,152 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import { site } from '../data/site';
+import { metaDescription } from '../data/seo';
+
+const title = `Privacy Policy | ${site.name}`;
+const description = metaDescription(
+  `How Stittsville Garage Doors collects, uses, and protects the information you share through phone calls and the quote form. Contact ${site.email} with privacy questions.`,
+);
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Privacy Policy', path: '/privacy/' },
+];
+
+const lastUpdated = 'May 2026';
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title="Privacy Policy"
+    subtitle="How we handle the information you share when you call us or use the website quote form."
+    showPricingCta={false}
+    eyebrow={null}
+  />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
+  <section class="container-page section-pad">
+    <div class="prose-content mx-auto max-w-3xl">
+      <p class="text-sm text-primary-500">Last updated: {lastUpdated}</p>
+
+      <h2>Who we are</h2>
+      <p>
+        {site.legal.entity} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a local garage door repair and installation
+        business serving {site.serviceArea.primary} and the surrounding west Ottawa area. We can be reached by
+        phone at <a href={`tel:${site.phoneRaw}`}>{site.phone}</a> or by email at{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>What we collect</h2>
+      <p>We only collect the information you give us directly:</p>
+      <ul>
+        <li>
+          <strong>When you call or text us:</strong> your phone number (from caller ID), your name, and the
+          details you choose to share about the job (address, symptoms, brand of opener, etc.).
+        </li>
+        <li>
+          <strong>When you submit the quote form on this website:</strong> your name, phone number, street
+          address or neighbourhood, the description of the problem, and your preferred call-back time. We do
+          not ask for, store, or process payment information through the website.
+        </li>
+        <li>
+          <strong>When you visit the website:</strong> basic anonymous traffic information (pages visited,
+          approximate region, browser type) collected through Vercel&rsquo;s built-in privacy-friendly
+          analytics. This does not identify individual visitors and is not sold or shared.
+        </li>
+      </ul>
+
+      <h2>How we use it</h2>
+      <ul>
+        <li>To respond to your quote request and arrange a visit.</li>
+        <li>To follow up after the job — e.g. confirming a warranty or checking the door is still operating correctly.</li>
+        <li>To keep a basic service history (date, address, parts installed) for warranty and tax-record purposes.</li>
+        <li>To improve the website (which pages are useful, which neighbourhoods are searching for us, etc.).</li>
+      </ul>
+      <p>
+        We do not send marketing email, newsletters, or promotional text messages. We do not sell or rent your
+        information to anyone.
+      </p>
+
+      <h2>Service providers we use</h2>
+      <p>
+        We use a small number of third-party services that may process your information on our behalf:
+      </p>
+      <ul>
+        <li>
+          <strong>Formspree</strong> — receives quote-form submissions and forwards them to our inbox.
+          See <a href="https://formspree.io/legal/privacy-policy/" rel="noopener" target="_blank">Formspree&rsquo;s privacy policy</a>.
+        </li>
+        <li>
+          <strong>Vercel</strong> — hosts the website and provides anonymous analytics.
+          See <a href="https://vercel.com/legal/privacy-policy" rel="noopener" target="_blank">Vercel&rsquo;s privacy policy</a>.
+        </li>
+        <li>
+          <strong>Google</strong> — only when an embedded Google Map is displayed on the contact page; Google
+          may collect information per its{' '}
+          <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">privacy policy</a>.
+        </li>
+      </ul>
+
+      <h2>How long we keep it</h2>
+      <p>
+        Quote-form submissions are retained in our email inbox for as long as we may need them for warranty,
+        follow-up, or tax-record purposes (typically up to seven years, in line with Canadian record-keeping
+        requirements). You can ask us to delete your record at any time by emailing{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        This website does not set advertising or tracking cookies. Vercel sets a small number of strictly
+        necessary cookies to keep the site running and to power its anonymous analytics; these do not identify
+        you personally.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>
+        Under Canada&rsquo;s{' '}
+        <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA) and Ontario provincial
+        privacy law, you have the right to:
+      </p>
+      <ul>
+        <li>Ask what personal information we hold about you.</li>
+        <li>Ask us to correct it if it is wrong.</li>
+        <li>Ask us to delete it if we no longer need it for the original purpose.</li>
+      </ul>
+      <p>
+        To exercise any of these rights, email{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a> with the request and we will respond within 30 days.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        The website and our services are intended for property owners and renters, not children. We do not
+        knowingly collect information from anyone under 16.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If we update this policy we will change the &ldquo;Last updated&rdquo; date at the top of this page.
+        Material changes will be highlighted on the homepage for a reasonable period.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy? Email <a href={`mailto:${site.email}`}>{site.email}</a> or call{' '}
+        <a href={`tel:${site.phoneRaw}`}>{site.phone}</a>.
+      </p>
+    </div>
+  </section>
+</Base>

@@ -29,12 +29,16 @@ const safeDescription = metaDescription(description);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="theme-color" content="#0e1f36" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="geo.region" content="CA-ON" />
     <meta name="geo.placename" content="Stittsville" />
     <meta name="geo.position" content={`${site.serviceArea.coords.lat};${site.serviceArea.coords.lng}`} />
     <meta name="ICBM" content={`${site.serviceArea.coords.lat}, ${site.serviceArea.coords.lng}`} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/images/logo-mark.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site summary" />
     <style is:inline>
       /* Fallback if external CSS fails to load */
@@ -63,6 +67,11 @@ const safeDescription = metaDescription(description);
         font-size: 0.875rem;
         text-transform: uppercase;
       }
+      header a.btn-phone {
+        white-space: nowrap;
+        text-transform: none;
+        letter-spacing: normal;
+      }
       header nav a.nav-link {
         text-decoration: none;
         color: #1e3a5f;
@@ -75,6 +84,7 @@ const safeDescription = metaDescription(description);
       description={safeDescription}
       canonical={canonicalUrl}
       noindex={noindex}
+      robotsExtras={noindex ? undefined : 'max-image-preview:large'}
       openGraph={{
         basic: {
           title,
@@ -99,11 +109,6 @@ const safeDescription = metaDescription(description);
         description: safeDescription,
         image: ogImageUrl,
         imageAlt: `${site.name} — Stittsville garage door repair`,
-      }}
-      extend={{
-        meta: [
-          { name: 'robots', content: noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large' },
-        ],
       }}
     />
     <slot name="head" />

@@ -1,23 +1,44 @@
 ---
 import type { Service } from '../data/services';
+import type { JobPhoto } from '../data/jobPhotos';
 
 interface Props {
   service: Service;
+  image?: JobPhoto | null;
 }
 
-const { service } = Astro.props;
-const price = service.priceLabel ?? `From $${service.startingPrice}`;
+const { service, image = null } = Astro.props;
 ---
 
-<article class="card flex h-full flex-col">
-  <h3 class="text-xl">
-    <a href={`/services/${service.slug}/`} class="nav-link text-primary-900 no-underline hover:text-primary-700">
-      {service.fullName}
+<article class={`card flex h-full flex-col ${image ? 'overflow-hidden p-0' : ''}`}>
+  {
+    image && (
+      <a
+        href={`/services/${service.slug}/`}
+        class="block aspect-[4/3] w-full overflow-hidden bg-primary-50"
+        aria-label={service.fullName}
+      >
+        <img
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+      </a>
+    )
+  }
+  <div class={`flex flex-1 flex-col ${image ? 'p-6' : ''}`}>
+    <h3 class="text-xl">
+      <a href={`/services/${service.slug}/`} class="nav-link text-primary-900 no-underline hover:text-primary-700">
+        {service.fullName}
+      </a>
+    </h3>
+    <p class="mt-2 flex-1 text-sm text-primary-700">{service.summary}</p>
+    <a href={`/services/${service.slug}/`} class="btn-primary mt-4 text-center text-xs">
+      Learn more
     </a>
-  </h3>
-  <p class="mt-2 flex-1 text-sm text-primary-700">{service.summary}</p>
-  <p class="mt-4 font-display text-lg font-bold text-accent-600">{price}</p>
-  <a href={`/services/${service.slug}/`} class="btn-primary mt-4 text-center text-xs">
-    Learn more
-  </a>
+  </div>
 </article>

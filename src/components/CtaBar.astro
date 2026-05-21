@@ -6,10 +6,18 @@ import { site } from '../data/site';
   class="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 border-t border-primary-100 bg-white shadow-lg md:hidden"
   aria-label="Quick actions"
 >
-  <a href={`tel:${site.phoneRaw}`} class="btn-phone rounded-none py-3 text-center">
+  <a
+    href={`tel:${site.phoneRaw}`}
+    class="btn-phone rounded-none py-3 text-center"
+    aria-label={`Call ${site.name} at ${site.phone}`}
+  >
     Call
   </a>
-  <a href="/contact/" class="flex items-center justify-center bg-primary-900 py-3 text-center text-sm font-bold uppercase tracking-wide text-white">
+  <a
+    href="/contact/"
+    class="flex items-center justify-center bg-primary-900 py-3 text-center text-sm font-bold uppercase tracking-wide text-white"
+    aria-label="Request a quote — contact page"
+  >
     Quote
   </a>
 </div>

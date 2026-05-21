@@ -5,8 +5,14 @@ import Hero from '../components/Hero.astro';
 import PhoneLink from '../components/PhoneLink.astro';
 import PriceTable from '../components/PriceTable.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
 import { pricingTable, pricingPolicy } from '../data/pricing';
+import { jobPhotos } from '../data/jobPhotos';
+
+const doubleInstall = jobPhotos.find((p) => p.id === 'double-beige-raised')!;
+const openerInstall = jobPhotos.find((p) => p.id === 'chamberlain-new-install')!;
+const bottomBracket = jobPhotos.find((p) => p.id === 'wayne-dalton-bottom-bracket')!;
 
 const title = `Garage Door Repair Pricing in Stittsville | Typical Ranges`;
 const description = `Garage door repair pricing in Stittsville — published typical ranges. Springs $250–$350, cables $150–$250, openers $150–$300. Free on-site written quote. Call ${site.phone}.`;
@@ -26,6 +32,10 @@ const crumbs = [
     title="Garage Door Repair Pricing in Stittsville"
     subtitle="Published starting rates — not a teaser quote that doubles when the van arrives on Hazeldean."
   />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
 
   <article class="container-page section-pad prose-content prose-wide max-w-none">
     <p>
@@ -51,6 +61,31 @@ const crumbs = [
       Want deeper context on what drives price up or down? Read our <a href="/resources/stittsville-pricing-guide/">Stittsville garage door pricing guide (2026)</a>.
     </p>
 
+    <aside class="not-prose mx-auto my-10 max-w-4xl">
+      <div class="grid overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm md:grid-cols-[440px,1fr]">
+        <div class="aspect-[4/3] overflow-hidden bg-primary-50 md:aspect-auto md:h-full">
+          <img
+            src={doubleInstall.src}
+            alt={doubleInstall.alt}
+            width={doubleInstall.width}
+            height={doubleInstall.height}
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div class="flex flex-col justify-center p-5 md:p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-accent-600">Featured install</p>
+          <h3 class="mt-2 text-lg text-primary-900">Pair of new doors — full driveway swap</h3>
+          <p class="mt-2 text-sm text-primary-700">
+            Two-door jobs price differently than one. Door pricing scales close to linearly, but
+            springs, openers, and labour see a small discount when both bays are done in a single
+            visit. We quote each combination separately on site, in writing, before any work begins.
+          </p>
+        </div>
+      </div>
+    </aside>
+
     <h2>Why prices vary between homes</h2>
     <p>
       <strong>Door size and weight.</strong> A heavy wood-look carriage door on Crossing Bridge Way needs different springs and rollers than a standard steel double-car in Jackson Trails. More weight means higher-rated springs, more labour to balance, and sometimes upgraded hardware.
@@ -73,6 +108,33 @@ const crumbs = [
       <li>Multiple failed components (spring + cable + drum) from continuing to run a crooked door</li>
       <li>After-hours emergency dispatch between 10 PM and 7 AM — surcharge quoted before we roll out</li>
     </ul>
+
+    <aside class="not-prose mx-auto my-10 max-w-4xl">
+      <div class="grid overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm md:grid-cols-[440px,1fr]">
+        <div class="aspect-[4/3] overflow-hidden bg-primary-50 md:aspect-auto md:h-full">
+          <img
+            src={bottomBracket.src}
+            alt={bottomBracket.alt}
+            width={bottomBracket.width}
+            height={bottomBracket.height}
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div class="flex flex-col justify-center p-5 md:p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-accent-600">Cable repair detail</p>
+          <h3 class="mt-2 text-lg text-primary-900">Wayne Dalton retainer — full bottom-end rebuild</h3>
+          <p class="mt-2 text-sm text-primary-700">
+            Wayne Dalton doors use a proprietary bottom retainer for the seal — it must be removed
+            and reset correctly any time the cable or roller is replaced. On this Stittsville job we
+            fitted a new bottom weather seal, lift cable, nylon roller, and bottom bracket in one
+            visit. The retainer hardware and seal alignment time pushes this job to the higher end of
+            cable-repair pricing.
+          </p>
+        </div>
+      </div>
+    </aside>
 
     <h2>What drives the price down</h2>
     <ul class="mb-8 list-disc space-y-2 pl-6">
@@ -97,6 +159,34 @@ const crumbs = [
     <p>
       Opener repair ($150–$300) makes sense when the rail, motor, and door are sound. New opener installation ($650–$950 installed) makes sense when the unit is obsolete, loud, or missing modern safety features. Panel repair ($150–$400 in place) makes sense when the steel is still sound; we will say so if a full door swap is smarter.
     </p>
+
+    <aside class="not-prose mx-auto my-10 max-w-4xl">
+      <div class="grid overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm md:grid-cols-[440px,1fr]">
+        <div class="aspect-[4/3] overflow-hidden bg-primary-50 md:aspect-auto md:h-full">
+          <img
+            src={openerInstall.src}
+            alt={openerInstall.alt}
+            width={openerInstall.width}
+            height={openerInstall.height}
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div class="flex flex-col justify-center p-5 md:p-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-accent-600">Opener install</p>
+          <h3 class="mt-2 text-lg text-primary-900">New Chamberlain chain-drive opener</h3>
+          <p class="mt-2 text-sm text-primary-700">
+            Chain-drive units are the budget-friendly workhorse — durable and well-suited to detached
+            garages or homes where opener noise is not a concern. For Stittsville garages that share
+            a wall with a bedroom (common in Jackson Trails splits) we recommend stepping up to a
+            belt-drive instead. Installed pricing covers the unit, rail, safety sensors, wall
+            console, remotes, and a full safety and auto-reverse test before we hand over the
+            remotes.
+          </p>
+        </div>
+      </div>
+    </aside>
 
     <h2>Warranty and payment</h2>
     <p>

@@ -3,6 +3,7 @@ import { Fragment } from 'astro/jsx-runtime';
 import Base from '../layouts/Base.astro';
 import PhoneLink from '../components/PhoneLink.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
 
 const title = `24/7 Emergency Garage Door Repair Stittsville | ${site.phone}`;
@@ -19,6 +20,12 @@ const crumbs = [
     <BreadcrumbSchema crumbs={crumbs} />
   </Fragment>
 
+  <div class="border-b border-primary-100 bg-white">
+    <div class="container-page py-3">
+      <BreadcrumbNav crumbs={crumbs} />
+    </div>
+  </div>
+
   <section class="bg-primary-900 text-white section-pad">
     <div class="container-page text-center">
       <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">24/7 · Stittsville, Ontario</p>
@@ -33,7 +40,7 @@ const crumbs = [
         {site.phone}
       </a>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <PhoneLink showIcon class="text-lg px-8 py-5" />
+        <PhoneLink showIcon class="text-lg px-8 py-5" ariaLabel={`Call ${site.name} for emergency garage door repair at ${site.phone}`} />
       </div>
     </div>
   </section>

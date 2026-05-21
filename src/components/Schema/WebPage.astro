@@ -1,0 +1,28 @@
+---
+import { site } from '../../data/site';
+import { withTrailingSlash } from '../../data/seo';
+
+interface Props {
+  name: string;
+  description: string;
+  /** Path with leading slash, e.g. `/` or `/pricing/` */
+  path?: string;
+}
+
+const { name, description, path = '/' } = Astro.props;
+const pageUrl = new URL(withTrailingSlash(path), site.url).href;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl}#webpage`,
+  url: pageUrl,
+  name,
+  description,
+  inLanguage: 'en-CA',
+  isPartOf: { '@type': 'WebSite', '@id': `${site.url}/#website` },
+  about: { '@id': `${site.url}/#business` },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

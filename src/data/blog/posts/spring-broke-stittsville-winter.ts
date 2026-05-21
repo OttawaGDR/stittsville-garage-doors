@@ -30,7 +30,7 @@ const blocks = [
   },
   {
     type: 'p' as const,
-    text: 'As of 2026, a standard single torsion spring replacement on a double-car door in Stittsville typically lands in the <strong>$250–$350</strong> range for parts, labour, and a balance check. On most double doors we recommend replacing <strong>both</strong> torsion springs when one fails — matched pairs share load; leaving a 10-year-old partner spring often means a callback three weeks later. Both springs on a double often run <strong>$380–$480</strong>.',
+    text: 'As of 2026, a standard single torsion spring replacement on a double-car door in Stittsville typically lands in the <strong>$250–$350</strong> range for parts, labour, and a balance check. On most double doors we recommend replacing <strong>both</strong> torsion springs when one fails — matched pairs share load; leaving a 10-year-old partner spring often means a callback three weeks later. Both springs on a double often run <strong>$450–$550</strong>.',
   },
   {
     type: 'p' as const,
@@ -78,7 +78,7 @@ export const springBrokeStittsvilleWinter: BlogPost = {
   relatedServiceSlugs: ['spring-repair', 'maintenance'],
   keyTakeaways: [
     'A loud bang after cold weather usually means a broken spring — stop cycling the opener.',
-    'Typical torsion spring repair in Stittsville: $250–$350; both springs on a double often $380–$480.',
+    'Typical torsion spring repair in Stittsville: $250–$350; both springs on a double often $450–$550.',
     'Free on-site written quote before repair — no $89-style dispatch fee.',
     'Fall maintenance catches springs near end of life before January emergencies.',
   ],

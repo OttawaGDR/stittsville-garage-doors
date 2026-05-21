@@ -5,6 +5,7 @@ import BlogBody from '../components/BlogBody.astro';
 import BlogCard from '../components/BlogCard.astro';
 import PhoneLink from '../components/PhoneLink.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import BlogPostingSchema from '../components/Schema/BlogPosting.astro';
 import { site } from '../data/site';
 import { getRelatedPosts, getTocFromPost } from '../data/blog';
@@ -38,11 +39,6 @@ const crumbs = [
 
   <header class="border-b border-primary-100 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white">
     <div class="container-page py-12 md:py-16">
-      <nav class="text-sm text-primary-200" aria-label="Breadcrumb">
-        <a href="/blog/" class="text-primary-100 no-underline hover:text-white">Blog</a>
-        <span class="mx-2">/</span>
-        <span class="text-slate-300">{post.category}</span>
-      </nav>
       <p class="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold uppercase tracking-wider text-accent-400">
         <span>{post.category}</span>
         <span class="text-primary-400">·</span>
@@ -62,6 +58,10 @@ const crumbs = [
       <p class="mt-6 max-w-3xl text-lg text-slate-200">{post.excerpt}</p>
     </div>
   </header>
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
 
   <div class="container-page section-pad">
     <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-12">

@@ -2,14 +2,12 @@
 import { Fragment } from 'astro/jsx-runtime';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
-import ReviewCard from '../components/ReviewCard.astro';
-import BusinessReviewsSchema from '../components/Schema/BusinessReviews.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
-import { reviews, aggregateRating } from '../data/reviews';
 
-const title = `Customer Reviews | Stittsville Garage Doors`;
-const description = `${aggregateRating.ratingValue}★ from Stittsville homeowners. Real customer feedback on garage door repair and installation. Call ${site.phone}.`;
+const title = `Stittsville Garage Doors Reviews | Honest Local Feedback`;
+const description = `Real Stittsville garage door reviews — building one job at a time. No borrowed testimonials. Call ${site.phone} or request a quote.`;
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -19,36 +17,67 @@ const crumbs = [
 
 <Base title={title} description={description}>
   <Fragment slot="head">
-    <BusinessReviewsSchema />
     <BreadcrumbSchema crumbs={crumbs} />
   </Fragment>
 
   <Hero
-    title="Customer Reviews — Stittsville Garage Doors"
-    subtitle="Real reviews from Stittsville homeowners we've served."
+    title="Stittsville Garage Doors reviews"
+    subtitle="This page will only show real reviews from real Stittsville customers — once they exist."
     showPricingCta={false}
   />
 
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
   <section class="container-page section-pad">
-    <div class="card mx-auto max-w-xl text-center bg-primary-50">
-      <p class="font-display text-5xl font-extrabold text-accent-600">{aggregateRating.ratingValue}.0</p>
-      <p class="mt-2 text-lg font-semibold text-primary-900">out of 5 stars</p>
-      <p class="mt-2 text-sm text-primary-600">{aggregateRating.label}</p>
-    </div>
-
-    <div class="mt-12 grid gap-6 md:grid-cols-2">
-      {reviews.map((r) => <ReviewCard review={r} />)}
-    </div>
-
-    <div class="mt-12 card text-center">
-      <h2 class="text-2xl">Share your experience</h2>
-      <p class="mt-3 text-primary-700">
-        Had a repair in Stittsville? Email us at{' '}
-        <a href={`mailto:${site.email}?subject=Stittsville%20garage%20door%20review`} class="font-semibold">
-          {site.email}
-        </a>{' '}
-        with your neighbourhood, service type, and permission to publish your first name. When our Google profile is live, we will link a review form here as well.
+    <div class="prose-content max-w-none">
+      <p>
+        Stittsville Garage Doors launched as a dedicated Stittsville-only operation. Unlike review-stuffed sites that recycle testimonials from other regions or other businesses, this page will only display real reviews from real Stittsville customers — once they exist.
       </p>
+      <p>
+        If you are reading this in our first months, that means the page is intentionally short. Every Stittsville customer who hires us is asked, in writing, to leave honest feedback after the job is complete. As those reviews come in, they will appear here with the customer's first name, neighbourhood, date, and the service performed — exactly as written, good or bad.
+      </p>
+
+      <h2>Why no reviews from "our parent network"</h2>
+      <p>
+        Some local service sites display reviews from related companies, agencies, or franchise parents. We chose not to. A review attached to this business should describe a job we did under this business — in Stittsville, by the Stittsville Garage Doors technician. Anything else would be misleading, and it would also misrepresent the people who wrote those reviews about a different operation.
+      </p>
+
+      <h2>How to verify us before we have reviews</h2>
+      <p>
+        Until reviews accumulate, here is what you can check in 60 seconds:
+      </p>
+      <ul class="mb-8 list-disc space-y-2 pl-6">
+        <li>
+          Call <a href={`tel:${site.phoneRaw}`}>{site.phone}</a> and ask any technical question about your door. A real technician answers — not a call-centre script.
+        </li>
+        <li>
+          Read our <a href="/pricing/">published pricing page</a>. Most competitors hide pricing. We do not.
+        </li>
+        <li>
+          Look at the <a href="/#recent-work">recent Stittsville jobs</a> on the homepage — real photos of real work, with Stittsville-specific captions.
+        </li>
+        <li>
+          Read our <a href="/blog/">blog</a> for the level of detail and honesty in how we discuss garage door problems.
+        </li>
+      </ul>
+
+      <h2>Be one of our first reviewers</h2>
+      <p>
+        Book any repair or installation in Stittsville before March 31. After the job is complete, leave us an honest review — good or bad — and we will take <strong>$20 off your invoice</strong> on the spot. The discount is not contingent on what you write; it is contingent on you writing. Real feedback only.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href={`tel:${site.phoneRaw}`}
+          class="btn-phone"
+          aria-label={`Call ${site.name} at ${site.phone}`}
+        >
+          {site.phone}
+        </a>
+        <a href="/#request-quote" class="btn-secondary">Request a free quote</a>
+      </div>
     </div>
   </section>
 </Base>

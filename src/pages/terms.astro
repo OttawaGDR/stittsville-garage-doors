@@ -1,0 +1,145 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import { site } from '../data/site';
+import { metaDescription } from '../data/seo';
+
+const title = `Terms of Service | ${site.name}`;
+const description = metaDescription(
+  `Terms of service covering quote requests, work performed, payment, and warranty for Stittsville Garage Doors. Questions: ${site.phone}.`,
+);
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Terms of Service', path: '/terms/' },
+];
+
+const lastUpdated = 'May 2026';
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title="Terms of Service"
+    subtitle="The basic rules that apply when you use this website, request a quote, or hire us for garage door work."
+    showPricingCta={false}
+    eyebrow={null}
+  />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
+  <section class="container-page section-pad">
+    <div class="prose-content mx-auto max-w-3xl">
+      <p class="text-sm text-primary-500">Last updated: {lastUpdated}</p>
+
+      <h2>About these terms</h2>
+      <p>
+        These terms govern your use of the {site.name} website ({site.url}) and any service we provide at your
+        property. By using the website or hiring us, you agree to these terms. If you do not agree, please do
+        not use the site or the service.
+      </p>
+
+      <h2>Quotes</h2>
+      <p>
+        Quotes given over the phone or by email are <strong>preliminary estimates</strong> based on the
+        information you describe. The price is only confirmed once a technician has inspected the door on site.
+        Written on-site quotes are valid for 30 days. There is no charge for a same-day on-site quote in the
+        {site.serviceArea.primary} service area.
+      </p>
+
+      <h2>Scheduling and emergencies</h2>
+      <p>
+        Same-day arrival windows are best-effort. Traffic on Hazeldean Road, weather events, or jobs that turn
+        out to be larger than described can shift our timing. If we are running late we will call. For after-hours
+        emergencies, see our <a href="/emergency/">emergency page</a>.
+      </p>
+
+      <h2>Work performed</h2>
+      <p>
+        Repairs and installations are performed in line with{' '}
+        <em>ANSI/DASMA</em> hardware standards and Ontario residential building practice. We will explain what
+        we propose to do before we start. We do not perform work you have not authorized.
+      </p>
+
+      <h2>Payment</h2>
+      <ul>
+        <li>Payment is due upon completion of the work, unless agreed otherwise in advance.</li>
+        <li>
+          We accept e-transfer (preferred), cash, debit, and most major credit cards. New-door installs and
+          larger jobs may require a deposit at the time of ordering parts.
+        </li>
+        <li>HST is charged in addition to the quoted labour and parts price, where applicable.</li>
+      </ul>
+
+      <h2>Warranty</h2>
+      <p>We warrant our work as follows:</p>
+      <ul>
+        <li>
+          <strong>Labour:</strong> 90 days on any repair we perform; if a part we installed fails because of
+          how it was installed, we return at no charge.
+        </li>
+        <li>
+          <strong>Parts:</strong> manufacturer&rsquo;s warranty applies — typically 1&ndash;5 years on springs,
+          cables, rollers, and opener components; 5&ndash;10 years on doors and panels. We will hand over the
+          warranty information sheet for the specific parts installed at your home.
+        </li>
+        <li>
+          Warranty does not cover damage from impact, abuse, water intrusion, electrical surges, or
+          modifications made by anyone other than us after the work is complete.
+        </li>
+      </ul>
+
+      <h2>Cancellation</h2>
+      <p>
+        You can cancel or reschedule a visit at any time, free of charge, as long as we have not already driven
+        to your address. If we have arrived on site and you choose not to go ahead with the work, no charge
+        applies for a standard quote visit. Special-order parts that have already been picked up are
+        non-refundable.
+      </p>
+
+      <h2>Limitations of liability</h2>
+      <p>
+        We carry commercial general liability insurance. Our maximum liability for any single repair is limited
+        to the total amount paid for that repair, except where Ontario or federal law requires otherwise. We
+        are not responsible for indirect damages (e.g. spoiled food in a garage freezer, missed work) caused by
+        a delayed visit or a part failure outside the warranty period.
+      </p>
+
+      <h2>Website use</h2>
+      <ul>
+        <li>
+          The website is provided &ldquo;as is&rdquo; for informational purposes. Prices listed are typical
+          ranges, not binding quotes.
+        </li>
+        <li>
+          You may not scrape, copy, or republish the photos, written content, or layout of this site without
+          written permission. Photos of completed jobs are shared with the homeowner&rsquo;s consent.
+        </li>
+        <li>
+          You may not use the quote form to send spam, threats, or unrelated solicitations. We reserve the
+          right to block submissions that abuse the form.
+        </li>
+      </ul>
+
+      <h2>Governing law</h2>
+      <p>
+        These terms are governed by the laws of the Province of Ontario and the federal laws of Canada
+        applicable in Ontario. Any dispute will be heard in the courts of Ottawa, Ontario.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about these terms? Email <a href={`mailto:${site.email}`}>{site.email}</a> or call{' '}
+        <a href={`tel:${site.phoneRaw}`}>{site.phone}</a>.
+      </p>
+    </div>
+  </section>
+</Base>

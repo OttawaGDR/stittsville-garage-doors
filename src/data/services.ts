@@ -98,6 +98,17 @@ export const services: Service[] = [
     icon: 'wrench',
     summary: 'Lube, balance check, hardware tighten, safety test.',
   },
+  {
+    slug: 'weather-seal',
+    name: 'Weather Seal',
+    fullName: 'Garage Door Weather Seal & Bottom Seal',
+    startingPrice: 250,
+    priceHigh: 350,
+    priceLabel: '$250–$350',
+    duration: '60–90 min',
+    icon: 'seal',
+    summary: 'New bottom seal, aluminum retainer, and perimeter weather stripping to stop drafts, mice, and slush.',
+  },
 ];
 
 export function getService(slug: string): Service | undefined {

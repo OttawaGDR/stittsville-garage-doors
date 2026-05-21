@@ -5,9 +5,9 @@ import PhoneLink from './PhoneLink.astro';
 const nav = [
   { href: '/services/', label: 'Services' },
   { href: '/pricing/', label: 'Pricing' },
+  { href: '/faq/', label: 'FAQ' },
   { href: '/blog/', label: 'Blog' },
   { href: '/emergency/', label: 'Emergency' },
-  { href: '/reviews/', label: 'Reviews' },
   { href: '/about/', label: 'About' },
   { href: '/contact/', label: 'Contact' },
 ];
@@ -16,18 +16,18 @@ const path = Astro.url.pathname;
 ---
 
 <header class="sticky top-0 z-40 border-b border-primary-100 bg-white/95 backdrop-blur">
-  <div class="container-page flex items-center justify-between py-4">
+  <div class="container-page flex items-center gap-6 py-4 xl:gap-8">
     <a href="/" class="nav-link flex shrink-0 items-center no-underline hover:no-underline">
-      <img
-        src="/images/logo.svg"
-        alt={site.name}
-        width="240"
-        height="42"
-        class="h-9 w-auto md:h-10"
-        fetchpriority="high"
-      />
+        <img
+          src="/images/logo.svg"
+          alt={site.name}
+          width="280"
+          height="56"
+          class="h-9 w-auto md:h-10"
+          fetchpriority="high"
+        />
     </a>
-    <nav class="hidden items-center gap-6 lg:flex" aria-label="Main">
+    <nav class="hidden items-center gap-6 xl:flex" aria-label="Main">
       {
         nav.map((item) => (
           <a
@@ -42,12 +42,21 @@ const path = Astro.url.pathname;
         ))
       }
     </nav>
-    <div class="hidden lg:block">
-      <PhoneLink showIcon />
-    </div>
+    <a
+      href="/#request-quote"
+      class="nav-link ml-auto hidden whitespace-nowrap rounded-lg border-2 border-accent-500 px-3 py-2.5 text-xs font-bold uppercase tracking-wide text-accent-600 no-underline transition hover:bg-accent-50 xl:ml-0 xl:inline-flex xl:items-center xl:justify-center"
+    >
+      Free Quote
+    </a>
+    <PhoneLink
+      showIcon
+      singleLine
+      class="!hidden shrink-0 !px-4 !py-2.5 !text-sm xl:!inline-flex"
+      ariaLabel={`Call ${site.name} at ${site.phone}`}
+    />
     <button
       type="button"
-      class="lg:hidden rounded border border-primary-100 p-2"
+      class="ml-auto rounded border border-primary-100 p-2 xl:hidden"
       aria-label="Open menu"
       id="menu-toggle"
     >
@@ -56,7 +65,7 @@ const path = Astro.url.pathname;
       </svg>
     </button>
   </div>
-  <nav id="mobile-nav" class="hidden border-t border-primary-100 bg-white lg:hidden" aria-label="Mobile">
+  <nav id="mobile-nav" class="hidden border-t border-primary-100 bg-white xl:hidden" aria-label="Mobile">
     <ul class="container-page flex flex-col gap-2 py-4">
       {nav.map((item) => (
         <li>
@@ -66,7 +75,15 @@ const path = Astro.url.pathname;
         </li>
       ))}
       <li class="pt-2">
-        <PhoneLink class="w-full" showIcon />
+        <a
+          href="/#request-quote"
+          class="nav-link inline-flex w-full items-center justify-center rounded-lg border-2 border-accent-500 px-4 py-3 text-sm font-bold uppercase tracking-wide text-accent-600 no-underline transition hover:bg-accent-50"
+        >
+          Request a Free Quote
+        </a>
+      </li>
+      <li>
+        <PhoneLink class="w-full" showIcon ariaLabel={`Call ${site.name} at ${site.phone}`} />
       </li>
     </ul>
   </nav>

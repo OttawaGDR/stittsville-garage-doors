@@ -5,6 +5,7 @@ import Hero from '../../components/Hero.astro';
 import PhoneLink from '../../components/PhoneLink.astro';
 import PriceTable from '../../components/PriceTable.astro';
 import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import { site } from '../../data/site';
 import { services } from '../../data/services';
 import { pricingTable, pricingPolicy } from '../../data/pricing';
@@ -31,6 +32,10 @@ const crumbs = [
     showPricingCta={false}
   />
 
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
   <article class="container-page section-pad prose-content prose-wide max-w-none">
     <p>
       If you have ever searched “garage door repair cost” at 7 AM with a door stuck open, you have seen the same range: $69 specials to “call for quote.” That spread is not mystery — it is marketing. This page is the breakdown we wish every Stittsville homeowner had before booking: typical Ottawa-area ranges for each job, what affects your quote, and how to spot bait-and-switch ads.
@@ -51,7 +56,7 @@ const crumbs = [
     </p>
 
     <h2>What each service includes (and where to read more)</h2>
-    <p>Below are the eight services we price most often in Stittsville. Each link goes to the full service page with signs, process, and FAQs.</p>
+    <p>Below are the nine services we price most often in Stittsville. Each link goes to the full service page with signs, process, and FAQs.</p>
     <ul class="mb-8 grid gap-3 sm:grid-cols-2">
       {
         services.map((s) => (
@@ -135,7 +140,7 @@ const crumbs = [
 
     <h2>What the written quote includes</h2>
     <p>
-      Homeowners sometimes hear “$250 for the spring” and worry about hidden fees on top. In practice, a standard single-door spring replacement typically lands in the <strong>$250–$350</strong> range including parts, labour, and a safety check. What increases the total is additional parts: both springs when the matched pair is worn ($380–$480 on many doubles), cables, rollers, or a drum that failed because the door was run unbalanced for months.
+      Homeowners sometimes hear “$250 for the spring” and worry about hidden fees on top. In practice, a standard single-door spring replacement typically lands in the <strong>$250–$350</strong> range including parts, labour, and a safety check. What increases the total is additional parts: both springs when the matched pair is worn ($450–$550 on many doubles), cables, rollers, or a drum that failed because the door was run unbalanced for months.
     </p>
     <p>
       Our visits start with a <strong>free on-site estimate</strong> and a written quote before work — no dispatch fee and no “service call” that only applies toward the repair if you say yes the same day. The number on the quote is what you approve; we do not use low teaser dispatch prices like the $69 or $89 ads you see elsewhere.

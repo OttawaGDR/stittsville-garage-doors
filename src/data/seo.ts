@@ -2,11 +2,12 @@ import { site } from './site';
 
 /** Default meta description for pages that do not override. */
 export const defaultDescription =
-  'Same-day garage door repair and installation in Stittsville, ON. Springs, openers, cables, tracks, panels. Free on-site quote. Call (613) 777-6401.';
+  'Same-day garage door repair in Stittsville. Springs, openers, cables, tracks, panels — free on-site written quote, no dispatch fee. Call (613) 777-6401.';
 
 export const defaultOgImage = '/images/og/home.jpg';
 
-export const ogImageDimensions = { width: 1200, height: 630 } as const;
+/** Matches actual pixel size of `public/images/og/home.jpg` (768×1024). */
+export const ogImageDimensions = { width: 768, height: 1024 } as const;
 
 /** Ensures trailing slash on internal paths (matches `trailingSlash: "always"`). */
 export function withTrailingSlash(path: string): string {

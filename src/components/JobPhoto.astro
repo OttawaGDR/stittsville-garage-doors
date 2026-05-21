@@ -13,17 +13,19 @@ const { photo, class: className = '', priority = false, sizes = '(max-width: 768
 ---
 
 <figure class:list={['overflow-hidden rounded-xl border border-primary-100 bg-primary-50', className]}>
-  <img
-    src={photo.src}
-    alt={photo.alt}
-    width={photo.width}
-    height={photo.height}
-    loading={priority ? 'eager' : 'lazy'}
-    decoding="async"
-    fetchpriority={priority ? 'high' : 'auto'}
-    sizes={sizes}
-    class="h-auto w-full object-cover"
-  />
+  <div class="aspect-[4/3] w-full overflow-hidden bg-primary-50">
+    <img
+      src={photo.src}
+      alt={photo.alt}
+      width={photo.width}
+      height={photo.height}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={priority ? 'high' : 'auto'}
+      sizes={sizes}
+      class="h-full w-full object-cover"
+    />
+  </div>
   {
     photo.caption && (
       <figcaption class="border-t border-primary-100 px-4 py-2 text-sm text-primary-600">

@@ -19,7 +19,7 @@ const blocks = [
   {
     type: 'ul' as const,
     items: [
-      '<strong>Spring repair:</strong> $250–$350 per torsion spring; both springs on a double often $380–$480 — <a href="/services/spring-repair/">spring repair</a>',
+      '<strong>Spring repair:</strong> $250–$350 per torsion spring; both springs on a double often $450–$550 — <a href="/services/spring-repair/">spring repair</a>',
       '<strong>Cable repair:</strong> $150–$250 — <a href="/services/cable-repair/">cable repair</a>',
       '<strong>Opener repair:</strong> $150–$300 (gears, motor, sensors, remotes) — <a href="/services/opener-repair/">opener repair</a>',
       '<strong>Track repair:</strong> $150–$250 align and minor; off-track re-set $200–$400',

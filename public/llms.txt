@@ -1,6 +1,8 @@
 # Stittsville Garage Doors
 https://stittsvillegaragedoors.ca/
 
+Sitemap: https://stittsvillegaragedoors.ca/sitemap-index.xml
+
 Local garage door repair and installation in Stittsville, Ontario (west Ottawa). Same-day service, free on-site written quotes, transparent price ranges.
 
 ## Contact
@@ -10,7 +12,7 @@ Local garage door repair and installation in Stittsville, Ontario (west Ottawa).
 - Service area: Stittsville, ON (Jackson Trails, Fairwinds, Crossing Bridge Estates, Amberwood Village, Wyldewood, Bryanston Gate)
 
 ## Services (typical CAD ranges, before tax)
-- Spring repair: $250–$350 (double doors often $380–$480 for both springs)
+- Spring repair: $250–$350 (double doors often $450–$550 for both springs)
 - Cable repair: $150–$250
 - Opener repair: $150–$300
 - Track repair: $150–$250
@@ -23,10 +25,12 @@ Local garage door repair and installation in Stittsville, Ontario (west Ottawa).
 - https://stittsvillegaragedoors.ca/
 - https://stittsvillegaragedoors.ca/blog/
 - https://stittsvillegaragedoors.ca/services/
+- https://stittsvillegaragedoors.ca/neighbourhoods/
 - https://stittsvillegaragedoors.ca/pricing/
+- https://stittsvillegaragedoors.ca/faq/
+- https://stittsvillegaragedoors.ca/reviews/
 - https://stittsvillegaragedoors.ca/emergency/
 - https://stittsvillegaragedoors.ca/contact/
-- https://stittsvillegaragedoors.ca/reviews/
 - https://stittsvillegaragedoors.ca/resources/winter-garage-door-guide/
 - https://stittsvillegaragedoors.ca/resources/stittsville-pricing-guide/
 
@@ -48,8 +52,10 @@ Local garage door repair and installation in Stittsville, Ontario (west Ottawa).
 - https://stittsvillegaragedoors.ca/services/panel-repair/
 - https://stittsvillegaragedoors.ca/services/new-door-installation/
 - https://stittsvillegaragedoors.ca/services/maintenance/
+- https://stittsvillegaragedoors.ca/services/weather-seal/
 
 ## Neighbourhood pages
+- https://stittsvillegaragedoors.ca/neighbourhoods/
 - https://stittsvillegaragedoors.ca/neighbourhoods/jackson-trails/
 - https://stittsvillegaragedoors.ca/neighbourhoods/fairwinds/
 - https://stittsvillegaragedoors.ca/neighbourhoods/crossing-bridge-estates/

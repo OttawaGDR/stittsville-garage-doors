@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import PhoneLink from '../../components/PhoneLink.astro';
 import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import { site } from '../../data/site';
 
 const h1 = 'Winter Garage Door Survival Guide for Stittsville Homeowners';
@@ -27,6 +28,10 @@ const crumbs = [
     subtitle="From the first hard frost on Hazeldean to a -30°C morning in Jackson Trails — what actually fails on Ottawa-area garage doors, and what you can safely do before you call."
     showPricingCta={false}
   />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
 
   <article class="container-page section-pad prose-content prose-wide max-w-none">
     <p>

@@ -7,6 +7,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import NeighbourhoodGrid from '../../components/NeighbourhoodGrid.astro';
 import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import FAQSchema from '../../components/Schema/FAQ.astro';
 import { site } from '../../data/site';
 import { services } from '../../data/services';
@@ -15,8 +16,13 @@ import { metaDescription } from '../../data/seo';
 
 const title = `Garage Door Services in Stittsville | ${site.phone}`;
 const description = metaDescription(
-  'Eight garage door services in Stittsville — springs, openers, cables, tracks, panels, new doors & tune-ups. Free on-site quotes, same-day when trucks are west. Call (613) 777-6401.',
+  'Nine garage door services in Stittsville — springs, openers, cables, tracks, panels, new doors, weather seals & tune-ups. Free on-site quotes, same-day when trucks are west. Call (613) 777-6401.',
 );
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+];
 
 const hubFaqs = [
   {
@@ -49,20 +55,19 @@ const hubFaqs = [
 
 <Base title={title} description={description}>
   <Fragment slot="head">
-    <BreadcrumbSchema
-      crumbs={[
-        { name: 'Home', path: '/' },
-        { name: 'Services', path: '/services/' },
-      ]}
-    />
+    <BreadcrumbSchema crumbs={crumbs} />
     <FAQSchema faqs={hubFaqs} />
   </Fragment>
 
   <Hero
     title="Garage Door Services in Stittsville"
-    subtitle="Eight repair and installation services — published price ranges, free on-site quotes, same-day when trucks are west on Hazeldean."
+    subtitle="Nine repair and installation services — published price ranges, free on-site quotes, same-day when trucks are west on Hazeldean."
     showPricingCta
   />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
 
   <article class="container-page section-pad prose-content prose-wide max-w-none">
     <h2>Repair and installation built for Stittsville homes</h2>
@@ -84,7 +89,7 @@ const hubFaqs = [
       after visits on our <a href="/reviews/">reviews page</a>.
     </p>
 
-    <div class="not-prose my-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="not-prose my-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {services.map((s) => <ServiceCard service={s} />)}
     </div>
 
@@ -128,6 +133,11 @@ const hubFaqs = [
       <li>
         <strong>No emergency — door works but feels rough, noisy, or overdue</strong> —{' '}
         <a href="/services/maintenance/">maintenance and tune-up</a> ($150–$180).
+      </li>
+      <li>
+        <strong>Daylight under the door, drafts, slush pooling inside, mice along the corners</strong> —{' '}
+        <a href="/services/weather-seal/">weather seal and bottom seal replacement</a> ($250–$350 bottom seal; full
+        perimeter higher).
       </li>
     </ul>
 

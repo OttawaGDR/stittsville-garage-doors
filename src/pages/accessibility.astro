@@ -1,0 +1,118 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import { site } from '../data/site';
+import { metaDescription } from '../data/seo';
+
+const title = `Accessibility | ${site.name}`;
+const description = metaDescription(
+  `Accessibility commitment, features, and feedback contact for Stittsville Garage Doors. Report a barrier: ${site.email} or ${site.phone}.`,
+);
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Accessibility', path: '/accessibility/' },
+];
+
+const lastUpdated = 'May 2026';
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+  </Fragment>
+
+  <Hero
+    title="Accessibility"
+    subtitle="Our commitment to making the website, the phone line, and the on-site service usable for everyone in Stittsville."
+    showPricingCta={false}
+    eyebrow={null}
+  />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
+  <section class="container-page section-pad">
+    <div class="prose-content mx-auto max-w-3xl">
+      <p class="text-sm text-primary-500">Last updated: {lastUpdated}</p>
+
+      <h2>Our commitment</h2>
+      <p>
+        {site.legal.entity} is committed to making its website and services accessible to people with
+        disabilities, in line with the{' '}
+        <em>Accessibility for Ontarians with Disabilities Act</em> (AODA) and the{' '}
+        <em>Web Content Accessibility Guidelines</em> (WCAG) 2.1 at Level AA.
+      </p>
+
+      <h2>What we have done on the website</h2>
+      <ul>
+        <li>Semantic HTML headings, lists, and landmarks so screen readers can navigate the site.</li>
+        <li>Descriptive alt text on photos of completed jobs so the content is meaningful without images.</li>
+        <li>Colour contrast on body text, buttons, and links that meets or exceeds WCAG 2.1 AA.</li>
+        <li>Keyboard-only navigation for the menu, quote form, and all in-page links.</li>
+        <li>Visible focus rings on links and form fields.</li>
+        <li>Form labels tied to inputs, with clear required-field indication.</li>
+        <li>Responsive layout that works at 320&nbsp;px, 200% zoom, and reflow up to 400%.</li>
+        <li>No flashing or auto-playing content.</li>
+      </ul>
+
+      <h2>What we offer over the phone and on site</h2>
+      <ul>
+        <li>
+          You can reach a real human at <a href={`tel:${site.phoneRaw}`}>{site.phone}</a> during all stated
+          hours — no phone tree, no required online form.
+        </li>
+        <li>
+          If you cannot use the quote form, call or email and we will collect the same information in whichever
+          way works for you (large-print quote, text message, family-member relay, etc.).
+        </li>
+        <li>
+          On-site technicians will take the time to explain the work in plain language, demonstrate any new
+          opener controls, and stay until you are comfortable using the door.
+        </li>
+        <li>
+          We can leave large-print written quotes and warranty paperwork on request.
+        </li>
+      </ul>
+
+      <h2>Known limitations</h2>
+      <p>We are continuously improving the site. Areas we are still working on:</p>
+      <ul>
+        <li>
+          The embedded Google Map on the <a href="/contact/">Contact page</a> is provided by Google and does
+          not fully meet WCAG 2.1 AA. A text description of our service area is included on the same page.
+        </li>
+        <li>
+          Some older photos may have shorter alt text than we would like. We are reviewing and rewriting these
+          batch by batch.
+        </li>
+      </ul>
+
+      <h2>Report a barrier</h2>
+      <p>
+        If something on this website or in our service blocks you from accessing information or hiring us,
+        please let us know &mdash; we treat accessibility feedback as a priority and respond within two
+        business days.
+      </p>
+      <ul>
+        <li>Email: <a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li>Phone: <a href={`tel:${site.phoneRaw}`}>{site.phone}</a></li>
+      </ul>
+      <p>
+        When you contact us, please describe the barrier (e.g. &ldquo;the menu does not open with a keyboard
+        on the pricing page&rdquo;) and the device or assistive technology you are using if you are
+        comfortable sharing.
+      </p>
+
+      <h2>Alternative formats</h2>
+      <p>
+        On request we can provide the content of any page in a different format &mdash; plain-text email,
+        large-print PDF, or a phone walkthrough. There is no charge for this.
+      </p>
+    </div>
+  </section>
+</Base>

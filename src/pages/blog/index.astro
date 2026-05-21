@@ -3,6 +3,7 @@ import { Fragment } from 'astro/jsx-runtime';
 import Base from '../../layouts/Base.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import { site } from '../../data/site';
 import { blogCategories, blogPosts, getFeaturedPost } from '../../data/blog';
 import { metaDescription } from '../../data/seo';
@@ -36,6 +37,10 @@ const crumbs = [
       </p>
     </div>
   </header>
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
 
   <section class="container-page section-pad">
     <h2 class="sr-only">Featured article</h2>

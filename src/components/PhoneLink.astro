@@ -4,12 +4,22 @@ import { site } from '../data/site';
 interface Props {
   class?: string;
   showIcon?: boolean;
+  singleLine?: boolean;
+  ariaLabel?: string;
 }
 
-const { class: className = '', showIcon = false } = Astro.props;
+const { class: className = '', showIcon = false, singleLine = false, ariaLabel } = Astro.props;
 ---
 
-<a href={`tel:${site.phoneRaw}`} class:list={['btn-phone', className]}>
+<a
+  href={`tel:${site.phoneRaw}`}
+  class:list={[
+    'btn-phone',
+    singleLine && 'whitespace-nowrap normal-case tracking-normal',
+    className,
+  ]}
+  {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
+>
   {
     showIcon && (
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

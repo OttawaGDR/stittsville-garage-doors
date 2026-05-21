@@ -40,4 +40,10 @@ export const serviceLocalInsights: Record<string, string[]> = {
     'Maintenance is when we catch springs counting down cycles, frayed cables starting, and flat-spotted rollers carving track — honest notice beats a surprise bang on the coldest school morning.',
     'Wrong lube causes problems — grease in the track makes rollers skid; WD-40 dries out. We use cold-climate products on hinges and rollers only, and we test auto-reverse with a real obstruction test.',
   ],
+  'weather-seal': [
+    'Stittsville bottom seals fail in waves around years 6–8 on builder-grade Mattamy doors in Bryanston Gate and Trail Side Drive — original rubber durometer is wrong for -25°C nights and the lip rolls under itself within a few winters.',
+    'We see the most calls for daylight along the bottom edge from late November through February — once the slab is icy, the old seal cannot compress and the opener starts reversing on every close. Replacing the seal mid-winter takes 60–90 minutes and stops the heating bill from climbing.',
+    'Side and top weather stripping on older Fairwinds and Amberwood frames usually need their stop molding replaced too — the wood behind the vinyl is rotted at the bottom inch where snow piled against it every season. We replace molding rather than caulk over rot.',
+    'Aluminum retainer damage from snowblower clips and bike kickstands is common on Jackson Trails townhome bays where the driveway is tight. We carry replacement retainers in stock for most standard 16-foot and 18-foot Stittsville doors.',
+  ],
 };

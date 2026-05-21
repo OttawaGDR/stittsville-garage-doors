@@ -1,0 +1,185 @@
+---
+import type { FaqItem } from '../data/faqs';
+
+interface Props {
+  faqs: FaqItem[];
+}
+
+const { faqs } = Astro.props;
+const categories = ['All', ...new Set(faqs.map((f) => f.category))];
+---
+
+<div class="faq-explorer" data-faq-explorer>
+  <div class="card p-4 md:p-6">
+    <label for="faq-search" class="sr-only">Search FAQ questions</label>
+    <input
+      id="faq-search"
+      type="search"
+      data-faq-search
+      placeholder="Search questions (e.g. spring, opener, cold weather)…"
+      class="w-full rounded-lg border border-primary-200 bg-white px-4 py-3 text-base text-primary-900 placeholder:text-primary-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30"
+      autocomplete="off"
+    />
+    <div class="mt-4 flex flex-wrap gap-2" data-faq-categories role="tablist" aria-label="Filter by topic">
+      {
+        categories.map((cat, i) => (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            data-faq-category={cat}
+            class:list={[
+              'rounded-full border px-3 py-1.5 text-sm font-semibold transition',
+              i === 0
+                ? 'border-accent-500 bg-accent-500 text-white'
+                : 'border-primary-200 bg-white text-primary-700 hover:border-accent-400 hover:text-accent-600',
+            ]}
+          >
+            {cat}
+          </button>
+        ))
+      }
+    </div>
+    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+      <button
+        type="button"
+        data-faq-expand-all
+        class="font-semibold text-accent-600 underline-offset-2 hover:underline"
+      >
+        Expand all
+      </button>
+      <span class="text-primary-300" aria-hidden="true">|</span>
+      <button
+        type="button"
+        data-faq-collapse-all
+        class="font-semibold text-accent-600 underline-offset-2 hover:underline"
+      >
+        Collapse all
+      </button>
+      <span class="ml-auto text-primary-600" data-faq-count aria-live="polite">
+        Showing {faqs.length} of {faqs.length} questions
+      </span>
+    </div>
+  </div>
+
+  <p class="mt-6 hidden text-center text-primary-600" data-faq-empty>
+    No questions match your search. Try a different keyword or choose “All”.
+  </p>
+
+  <div class="mt-6 space-y-3" data-faq-list>
+    {
+      faqs.map((faq) => (
+        <details
+          class="card group faq-item"
+          data-faq-item
+          data-category={faq.category}
+          data-search={`${faq.question} ${faq.answer}`.toLowerCase()}
+          id={faq.id}
+        >
+          <summary class="cursor-pointer list-none font-display text-lg font-bold text-primary-900 marker:content-none [&::-webkit-details-marker]:hidden">
+            <span class="flex items-start justify-between gap-4">
+              <span>
+                <span class="mb-1 block text-xs font-semibold uppercase tracking-wide text-accent-600">
+                  {faq.category}
+                </span>
+                {faq.question}
+              </span>
+              <span
+                class="mt-1 shrink-0 text-2xl leading-none text-accent-500 transition group-open:rotate-45"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </span>
+          </summary>
+          <p class="mt-4 text-primary-700">{faq.answer}</p>
+        </details>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  function initFaqExplorer(root: HTMLElement) {
+    const search = root.querySelector<HTMLInputElement>('[data-faq-search]');
+    const items = [...root.querySelectorAll<HTMLDetailsElement>('[data-faq-item]')];
+    const empty = root.querySelector<HTMLElement>('[data-faq-empty]');
+    const list = root.querySelector<HTMLElement>('[data-faq-list]');
+    const countEl = root.querySelector<HTMLElement>('[data-faq-count]');
+    const categoryBtns = [...root.querySelectorAll<HTMLButtonElement>('[data-faq-category]')];
+    const expandAll = root.querySelector<HTMLButtonElement>('[data-faq-expand-all]');
+    const collapseAll = root.querySelector<HTMLButtonElement>('[data-faq-collapse-all]');
+
+    let activeCategory = 'All';
+    const total = items.length;
+
+    function setCategoryButtons() {
+      categoryBtns.forEach((btn) => {
+        const selected = btn.dataset.faqCategory === activeCategory;
+        btn.setAttribute('aria-selected', selected ? 'true' : 'false');
+        btn.classList.toggle('border-accent-500', selected);
+        btn.classList.toggle('bg-accent-500', selected);
+        btn.classList.toggle('text-white', selected);
+        btn.classList.toggle('border-primary-200', !selected);
+        btn.classList.toggle('bg-white', !selected);
+        btn.classList.toggle('text-primary-700', !selected);
+      });
+    }
+
+    function applyFilters() {
+      const q = (search?.value ?? '').trim().toLowerCase();
+      let visible = 0;
+
+      items.forEach((item) => {
+        const matchCategory =
+          activeCategory === 'All' || item.dataset.category === activeCategory;
+        const haystack = item.dataset.search ?? '';
+        const matchSearch = !q || haystack.includes(q);
+        const show = matchCategory && matchSearch;
+        item.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty) empty.classList.toggle('hidden', visible > 0);
+      if (list) list.classList.toggle('hidden', visible === 0);
+      if (countEl) {
+        countEl.textContent = `Showing ${visible} of ${total} questions`;
+      }
+    }
+
+    search?.addEventListener('input', applyFilters);
+
+    categoryBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.faqCategory ?? 'All';
+        setCategoryButtons();
+        applyFilters();
+      });
+    });
+
+    expandAll?.addEventListener('click', () => {
+      items.forEach((item) => {
+        if (!item.hidden) item.open = true;
+      });
+    });
+
+    collapseAll?.addEventListener('click', () => {
+      items.forEach((item) => {
+        item.open = false;
+      });
+    });
+
+    if (window.location.hash) {
+      const target = root.querySelector(window.location.hash);
+      if (target instanceof HTMLDetailsElement) {
+        target.open = true;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    setCategoryButtons();
+    applyFilters();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-faq-explorer]').forEach(initFaqExplorer);
+</script>

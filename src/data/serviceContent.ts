@@ -862,6 +862,110 @@ export const serviceContents: Record<string, ServicePageContent> = {
       },
     ],
   },
+  'weather-seal': {
+    slug: 'weather-seal',
+    h1: 'Garage Door Weather Seal & Bottom Seal in Stittsville',
+    metaDescription: 'New garage door bottom seal, aluminum retainer, and perimeter weather stripping in Stittsville. Stops drafts, slush, and mice. From $250. (613) 777-6401.',
+    heroSubtitle: 'Drafty garage, slush puddles under the door, or daylight at the top? We replace bottom seals, aluminum retainers, and perimeter weather stripping across Stittsville — typically in a single visit.',
+    intro: [
+      'A garage door has four seals doing real work: the rubber bottom seal that meets the slab, the aluminum retainer that holds it, the side weather stripping along both vertical jambs, and the top weather strip across the header. When any one of them fails, you get cold air ripping into the bay, mice walking in along the corners, snowmelt pooling against the inside of the door, and an opener that thinks the door has hit an obstruction every time the seal ices to the floor.',
+      'Stittsville winters are punishing on weather seals. Salt and freeze-thaw on the apron eat the rubber lip on the bottom seal. UV through summer hardens the side stripping until it cracks at the corners. The aluminum retainer dents from snowblowers and bike kickstands, leaving the seal flapping and useless. We see it most on 1990s and early-2000s Fairwinds and Amberwood homes, but newer Mattamy doors in Bryanston Gate and Crossing Bridge are not immune — builder-grade seals often last only six to eight winters before they need a swap.',
+      'Replacing seals is one of the highest-value low-cost jobs we do. For about the price of one emergency call, you stop heating the driveway, kill the rodent entry path, and give the opener back its full travel without false reverses on a frozen lip. Most Stittsville single-bay homes are done in 60–90 minutes; double doors with full perimeter wrap take a bit longer.',
+      'We carry common bottom seal profiles for standard 16-foot and 18-foot Stittsville doors — T-style, P-bulb, and J-channel retainers — plus fresh aluminum retainers, side weather stripping in white, brown, and black, and top weather strips sized to match. If your retainer is bent or your jamb stop molding is rotted, we replace that too rather than caulk over the problem.',
+    ],
+    signs: [
+      'You can see daylight along the bottom edge of the door when it is fully closed',
+      'Snowmelt or rainwater pools on the garage floor along the inside of the closed door',
+      'The bottom seal looks flat, cracked, or has chunks missing — common after a few Stittsville winters',
+      'Cold air rips through the garage even with the door fully down — felt clearly on the side jambs or across the top',
+      'Mice droppings along the corners where the side stripping meets the slab',
+      'The opener reverses immediately when closing — the bottom seal has frozen to the slab',
+      'The aluminum retainer that holds the bottom seal is dented, cracked, or rattling loose',
+      'Visible gap on one side of the door when closed — the side weather stripping is hardened and no longer flexing against the door face',
+      'You feel a draft on the inside wall of the house that shares a wall with the garage — usually a top weather strip or jamb seal issue',
+    ],
+    whyHappens: [
+      'Bottom seals fail mechanically — the rubber lip rolls under daily door cycles, and Stittsville salt and grit chew the edge faster than in milder climates. Once the lip cracks, the seal cannot recover its shape and air, water, and pests get in.',
+      'Aluminum retainers bend when a snowblower clips them, a kid backs a bike into them, or the door is forced closed on something hard. A bent retainer means the seal flaps loose; a re-bent retainer never fully recovers and the seal binds.',
+      'Side and top weather stripping is usually vinyl or PVC bonded to a wood or aluminum stop molding nailed to the jamb. UV makes vinyl brittle; freeze-thaw warps the wood underneath. After 8–12 years, the stripping is cracked at the corners and the molding behind it may have rotted at the bottom inch where snow piles against it.',
+      'New doors get builder-grade seals that are not always full-perimeter — some installs skip the top weather strip entirely. We see this regularly on production builds in Bryanston Gate and Trail Side Drive where homeowners noticed cold drafts in the first winter.',
+      'Bottom seals also freeze to the slab when the rubber lip pools water during a thaw, then refreezes overnight. The opener interprets the resistance as an obstruction and reverses. New seals with proper drainage profiles and the right durometer rubber resist this far better than the original cheap T-style.',
+    ],
+    process: [
+      {
+        title: 'Phone triage and measurement',
+        time: '5 min',
+        body: 'We ask door width, retainer profile (T, P, or bead/J), and which seals you want replaced — bottom only, full perimeter, or specific sections. We confirm colour for the side and top strip so we arrive with the right parts.',
+      },
+      {
+        title: 'On-site assessment',
+        time: '10 min',
+        body: 'We check the current retainer for damage, the bottom panel for the right slot type, and the jamb stop molding for rot or splits. If the molding needs replacing we quote that before we cut anything.',
+      },
+      {
+        title: 'Bottom seal and retainer swap',
+        time: '20–40 min',
+        body: 'We pull the old retainer (with the door safely lifted and clamped), clean the bottom track of the panel, slide in a fresh aluminum retainer if needed, and feed in the new rubber seal. We trim, end-cap, and verify full slab contact across the width.',
+      },
+      {
+        title: 'Side and top weather stripping',
+        time: '15–30 min',
+        body: 'For full perimeter jobs we pull the old jamb stops, replace any rotted molding, and install new vinyl-faced stops along both verticals and the top header. The lip rolls into the door face when closed for a continuous seal.',
+      },
+      {
+        title: 'Close test and walkthrough',
+        time: '5–10 min',
+        body: 'We cycle the door, check for daylight in the dark with a flashlight inside, verify no opener reverses on the new seal contact, and walk you through what we replaced and what to watch for next season.',
+      },
+    ],
+    pricing: [
+      'A standard bottom seal and aluminum retainer swap on a single-car Stittsville door starts around $250 — labour, new retainer, and a full-width rubber bottom seal sized to your door.',
+      'Adding side and top perimeter weather stripping during the same visit typically pushes the total into the $300–$450 range on a single door, depending on whether the jamb stop molding needs replacing or just the vinyl strip.',
+      'Double-car doors and full-perimeter jobs in Crossing Bridge or Jackson Trails three-car bays are usually $400–$550 because there is more linear footage of retainer and stripping.',
+      'Rotted jamb stop molding from snow build-up at the base — common on older Fairwinds and Amberwood door frames — is quoted separately if found, usually $75–$150 per side for material and trim work.',
+      'We will not upsell a full perimeter when only the bottom is leaking, and we will tell you on site if the door slab is uneven enough that a new seal alone will not solve the problem.',
+    ],
+    durationNote: 'Most bottom-seal-only jobs in Stittsville finish in 60–75 minutes. Full perimeter (bottom + sides + top) is usually 90–120 minutes on a single door, longer on doubles or where jamb molding needs replacing.',
+    diyRisks: [
+      'Lifting a heavy door without locking it open in order to slide in a new retainer is how fingers get pinched and seals get stuck halfway',
+      'Cutting a too-short bottom seal leaves a gap at one end — the most common DIY mistake we have to redo',
+      'Forcing the wrong retainer profile (T into a P slot or vice versa) can crack the bottom panel face',
+      'Nailing new stop molding through hidden wiring or the existing low-voltage opener wire — we trace before we drive nails',
+      'Using exterior caulk to "seal" gaps instead of replacing the molding traps moisture against the wood and accelerates rot',
+      'Skipping the top weather strip because it is awkward to reach — heat loss through the header is significant and easy to miss until the hydro bill arrives',
+    ],
+    relatedSlugs: ['maintenance', 'cable-repair', 'panel-repair'],
+    faqs: [
+      {
+        question: 'How long does a new bottom seal last in Stittsville?',
+        answer: 'Quality replacement seals typically last 8–12 years in our climate. Builder-grade originals from the early 2000s often need replacing at the 6–8 year mark because the rubber durometer is wrong for -25°C nights. We use commercial-grade EPDM or vinyl seals sized for Ottawa Valley winters.',
+      },
+      {
+        question: 'Can you just replace the rubber and keep the old retainer?',
+        answer: 'Sometimes — if the aluminum retainer is straight, clean, and the slot is the right profile for a new seal. If the retainer is bent or corroded, the new seal will bind or flap loose. We check before we order parts and tell you whether retainer-only, seal-only, or full-set is the right call.',
+      },
+      {
+        question: 'Will a new bottom seal stop mice from getting in?',
+        answer: 'A properly fit bottom seal with full slab contact eliminates the main entry path. Side weather stripping handles the corners — mice are excellent at finding gaps where the bottom seal meets the side strip. Full-perimeter installs close all four edges; bottom-only leaves the corners open.',
+      },
+      {
+        question: 'Do I need a threshold seal on the concrete too?',
+        answer: 'Threshold seals (the rubber strip bonded to the slab itself) help when the floor is uneven or sloped. For most flat Stittsville driveways, a good bottom seal alone is enough. We will recommend a threshold only if your slab has dips wider than a seal can compress into.',
+      },
+      {
+        question: 'My opener reverses every time the door touches the floor — is this a seal issue?',
+        answer: 'Often yes. A frozen seal or a stiff old seal creates enough resistance that the opener interprets it as an obstruction. We diagnose seal vs. opener limit vs. spring tension on site. Replacing the seal alone fixes about half these calls; the rest need a quick opener limit adjustment too.',
+      },
+      {
+        question: 'Can you match the colour of my existing side stripping?',
+        answer: 'We carry white, brown, and black side and top weather stripping that match most Stittsville builds. Custom colours can be ordered with 3–5 business days lead time. Tell us the colour at booking so we bring the right rolls.',
+      },
+      {
+        question: 'Is a weather seal job covered by warranty?',
+        answer: 'We warranty our labour and the parts we supply for one year. Damage from impact (snowblower, vehicle, bike) is not covered, but normal-wear issues are.',
+      },
+    ],
+  },
 };
 
 export function getServiceContent(slug: string): ServicePageContent | undefined {

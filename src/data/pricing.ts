@@ -18,7 +18,7 @@ export const pricingTable: PriceRow[] = [
     startingAt: 250,
     priceHigh: 350,
     serviceSlug: 'spring-repair',
-    note: 'Both springs recommended on double doors — typically $380–$480',
+    note: 'Both springs recommended on double doors — typically $450–$550',
   },
   {
     job: 'Cable repair or replacement',
@@ -71,6 +71,8 @@ export const pricingTable: PriceRow[] = [
     job: 'Bottom seal & aluminium retainer',
     startingAt: 250,
     priceHigh: 350,
+    serviceSlug: 'weather-seal',
+    note: 'Includes new aluminum retainer, rubber seal, and side/top weather stripping if needed',
   },
   {
     job: 'New opener installed',

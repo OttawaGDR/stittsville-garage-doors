@@ -3,39 +3,61 @@ import { Fragment } from 'astro/jsx-runtime';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import PhoneLink from '../components/PhoneLink.astro';
+import QuoteForm from '../components/QuoteForm.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import NeighbourhoodGrid from '../components/NeighbourhoodGrid.astro';
-import PriceTable from '../components/PriceTable.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
-import ReviewCard from '../components/ReviewCard.astro';
-import JobPhoto from '../components/JobPhoto.astro';
 import JobGallery from '../components/JobGallery.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
 import FAQSchema from '../components/Schema/FAQ.astro';
 import WebSiteSchema from '../components/Schema/WebSite.astro';
-import { metaDescription } from '../data/seo';
-import { getHeroPhoto, getFeaturedPhotos, getBeforeAfter, jobPhotos } from '../data/jobPhotos';
+import WebPageSchema from '../components/Schema/WebPage.astro';
+import { getHeroPhoto, getBeforeAfter, getPhotoById, getPhotosByIds, jobPhotos } from '../data/jobPhotos';
 import { site } from '../data/site';
 import { services } from '../data/services';
 import { homepageFaqs } from '../data/faqs';
-import { reviews } from '../data/reviews';
-import { homepagePricingSnapshot, pricingPolicy } from '../data/pricing';
+import { pricingPolicy } from '../data/pricing';
 
 const title = `Garage Door Repair Stittsville | Same-Day Service | ${site.phone}`;
-const description = metaDescription(
-  `Same-day garage door repair in Stittsville, ON. Springs $250–$350, openers, cables, tracks, panels. Free on-site quote. Jackson Trails, Fairwinds, Amberwood. Call ${site.phone}.`,
-);
+const description =
+  'Same-day garage door repair in Stittsville. Springs, openers, cables, tracks, panels — free on-site written quote, no dispatch fee. Call (613) 777-6401.';
 
-const featuredReviews = reviews.slice(0, 3);
 const heroPhoto = getHeroPhoto();
-const featuredJobs = getFeaturedPhotos(6);
+const featuredJobs = getPhotosByIds([
+  'complete-spring-cable-bracket-kit',
+  'bottom-bracket-seal-after',
+  'torsion-spring-collection',
+  'garage-door-off-track-interior-view',
+  'wood-look-double',
+  'double-beige-raised',
+]);
 const beforeAfter = getBeforeAfter();
+
+const formStatus: 'sent' | 'error' | null = Astro.url.searchParams.get('sent')
+  ? 'sent'
+  : Astro.url.searchParams.get('error')
+    ? 'error'
+    : null;
 
 const problemPhotos = {
   spring: jobPhotos.find((p) => p.id === 'spring-broken')!,
   opener: jobPhotos.find((p) => p.id === 'opener-chamberlain')!,
-  track: jobPhotos.find((p) => p.id === 'panel-bent')!,
-  maintenance: jobPhotos.find((p) => p.id === 'roller-replace')!,
+  track: jobPhotos.find((p) => p.id === 'door-stuck-off-track-townhome')!,
+  maintenance: jobPhotos.find((p) => p.id === 'worn-vs-new-nylon-roller')!,
+};
+
+const recentInstall = jobPhotos.find((p) => p.id === 'cream-flush-windows')!;
+
+const serviceCardImages: Record<string, string> = {
+  'spring-repair': 'torsion-springs-removed',
+  'opener-repair': 'opener-internal-gears',
+  'opener-installation': 'chamberlain-red-opener',
+  'cable-repair': 'cable-set-rollers-bracket',
+  'track-repair': 'garage-door-off-track',
+  'panel-repair': 'panel-strut-bracket',
+  'new-door-installation': 'black-windows-single',
+  maintenance: 'maintenance-springs-rollers-lube',
+  'weather-seal': 'bottom-seal-retainer-bracket',
 };
 
 const whyCards = [
@@ -61,18 +83,22 @@ const whyCards = [
 <Base title={title} description={description}>
   <Fragment slot="head">
     <WebSiteSchema />
+    <WebPageSchema name="Garage Door Repair in Stittsville" description={description} path="/" />
     <FAQSchema faqs={homepageFaqs} />
     <link rel="preload" as="image" href={heroPhoto.src} />
   </Fragment>
 
   <Hero
     title="Garage Door Repair in Stittsville"
-    subtitle="Local technician, same-day service across Stittsville. Springs, openers, cables, panels — fixed today."
+    subtitle="Local technician, same-day service across Stittsville. Springs, openers, cables, panels — fixed today. Free on-site quote in writing before any work starts."
     image={heroPhoto}
+    eyebrow={null}
+    showQuoteCta
   />
 
   <section class="container-page py-12 md:py-16">
     <div class="prose-content max-w-none">
+      <h2 class="text-2xl font-bold text-primary-900 md:text-3xl">Same-Day Garage Door Service Across Stittsville</h2>
       <p>
         When your garage door fails at 6 AM on a January morning in Wyldewood or after the kids&apos; practice at the Johnny Leroux Community Arena, you need a technician who already knows Stittsville streets — not a national franchise that routes you through a call centre in another time zone. We answer {site.phone} locally, quote realistic ranges up front, and carry common springs, cables, rollers, and opener parts for the housing stock you actually have here: Mattamy doubles in Bryanston Gate, 1990s extension-spring setups in Fairwinds, and carriage doors on executive lots in Crossing Bridge Estates.
       </p>
@@ -82,6 +108,49 @@ const whyCards = [
       <p>
         Every repair includes liability insurance, a written invoice, and a one-year warranty on parts we supply. We link to dedicated pages for <a href="/services/cable-repair/">cable repair</a>, <a href="/services/panel-repair/">panel repair</a>, <a href="/services/opener-installation/">opener installation</a>, and <a href="/services/new-door-installation/">new garage door installation</a> so you can read signs, timelines, and pricing before we arrive — not after.
       </p>
+      <p>
+        Prefer to start with a written quote instead of a phone call? Use the <a href="#request-quote">free quote form</a> further down this page. Tell us the symptom and your street, and we will email back the same day with a realistic range, a confirmed visit window, and the parts we expect to bring on the truck. For trapped vehicles, stuck-open doors at night, or a door that will not close in -25°C, dial {site.phone} instead — that is the fastest route to a same-day Stittsville arrival.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page pt-2 pb-12 md:pb-16">
+    <div class="grid gap-10 lg:grid-cols-5 lg:items-start">
+      <div class="lg:col-span-3">
+        <h2>Get a free written quote — no dispatch fee</h2>
+        <div class="prose-content mt-4 max-w-none">
+          <p>
+            Our quotes are written, on site, and free. There is no dispatch fee, no
+            “diagnostic charge” that only applies if you approve the work, and no upsell theatre
+            after the van is open. We diagnose the door in front of you, show you what failed, and
+            hand you the price in writing before any tools come off the truck.
+          </p>
+          <p>
+            Fill out the short form to the right and we will reply with a realistic range for your
+            situation, a confirmed Stittsville arrival window, and the parts our technician will
+            bring. Most homeowners across Jackson Trails, Fairwinds, Amberwood Village, Wyldewood,
+            Bryanston Gate, and Crossing Bridge Estates hear back the same day during business
+            hours. Need it now? Call {site.phone}.
+          </p>
+          <h3 class="mt-8 text-xl">What to mention in the form</h3>
+          <ul class="list-disc space-y-2 pl-6">
+            <li>Single or double-car door — and roughly how old, if you know.</li>
+            <li>What you hear or see — bang, grinding, opener flashing, gap on one side, door
+              tilted, won&apos;t close, won&apos;t open.</li>
+            <li>Whether the door is currently stuck open, stuck closed, or operating but unsafe.</li>
+            <li>Opener brand if you can read the label — LiftMaster, Chamberlain, Genie, Craftsman.</li>
+            <li>Your neighbourhood or cross street so we can estimate drive time accurately.</li>
+          </ul>
+          <p>
+            The more detail you can share, the more accurate the written quote you receive — and
+            the better chance the technician arrives with the right spring wire size, cable length,
+            or sensor on the first visit.
+          </p>
+        </div>
+      </div>
+      <div class="lg:col-span-2">
+        <QuoteForm id="request-quote" status={formStatus} />
+      </div>
     </div>
   </section>
 
@@ -118,8 +187,8 @@ const whyCards = [
           Not sure which problem you have? Call {site.phone} and describe what the door is doing. We will tell you whether it sounds like a <a href="/services/spring-repair/">garage door spring repair</a>, an <a href="/services/opener-repair/">opener repair</a>, or something that needs a <a href="/services/track-repair/">track realignment</a> before we drive out.
         </p>
       </div>
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((s) => <ServiceCard service={s} />)}
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((s) => <ServiceCard service={s} image={getPhotoById(serviceCardImages[s.slug] ?? '')} />)}
       </div>
       <p class="mt-8 text-center">
         <a href="/services/" class="font-semibold text-primary-700 no-underline hover:text-accent-600">
@@ -150,39 +219,79 @@ const whyCards = [
       <p class="prose-content mb-10 max-w-none">
         Four failures account for most of our calls between the Goulbourn Recreation Complex and the Trans Canada Trail access in Amberwood. Each has a mechanical cause, a Stittsville-specific trigger, and a service page with pricing and timing.
       </p>
-      <div class="grid gap-8 lg:grid-cols-2">
-        <article class="card overflow-hidden p-0">
-          <JobPhoto photo={problemPhotos.spring} class="rounded-none border-0" />
-          <div class="p-6">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="card flex h-full flex-col overflow-hidden p-0">
+          <div class="aspect-[4/3] w-full shrink-0 overflow-hidden bg-primary-50">
+            <img
+              src={problemPhotos.spring.src}
+              alt={problemPhotos.spring.alt}
+              width={problemPhotos.spring.width}
+              height={problemPhotos.spring.height}
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="flex flex-1 flex-col p-6">
           <h3 class="text-xl">Broken spring (cold-snap failures)</h3>
-          <p class="mt-3 text-primary-700">
+          <p class="mt-3 flex-1 text-sm text-primary-700">
             When Ottawa drops below -20°C for a week, torsion springs on Fairwinds and Amberwood homes become brittle. Homeowners hear a bang in the garage, then the door feels impossibly heavy or hangs crooked on one cable. Extension springs on older pulley setups fail the same way after years of cycles. This is not a DIY fix — stored spring energy can cause serious injury. We replace broken springs same day when wire size is on the truck, balance the door, and test auto-reverse before you head back out toward Hazeldean. See <a href="/services/spring-repair/">garage door spring repair in Stittsville</a> for starting prices and what the visit includes.
           </p>
           </div>
         </article>
-        <article class="card overflow-hidden p-0">
-          <JobPhoto photo={problemPhotos.opener} class="rounded-none border-0" />
-          <div class="p-6">
+        <article class="card flex h-full flex-col overflow-hidden p-0">
+          <div class="aspect-[4/3] w-full shrink-0 overflow-hidden bg-primary-50">
+            <img
+              src={problemPhotos.opener.src}
+              alt={problemPhotos.opener.alt}
+              width={problemPhotos.opener.width}
+              height={problemPhotos.opener.height}
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="flex flex-1 flex-col p-6">
           <h3 class="text-xl">Opener will not respond (sensor misalignment after winter)</h3>
-          <p class="mt-3 text-primary-700">
+          <p class="mt-3 flex-1 text-sm text-primary-700">
             The motor hums but the door reverses immediately, or the wall button flashes and nothing moves. After snowbanks build up near the apron on Jackson Trails driveways, photo-eyes get knocked or frost over on north-facing bays in Wyldewood. Wi-Fi openers in Bryanston Gate lose pairing after router changes. We realign sensors, replace worn gears and carriages on LiftMaster and Chamberlain units, and reprogram remotes — usually in under 90 minutes.             Details on our <a href="/services/opener-repair/">garage door opener repair</a> page.
           </p>
           </div>
         </article>
-        <article class="card overflow-hidden p-0">
-          <JobPhoto photo={problemPhotos.track} class="rounded-none border-0" />
-          <div class="p-6">
+        <article class="card flex h-full flex-col overflow-hidden p-0">
+          <div class="aspect-[4/3] w-full shrink-0 overflow-hidden bg-primary-50">
+            <img
+              src={problemPhotos.track.src}
+              alt={problemPhotos.track.alt}
+              width={problemPhotos.track.width}
+              height={problemPhotos.track.height}
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="flex flex-1 flex-col p-6">
           <h3 class="text-xl">Door off track (impact damage)</h3>
-          <p class="mt-3 text-primary-700">
+          <p class="mt-3 flex-1 text-sm text-primary-700">
             A vehicle tap, hockey net, or bent bottom vertical can pull rollers out of the channel. The door may bind, gap on one side, or look like it is about to fall. Continuing to run the opener risks bending the horizontal track and damaging panels on three-car setups in Crossing Bridge Estates. We straighten or replace verticals, re-seat cables if needed, and swap rollers before the track is ruined.             Read <a href="/services/track-repair/">garage door track repair in Stittsville</a> for process and pricing.
           </p>
           </div>
         </article>
-        <article class="card overflow-hidden p-0">
-          <JobPhoto photo={problemPhotos.maintenance} class="rounded-none border-0" />
-          <div class="p-6">
+        <article class="card flex h-full flex-col overflow-hidden p-0">
+          <div class="aspect-[4/3] w-full shrink-0 overflow-hidden bg-primary-50">
+            <img
+              src={problemPhotos.maintenance.src}
+              alt={problemPhotos.maintenance.alt}
+              width={problemPhotos.maintenance.width}
+              height={problemPhotos.maintenance.height}
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="flex flex-1 flex-col p-6">
           <h3 class="text-xl">Loud grinding (worn rollers and bearings)</h3>
-          <p class="mt-3 text-primary-700">
+          <p class="mt-3 flex-1 text-sm text-primary-700">
             Steel doors on 1990s builds in Fairwinds and Amberwood often sound like a freight train when rollers dry out or hinges crack. The noise gets worse in winter when grease thickens and the opener strains against extra friction. Ignoring it burns out motor capacitors and can snap cables off the drum.             A <a href="/services/maintenance/">garage door maintenance and tune-up</a> fixes most of it in 45 minutes — lube, balance, hardware torque, and safety tests — before you need a full opener replacement.
           </p>
           </div>
@@ -197,6 +306,55 @@ const whyCards = [
   </section>
 
   <section class="container-page section-pad">
+    <div class="grid gap-8 md:grid-cols-[minmax(0,320px),1fr] md:items-start">
+      <figure class="mx-auto w-full max-w-[320px] overflow-hidden rounded-xl border border-primary-100 shadow-md md:mx-0">
+        <div class="aspect-[4/3] w-full overflow-hidden bg-primary-50">
+          <img
+            src={recentInstall.src}
+            alt={recentInstall.alt}
+            width={recentInstall.width}
+            height={recentInstall.height}
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <figcaption class="bg-primary-50 px-4 py-3 text-sm text-primary-700">
+          Recent Stittsville install — cream flush-panel door with 3-window row.
+        </figcaption>
+      </figure>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent-600">
+          Featured Stittsville install
+        </p>
+        <h2 class="mt-3">New cream flush-panel door with windows</h2>
+        <div class="prose-content mt-4 max-w-none">
+          <p>
+            This single-car Stittsville home swapped a dented, faded builder-grade door for a clean
+            cream flush-panel with a three-window row at eye level — more natural light in the
+            garage without losing privacy. We measured the opening, ordered springs sized to the
+            new door weight, balanced the door, set opener limits, and ran the auto-reverse test
+            before handing the remote back.
+          </p>
+          <p>
+            Most one-bay Stittsville door swaps finish in a single visit when we book the door in
+            advance. Three- to five-business-day lead time on doors is typical from our suppliers;
+            same-day work covers springs, openers, cables, and panels we can repair in place. See
+            our <a href="/services/new-door-installation/">new garage door installation</a> page
+            for window layouts, R-values for insulated doors, and what to expect on installation
+            day — or <a href="#request-quote">request a free quote</a> with a photo of your
+            existing door.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a href="#request-quote" class="btn-primary">Get a quote on a new door</a>
+          <a href="/services/new-door-installation/" class="btn-secondary">See installation details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recent-work" class="container-page section-pad scroll-mt-24">
     <JobGallery photos={featuredJobs} title="Recent garage door work in Stittsville" columns={3} />
     <p class="prose-content mt-6 max-w-none">
       Real jobs across Stittsville — spring replacements, Chamberlain myQ opener installs, roller swaps, and panel work across Stittsville.
@@ -204,34 +362,147 @@ const whyCards = [
   </section>
 
   <section class="container-page section-pad">
-    <h2>Typical price ranges for common jobs</h2>
+    <h2>Honest pricing, written on site</h2>
     <div class="prose-content max-w-none">
       <p>
-        Stittsville homeowners told us the biggest frustration with garage door companies is showing up blind on price. We publish typical ranges for the jobs we do most often — springs $250–$350, cables $150–$250, opener repair $150–$300, new openers $650–$950 installed. Final cost depends on door size and what we find on site, but you always get a written quote before work starts.
+        We do not publish prices on the homepage because every Stittsville door is a little different — single-car vs. double, original 1989 steel vs. a new Mattamy insulated panel, extension springs vs. torsion. What you get instead is a free on-site diagnosis and a written quote in your driveway before any work begins. No dispatch fee, no diagnostic charge, no surprises after the van is open.
+      </p>
+      <p>
+        If you want to compare ranges before you book, we keep them on a single page so you can budget without scrolling through marketing. <a href="/pricing/">See the full Stittsville pricing page</a> — springs, cables, opener repairs, opener installs, panel repair, tune-ups, and new doors are all listed with realistic ranges and what bumps a job to the higher end. Or just <a href="#request-quote">request a free quote</a> with the symptom and we will email back a number for your situation specifically.
       </p>
     </div>
-    <div class="mt-8">
-      <PriceTable rows={homepagePricingSnapshot} />
+    <div class="mt-6 flex flex-wrap gap-4">
+      <a href="/pricing/" class="btn-secondary">See full pricing page</a>
+      <a href="#request-quote" class="btn-primary">Request a free quote</a>
     </div>
-    <p class="mt-6">
-      <a href="/pricing/" class="font-semibold">See full garage door repair pricing in Stittsville →</a>
-    </p>
-    <p class="prose-content mt-6 max-w-none">
-      Panel repair, new door installation, and emergency after-hours surcharges are listed on the full pricing page with the same “starting at” honesty — so you can budget before we meet at your driveway.
-    </p>
+  </section>
+
+  <section id="homeowner-reviews" class="bg-primary-50/50 section-pad scroll-mt-24">
+    <div class="container-page">
+      <h2>Stittsville reviews — building one job at a time</h2>
+      <div class="prose-content max-w-none">
+        <p>
+          Stittsville Garage Doors is a focused Stittsville-only service. Rather than fill this page with stock testimonials or reviews borrowed from other sites, we are building a real review history one Stittsville job at a time. Every customer is invited to leave honest feedback after the work is complete.
+        </p>
+        <p>
+          In the meantime, judge us on the things that actually matter: published <a href="/pricing/">pricing in writing</a>, the <a href="#recent-work">recent Stittsville jobs</a> below, and the <a href="/services/">services we handle</a>. We answer {site.phone} in person — try it before you book and you will hear the difference from a national call centre.
+        </p>
+      </div>
+
+      <div class="card mt-10 max-w-3xl">
+        <h3 class="text-xl">Be one of our first Stittsville reviewers</h3>
+        <p class="mt-3 text-primary-700">
+          Book any repair or installation in Stittsville before March 31. After the job is complete, leave us an honest review — good or bad — and we will take $20 off your invoice on the spot as a thank-you for helping us build a real Stittsville track record.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href={`tel:${site.phoneRaw}`}
+            class="btn-phone"
+            aria-label={`Call ${site.name} at ${site.phone}`}
+          >
+            {site.phone}
+          </a>
+          <a href="#request-quote" class="btn-secondary">Request a free quote</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="bg-primary-50/50 section-pad">
     <div class="container-page">
-      <h2>What homeowners say</h2>
-      <p class="prose-content mb-8 max-w-none">
-        Homeowners across Jackson Trails, Fairwinds, Amberwood, and the rest of Stittsville call us for same-day repairs, clear quotes on site, and a technician who shows up — not a call centre. When you see “fast,” “fair,” and “professional” in the comments below, that is what we aim for on Bridlewood, Fairwind Way, and every street we service.
-      </p>
-      <div class="grid gap-6 md:grid-cols-3">
-        {featuredReviews.map((r) => <ReviewCard review={r} />)}
+      <h2>What to do before the technician arrives</h2>
+      <div class="prose-content max-w-none">
+        <p>
+          A few small steps shave time off the visit and, on safety calls, keep the door from
+          doing more damage before we get there. None of these require tools — and none ask you
+          to touch a torsion spring, cable, or live opener wiring (please do not).
+        </p>
       </div>
-      <p class="mt-8 text-center">
-        <a href="/reviews/" class="font-semibold">Read all customer reviews →</a>
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="card">
+          <h3 class="text-xl">If a spring just snapped</h3>
+          <p class="mt-3 text-sm text-primary-700">
+            Do not try to lift the door manually — it is now extremely heavy. Do not use the
+            opener: it can burn out the motor or pull the carriage off the rail. Unplug the opener
+            from the ceiling outlet, leave the door where it is, and call {site.phone}. We bring
+            the right spring wire size for double-car Stittsville doors.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">If the door is off-track</h3>
+          <p class="mt-3 text-sm text-primary-700">
+            Stop using the opener immediately. Continuing to run it bends horizontal track and
+            damages panels — a quick track realignment turns into a full section job. Block the
+            door open with a stepladder under the roller carriage if it is sagging, keep kids and
+            pets clear of the bay, and book a visit.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">If the opener won&apos;t respond</h3>
+          <p class="mt-3 text-sm text-primary-700">
+            Check the photo-eye sensors near the floor on each side — one steady light, one flashing
+            usually means misalignment or a snowbank in the beam. Pull the manual release rope only
+            if the door is fully closed, never when it is partway open. Note the opener brand and
+            model number on the back of the unit before you call.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">Clear the work area</h3>
+          <p class="mt-3 text-sm text-primary-700">
+            Move vehicles out of the garage if it is safe to do so. Clear about three feet on each
+            side of the door tracks. A clean floor in front of the door lets us cycle the door
+            safely and check balance without anything in the way.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">Have payment info ready</h3>
+          <p class="mt-3 text-sm text-primary-700">
+            We accept e-Transfer, credit card, and cash. You see the written quote on site before
+            any work begins — there is nothing to pay until you approve it. Seniors and veterans
+            should mention the discount at booking so it is on the written quote, not added after.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl">Park-and-access notes</h3>
+          <p class="mt-3 text-sm text-primary-700">
+            For Bryanston Gate or Crossing Bridge gated streets, let us know any visitor-parking
+            quirks. For townhomes with shared driveways in newer Mattamy pockets, point out where
+            our truck can pull up so we are not blocking neighbours during the visit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page section-pad">
+    <h2>Local, insured, and accountable</h2>
+    <div class="prose-content max-w-none">
+      <p>
+        Stittsville Garage Doors is a local repair and installation operation — not a sub-contractor
+        for a national brand. The technician who shows up is the same person who answered{' '}
+        {site.phone} when you called. That is rare in this trade, and it is the single biggest
+        difference homeowners notice between us and the franchise quotes they cancel after the
+        first visit.
+      </p>
+      <p>
+        We carry liability insurance, written invoices, and a one-year parts warranty on
+        components we supply. We hold ourselves to documented standards on every visit: balance
+        the door, test auto-reverse, torque hardware to spec, lubricate where lubrication helps and
+        leave dry the places it would attract grit. If we cannot complete a job in a way we would
+        accept in our own garage, we will not quote it — full stop.
+      </p>
+      <p>
+        We service Stittsville first and west Ottawa second. That focus means our trucks are
+        already in your part of town most days of the week, so same-day windows are realistic, not
+        marketing language. If you are outside the village core but within reasonable drive, ask
+        when you call — we will tell you honestly whether today is possible or whether tomorrow
+        morning gets you a better rate without overtime.
+      </p>
+      <p>
+        Want to see our recent work? Read the
+        <a href="/blog/">garage door blog</a> for seasonal tips on Ottawa-Valley doors, or compare
+        published numbers on the <a href="/pricing/">pricing page</a>. Ready to book? Submit the{' '}
+        <a href="#request-quote">free quote form</a> above or call {site.phone}.
       </p>
     </div>
   </section>

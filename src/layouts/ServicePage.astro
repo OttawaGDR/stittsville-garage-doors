@@ -9,6 +9,7 @@ import { getPhotosForService } from '../data/jobPhotos';
 import ServiceSchema from '../components/Schema/Service.astro';
 import FAQSchema from '../components/Schema/FAQ.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
 import { neighbourhoods } from '../data/neighbourhoods';
 import { services, getService } from '../data/services';
@@ -28,7 +29,7 @@ const relatedServices = content.relatedSlugs
 const title = `${content.h1} | ${site.phone}`;
 const description = content.metaDescription;
 
-const servicePhotos = getPhotosForService(content.slug, 3);
+const servicePhotos = getPhotosForService(content.slug, 8);
 const localInsights = serviceLocalInsights[content.slug] ?? [];
 
 const crumbs = [
@@ -52,6 +53,10 @@ const crumbs = [
   </Fragment>
 
   <Hero title={content.h1} subtitle={content.heroSubtitle} showPricingCta />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
 
   <article class="container-page section-pad">
     <div class="prose-content prose-wide max-w-none">

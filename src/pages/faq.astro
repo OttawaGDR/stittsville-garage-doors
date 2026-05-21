@@ -1,0 +1,67 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import FaqExplorer from '../components/FaqExplorer.astro';
+import FAQSchema from '../components/Schema/FAQ.astro';
+import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import { site } from '../data/site';
+import { faqPageFaqs } from '../data/faqs';
+
+const title = `Garage Door FAQ | Stittsville Garage Doors | ${site.phone}`;
+const description = `33 answers on Stittsville garage door repair — pricing, springs, openers, cold weather, emergencies, and booking. Call ${site.phone} for same-day service.`;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'FAQ', path: '/faq/' },
+];
+---
+
+<Base title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema crumbs={crumbs} />
+    <FAQSchema faqs={faqPageFaqs} />
+  </Fragment>
+
+  <Hero
+    title="Garage Door Repair FAQ"
+    subtitle="Search 33 common questions about repairs, pricing, openers, and winter problems in Stittsville — or call for a same-day visit."
+    showPricingCta={false}
+  />
+
+  <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
+    <BreadcrumbNav crumbs={crumbs} />
+  </div>
+
+  <section class="container-page section-pad">
+    <div class="prose-content mb-10 max-w-none">
+      <p>
+        Straight answers for Stittsville homeowners — no filler. Use the search box or topic filters below.
+        Every job still gets a <strong>free on-site written quote</strong> before we start; these answers help you
+        know what to expect before we arrive on Bridlewood Drive, Fairwind Way, or anywhere in the village.
+      </p>
+      <p>
+        Did not find your situation? <PhoneLink class="!inline-flex !px-4 !py-2 !text-sm" showIcon /> or{' '}
+        <a href="/contact/">send a message</a> with your address and what the door is doing.
+      </p>
+    </div>
+
+    <FaqExplorer faqs={faqPageFaqs} />
+  </section>
+
+  <section class="bg-primary-900 section-pad text-primary-50">
+    <div class="container-page text-center">
+      <h2 class="text-white">Still stuck?</h2>
+      <p class="mx-auto mt-4 max-w-xl text-slate-200">
+        Most Stittsville calls book a same-day window. Describe the symptom — bang, grind, gap on one side, opener
+        flashing — and we will route the right truck.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <PhoneLink showIcon singleLine class="!text-base" />
+        <a href="/pricing/" class="btn-secondary border-white text-white hover:bg-white/10">See pricing</a>
+      </div>
+    </div>
+  </section>
+</Base>

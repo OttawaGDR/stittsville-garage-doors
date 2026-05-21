@@ -7,10 +7,19 @@ interface Props {
   title: string;
   subtitle: string;
   showPricingCta?: boolean;
+  showQuoteCta?: boolean;
   image?: JobPhoto;
+  eyebrow?: string | null;
 }
 
-const { title, subtitle, showPricingCta = true, image } = Astro.props;
+const {
+  title,
+  subtitle,
+  showPricingCta = true,
+  showQuoteCta = false,
+  image,
+  eyebrow = 'Stittsville, Ontario',
+} = Astro.props;
 ---
 
 <section class="relative overflow-hidden bg-primary-900 text-white">
@@ -41,11 +50,20 @@ const { title, subtitle, showPricingCta = true, image } = Astro.props;
   }
   <div class="container-page relative grid gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
     <div>
-      <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">Stittsville, Ontario</p>
-      <h1 class="mt-4 max-w-3xl text-white">{title}</h1>
+      {eyebrow && (
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">{eyebrow}</p>
+      )}
+      <h1 class={eyebrow ? 'mt-4 max-w-3xl text-white' : 'max-w-3xl text-white'}>{title}</h1>
       <p class="mt-6 max-w-2xl text-lg text-slate-200">{subtitle}</p>
       <div class="mt-8 flex flex-wrap gap-4">
         <PhoneLink showIcon />
+        {
+          showQuoteCta && (
+            <a href="#request-quote" class="btn-secondary border-white text-white hover:bg-white/10">
+              Request a Free Quote
+            </a>
+          )
+        }
         {
           showPricingCta && (
             <a href="/pricing/" class="btn-secondary border-white text-white hover:bg-white/10">
