@@ -2,12 +2,14 @@
 import { Fragment } from 'astro/jsx-runtime';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import GdsReviewCard from '../components/GdsReviewCard.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
 import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
+import { gdsParentReviews } from '../data/gdsParentReviews';
 
-const title = `Stittsville Garage Doors Reviews | Honest Local Feedback`;
-const description = `Real Stittsville garage door reviews — building one job at a time. No borrowed testimonials. Call ${site.phone} or request a quote.`;
+const title = `Customer Reviews — Stittsville Garage Doors`;
+const description = `Real GDS Ottawa customer reviews, honestly attributed. Stittsville-specific reviews coming as customers leave feedback. Call ${site.phone}.`;
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -21,8 +23,8 @@ const crumbs = [
   </Fragment>
 
   <Hero
-    title="Stittsville Garage Doors reviews"
-    subtitle="This page will only show real reviews from real Stittsville customers — once they exist."
+    title="Customer Reviews — Stittsville Garage Doors"
+    subtitle="Honest reviews from our Ottawa work under GDS — plus room for Stittsville customers as they come in."
     showPricingCta={false}
   />
 
@@ -33,51 +35,45 @@ const crumbs = [
   <section class="container-page section-pad">
     <div class="prose-content max-w-none">
       <p>
-        Stittsville Garage Doors launched as a dedicated Stittsville-only operation. Unlike review-stuffed sites that recycle testimonials from other regions or other businesses, this page will only display real reviews from real Stittsville customers — once they exist.
+        Stittsville Garage Doors operates under GDS — Garage Doors & Openers Ottawa. The
+        reviews on this page come from our wider Ottawa work, where the same technician team
+        has been handling springs, openers, cables, and full door installations for several
+        years. As Stittsville-specific reviews come in from our newest customers, they will
+        appear in their own section below — separate and clearly labelled.
       </p>
       <p>
-        If you are reading this in our first months, that means the page is intentionally short. Every Stittsville customer who hires us is asked, in writing, to leave honest feedback after the job is complete. As those reviews come in, they will appear here with the customer's first name, neighbourhood, date, and the service performed — exactly as written, good or bad.
+        <a href={site.parent.reviewsUrl}>See the full GDS Ottawa review history →</a>
+      </p>
+    </div>
+
+    <section class="mt-12">
+      <h2>Reviews from our Ottawa work under GDS</h2>
+      <p class="prose-content mb-8 mt-4 max-w-none">
+        These are real customer reviews, each tied to a real job under GDS — Garage Doors &amp;
+        Openers Ottawa. The customer names, locations, and review text below match what those
+        customers wrote on their original review platform.
       </p>
 
-      <h2>Why no reviews from "our parent network"</h2>
-      <p>
-        Some local service sites display reviews from related companies, agencies, or franchise parents. We chose not to. A review attached to this business should describe a job we did under this business — in Stittsville, by the Stittsville Garage Doors technician. Anything else would be misleading, and it would also misrepresent the people who wrote those reviews about a different operation.
-      </p>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        {gdsParentReviews.map((review) => <GdsReviewCard review={review} />)}
+      </div>
+    </section>
 
-      <h2>How to verify us before we have reviews</h2>
-      <p>
-        Until reviews accumulate, here is what you can check in 60 seconds:
+    <section class="card mt-16">
+      <h2 class="text-2xl">Be one of our first Stittsville reviewers</h2>
+      <p class="mt-4">
+        Book any garage door repair or installation at a Stittsville address and leave an
+        honest review after the job is done — positive or critical. We take $20 off your
+        invoice on the spot as thanks for helping us build out a Stittsville-specific review
+        history. The discount applies to leaving a review, not to the content of it. Real
+        feedback only.
       </p>
-      <ul class="mb-8 list-disc space-y-2 pl-6">
-        <li>
-          Call <a href={`tel:${site.phoneRaw}`}>{site.phone}</a> and ask any technical question about your door. A real technician answers — not a call-centre script.
-        </li>
-        <li>
-          Read our <a href="/pricing/">published pricing page</a>. Most competitors hide pricing. We do not.
-        </li>
-        <li>
-          Look at the <a href="/#recent-work">recent Stittsville jobs</a> on the homepage — real photos of real work, with Stittsville-specific captions.
-        </li>
-        <li>
-          Read our <a href="/blog/">blog</a> for the level of detail and honesty in how we discuss garage door problems.
-        </li>
-      </ul>
-
-      <h2>Be one of our first reviewers</h2>
-      <p>
-        Book any repair or installation in Stittsville before March 31. After the job is complete, leave us an honest review — good or bad — and we will take <strong>$20 off your invoice</strong> on the spot. The discount is not contingent on what you write; it is contingent on you writing. Real feedback only.
-      </p>
-
-      <div class="mt-8 flex flex-wrap gap-4">
-        <a
-          href={`tel:${site.phoneRaw}`}
-          class="btn-phone"
-          aria-label={`Call ${site.name} at ${site.phone}`}
-        >
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href={`tel:${site.phoneRaw}`} class="btn-phone" aria-label={`Call ${site.name} at ${site.phone}`}>
           {site.phone}
         </a>
         <a href="/#request-quote" class="btn-secondary">Request a free quote</a>
       </div>
-    </div>
+    </section>
   </section>
 </Base>

@@ -1,0 +1,27 @@
+---
+import type { GdsParentReview } from '../data/gdsParentReviews';
+
+interface Props {
+  review: GdsParentReview;
+}
+
+const { review } = Astro.props;
+---
+
+<article class="card">
+  <div class="flex gap-1 text-accent-500" aria-label="5 out of 5 stars">
+    <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+  </div>
+  <blockquote class="mt-4 text-primary-700">
+    &ldquo;{review.text}&rdquo;
+  </blockquote>
+  <footer class="mt-4 text-sm font-semibold text-primary-900">
+    — {review.author}
+    <span class="block font-normal text-primary-500">
+      {review.location} · {review.serviceType}
+    </span>
+    <span class="mt-1 block text-xs font-normal text-primary-400">
+      {review.attribution}
+    </span>
+  </footer>
+</article>

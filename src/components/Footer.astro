@@ -2,12 +2,11 @@
 import { site } from '../data/site';
 import { services } from '../data/services';
 import { neighbourhoods } from '../data/neighbourhoods';
-import PhoneLink from './PhoneLink.astro';
 ---
 
 <footer class="border-t border-primary-100 bg-primary-900 text-primary-50">
-  <div class="container-page section-pad grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-    <div>
+  <div class="container-page section-pad grid gap-12 sm:grid-cols-2 lg:grid-cols-6">
+    <div class="sm:col-span-2 lg:col-span-1">
       <a href="/" class="inline-block no-underline" aria-label={`${site.name} — home`}>
         <img
           src="/images/logo-white.svg"
@@ -18,10 +17,7 @@ import PhoneLink from './PhoneLink.astro';
         />
       </a>
       <p class="mt-3 text-slate-200">{site.tagline}</p>
-      <p class="mt-4 text-sm text-slate-200">{site.hours}</p>
-      <div class="mt-4">
-        <PhoneLink ariaLabel={`Call ${site.name} at ${site.phone}`} />
-      </div>
+      <p class="mt-3 text-sm text-slate-300">Serving {site.serviceArea.primary}</p>
     </div>
     <div>
       <h2 class="text-lg font-bold uppercase tracking-wide text-white">Services</h2>
@@ -48,21 +44,80 @@ import PhoneLink from './PhoneLink.astro';
       </ul>
     </div>
     <div>
+      <h2 class="text-lg font-bold uppercase tracking-wide text-white">GDS Ottawa</h2>
+      <ul class="mt-4 space-y-2.5 text-base leading-snug">
+        <li><a href={site.parent.url}>Main site →</a></li>
+        <li><a href={site.parent.bbbUrl}>BBB profile →</a></li>
+        <li><a href={site.parent.reviewsUrl}>Customer reviews →</a></li>
+      </ul>
+    </div>
+    <div>
       <h2 class="text-lg font-bold uppercase tracking-wide text-white">Company</h2>
       <ul class="mt-4 space-y-2.5 text-base leading-snug">
         <li><a href="/about/">About</a></li>
         <li><a href="/faq/">FAQ</a></li>
-        <li><a href="/neighbourhoods/">Neighbourhoods</a></li>
-        <li><a href="/blog/">Blog</a></li>
         <li><a href="/pricing/">Pricing</a></li>
-        <li><a href="/reviews/">Reviews</a></li>
         <li><a href="/emergency/">Emergency</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/contact/">Contact</a></li>
-        <li><a href="/resources/winter-garage-door-guide/">Winter guide</a></li>
-        <li><a href="/resources/stittsville-pricing-guide/">Pricing guide</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold uppercase tracking-wide text-white">Hours</h2>
+      <ul class="mt-4 space-y-3 text-sm leading-snug text-slate-200">
+        <li>
+          <span class="block font-semibold text-white">Regular service</span>
+          Mon–Sun, 7 AM – 10 PM
+        </li>
+        <li>
+          <span class="block font-semibold text-white">Emergency</span>
+          24 hours, 7 days
+        </li>
+      </ul>
+
+      <h2 class="mt-8 text-lg font-bold uppercase tracking-wide text-white">Contact</h2>
+      <ul class="mt-4 space-y-2.5 text-base leading-snug">
+        <li>
+          <a href={`tel:${site.phoneRaw}`} class="font-semibold hover:text-white">
+            {site.phone}
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${site.email}`} class="hover:text-white">
+            {site.email}
+          </a>
+        </li>
+        <li>
+          <a href="/contact/">Contact form</a>
+        </li>
+        <li>
+          <a href="/contact/">Free quote</a>
+        </li>
+        <li>
+          <a
+            href={site.social.yelp}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="hover:text-white"
+          >
+            Yelp
+          </a>
+        </li>
       </ul>
     </div>
   </div>
+
+  <div class="border-t border-white/20 py-6">
+    <p class="container-page text-sm text-slate-300">
+      Stittsville Garage Doors is operated by
+      <a href={site.parent.url} class="text-slate-200 underline underline-offset-2 hover:text-white">
+        {site.parent.name}
+      </a>
+      — the same Ottawa-based technician team, with a phone number and content built specifically for Stittsville so calls from this part of the city skip the general dispatch queue.
+    </p>
+  </div>
+
   <div class="border-t border-white/20 py-6 text-center text-sm text-slate-300">
     <p>&copy; {new Date().getFullYear()} {site.legal.entity}. Serving {site.serviceArea.primary}.</p>
     <ul class="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">

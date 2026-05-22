@@ -14,5 +14,16 @@ export const site = {
     entity: 'Stittsville Garage Doors',
     insured: true,
   },
-  social: {},
+  social: {
+    yelp: 'https://www.yelp.com/biz/stittsville-garage-doors-stittsville',
+  },
+  parent: {
+    name: 'GDS — Garage Doors & Openers Ottawa',
+    shortName: 'GDS Ottawa',
+    url: 'https://garagedoorsolutionsottawa.ca',
+    bbbUrl:
+      'https://www.bbb.org/ca/on/stittsville/profile/garage-doors/gds-garage-doors-openers-ottawa-0117-255126',
+    reviewsUrl:
+      'https://www.bbb.org/ca/on/stittsville/profile/garage-doors/gds-garage-doors-openers-ottawa-0117-255126',
+  },
 } as const;

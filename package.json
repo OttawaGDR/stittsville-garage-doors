@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "generate:favicons": "node scripts/generate-favicons.mjs",
+    "generate:logos": "node scripts/generate-logo-exports.mjs",
     "astro": "astro"
   },
   "dependencies": {

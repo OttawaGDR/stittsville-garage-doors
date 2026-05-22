@@ -49,6 +49,11 @@ export const homepageFaqs: Faq[] = [
       'Yes — liability insurance. You get a written invoice for every job, whether it is a spring on Amberway Drive or a full door in Crossing Bridge Estates.',
   },
   {
+    question: 'Is Stittsville Garage Doors part of a larger Ottawa operation?',
+    answer:
+      'Stittsville Garage Doors is operated by GDS — Garage Doors & Openers Ottawa, the parent service that handles garage door work across the wider Ottawa region. We set up a dedicated Stittsville site and phone line because Stittsville has enough call volume to justify its own truck rotation, neighbourhood-specific content, and a number that does not get mixed in with east-end or central Ottawa jobs. When you call (613) 777-6401, you reach the team focused on Stittsville — same insurance, same warranty, same technicians who already know the housing stock here.',
+  },
+  {
     question: 'Do you do estimates over the phone?',
     answer:
       'We can quote ranges for common jobs (springs, openers, cables) if you describe the door size and problem. Complex repairs need a quick look — we will give you an expected range before we drive out, then confirm with a written quote on site.',
@@ -98,6 +103,13 @@ export const faqPageFaqs: FaqItem[] = [
     question: 'Do you have information for my specific Stittsville neighbourhood?',
     answer:
       'Yes. We publish pages for Jackson Trails, Fairwinds, Crossing Bridge Estates, Amberwood, Wyldewood, and Bryanston Gate with common failure patterns and recent job examples — see the Neighbourhoods section in the site menu.',
+  },
+  {
+    id: 'gds-relationship',
+    category: 'Booking & service area',
+    question: 'Is Stittsville Garage Doors part of a larger Ottawa operation?',
+    answer:
+      'Stittsville Garage Doors is operated by GDS — Garage Doors & Openers Ottawa, the parent service that handles garage door work across the wider Ottawa region. We set up a dedicated Stittsville site and phone line because Stittsville has enough call volume to justify its own truck rotation, neighbourhood-specific content, and a number that does not get mixed in with east-end or central Ottawa jobs. When you call (613) 777-6401, you reach the team focused on Stittsville — same insurance, same warranty, same technicians who already know the housing stock here.',
   },
   // Pricing & payment (6)
   {

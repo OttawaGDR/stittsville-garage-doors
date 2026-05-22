@@ -379,32 +379,74 @@ const whyCards = [
 
   <section id="homeowner-reviews" class="bg-primary-50/50 section-pad scroll-mt-24">
     <div class="container-page">
-      <h2>Stittsville reviews — building one job at a time</h2>
-      <div class="prose-content max-w-none">
-        <p>
-          Stittsville Garage Doors is a focused Stittsville-only service. Rather than fill this page with stock testimonials or reviews borrowed from other sites, we are building a real review history one Stittsville job at a time. Every customer is invited to leave honest feedback after the work is complete.
-        </p>
-        <p>
-          In the meantime, judge us on the things that actually matter: published <a href="/pricing/">pricing in writing</a>, the <a href="#recent-work">recent Stittsville jobs</a> below, and the <a href="/services/">services we handle</a>. We answer {site.phone} in person — try it before you book and you will hear the difference from a national call centre.
-        </p>
+      <h2>What homeowners say</h2>
+      <p class="prose-content mb-8 max-w-none">
+        The reviews below come from our wider Ottawa work under GDS — Garage Doors & Openers
+        Ottawa. Stittsville-specific reviews will appear on this page as our newest Stittsville
+        customers leave them. Every review on this page is real, attributed to the customer's
+        actual name and location, and was written without any incentive tied to the content. We
+        ask every customer for honest feedback after the job, good or bad.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="card">
+          <div class="flex gap-1 text-accent-500" aria-label="5 out of 5 stars">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+          </div>
+          <blockquote class="mt-4 text-primary-700">
+            "Super fast and excellent service. I highly recommend to anyone in need of garage door repair or replacement. My door broke late last night and it's already repaired the next day. Very professional with excellent pricing."
+          </blockquote>
+          <footer class="mt-4 text-sm font-semibold text-primary-900">
+            — Vin
+            <span class="block font-normal text-primary-500">
+              Ottawa · Same-day repair
+            </span>
+            <span class="block mt-1 text-xs font-normal text-primary-400">
+              Originally reviewed on GDS Ottawa
+            </span>
+          </footer>
+        </article>
+
+        <article class="card">
+          <div class="flex gap-1 text-accent-500" aria-label="5 out of 5 stars">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+          </div>
+          <blockquote class="mt-4 text-primary-700">
+            "Within less than one hour from our initial contact we had a return call from GDS and scheduled a visit. Within half an hour our garage door was repaired and the gentleman that came was pleasant. Bonus was the price was more competitive than the 'priority' company that has yet to answer our request from last week. GDS was friendly, efficient, and cost competitive. A great experience."
+          </blockquote>
+          <footer class="mt-4 text-sm font-semibold text-primary-900">
+            — Crystal C.
+            <span class="block font-normal text-primary-500">
+              Ottawa · Same-day repair
+            </span>
+            <span class="block mt-1 text-xs font-normal text-primary-400">
+              Customer of our parent service, GDS Ottawa
+            </span>
+          </footer>
+        </article>
+
+        <article class="card">
+          <div class="flex gap-1 text-accent-500" aria-label="5 out of 5 stars">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+          </div>
+          <blockquote class="mt-4 text-primary-700">
+            "Excellent service. They responded very quickly to my call, and the problem was fixed in less than half a day. Fair price, professional work, and a very smooth experience overall. Highly recommended."
+          </blockquote>
+          <footer class="mt-4 text-sm font-semibold text-primary-900">
+            — Jean R.
+            <span class="block font-normal text-primary-500">
+              Ottawa · Garage door repair
+            </span>
+            <span class="block mt-1 text-xs font-normal text-primary-400">
+              Job completed under GDS — Garage Doors &amp; Openers Ottawa
+            </span>
+          </footer>
+        </article>
       </div>
 
-      <div class="card mt-10 max-w-3xl">
-        <h3 class="text-xl">Be one of our first Stittsville reviewers</h3>
-        <p class="mt-3 text-primary-700">
-          Book any repair or installation in Stittsville before March 31. After the job is complete, leave us an honest review — good or bad — and we will take $20 off your invoice on the spot as a thank-you for helping us build a real Stittsville track record.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-4">
-          <a
-            href={`tel:${site.phoneRaw}`}
-            class="btn-phone"
-            aria-label={`Call ${site.name} at ${site.phone}`}
-          >
-            {site.phone}
-          </a>
-          <a href="#request-quote" class="btn-secondary">Request a free quote</a>
-        </div>
-      </div>
+      <p class="mt-8 text-center">
+        <a href="/reviews/" class="font-semibold">See more reviews →</a>
+      </p>
     </div>
   </section>
 
