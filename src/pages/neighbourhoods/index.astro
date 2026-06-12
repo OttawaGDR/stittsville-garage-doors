@@ -6,9 +6,9 @@ import NeighbourhoodGrid from '../../components/NeighbourhoodGrid.astro';
 import BreadcrumbSchema from '../../components/Schema/Breadcrumb.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import { site } from '../../data/site';
-import { metaDescription } from '../../data/seo';
+import { metaDescription, pageTitle } from '../../data/seo';
 
-const title = `Garage Door Repair by Neighbourhood | ${site.phone}`;
+const title = pageTitle('Garage Door Repair by Neighbourhood');
 const description = metaDescription(
   `Same-day garage door repair across Stittsville neighbourhoods — Jackson Trails, Fairwinds, Amberwood, Wyldewood, Bryanston Gate & more. Free on-site quote. Call ${site.phone}.`,
 );

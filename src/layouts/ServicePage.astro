@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import PhoneLink from '../components/PhoneLink.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import JobGallery from '../components/JobGallery.astro';
-import { getPhotosForService } from '../data/jobPhotos';
+import { getPhotosForService, getServiceCardPhoto } from '../data/jobPhotos';
 import ServiceSchema from '../components/Schema/Service.astro';
 import FAQSchema from '../components/Schema/FAQ.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
@@ -15,6 +15,7 @@ import { neighbourhoods } from '../data/neighbourhoods';
 import { services, getService } from '../data/services';
 import type { ServicePageContent } from '../data/serviceContent';
 import { serviceLocalInsights } from '../data/serviceLocalInsights';
+import { pageTitle } from '../data/seo';
 
 interface Props {
   content: ServicePageContent;
@@ -26,10 +27,11 @@ const relatedServices = content.relatedSlugs
   .map((slug) => getService(slug))
   .filter(Boolean);
 
-const title = `${content.h1} | ${site.phone}`;
+const title = pageTitle(content.h1);
 const description = content.metaDescription;
 
 const servicePhotos = getPhotosForService(content.slug, 8);
+const heroPhoto = servicePhotos[0] ?? getServiceCardPhoto(content.slug);
 const localInsights = serviceLocalInsights[content.slug] ?? [];
 
 const crumbs = [
@@ -39,7 +41,7 @@ const crumbs = [
 ];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} ogImage={heroPhoto?.src}>
   <Fragment slot="head">
     <ServiceSchema
       serviceType={service.fullName}
@@ -52,7 +54,7 @@ const crumbs = [
     <BreadcrumbSchema crumbs={crumbs} />
   </Fragment>
 
-  <Hero title={content.h1} subtitle={content.heroSubtitle} showPricingCta />
+  <Hero title={content.h1} subtitle={content.heroSubtitle} showPricingCta image={heroPhoto} />
 
   <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
     <BreadcrumbNav crumbs={crumbs} />

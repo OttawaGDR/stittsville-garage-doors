@@ -17,9 +17,13 @@ const { slug } = Astro.params;
 const hood = getNeighbourhood(slug!);
 if (!hood) return Astro.redirect('/404');
 
+import { getNeighbourhoodPhoto } from '../../data/jobPhotos';
+import { pageTitle } from '../../data/seo';
+
 const h1 = `Garage Door Repair in ${hood.name}, Stittsville`;
-const title = `${h1} | ${site.phone}`;
+const title = pageTitle(h1);
 const description = `Same-day garage door repair in ${hood.name}, Stittsville. Springs, openers, cables — local technician, free on-site quote. Call ${site.phone}.`;
+const hoodPhoto = getNeighbourhoodPhoto(hood.slug);
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -28,12 +32,12 @@ const crumbs = [
 ];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} ogImage={hoodPhoto?.src}>
   <Fragment slot="head">
     <BreadcrumbSchema crumbs={crumbs} />
   </Fragment>
 
-  <Hero title={h1} subtitle={hood.summary} />
+  <Hero title={h1} subtitle={hood.summary} image={hoodPhoto} />
 
   <div class="container-page border-b border-primary-100 bg-primary-50/50 py-3 md:py-4">
     <BreadcrumbNav crumbs={crumbs} />

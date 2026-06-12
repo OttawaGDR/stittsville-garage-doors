@@ -5,9 +5,12 @@ import PhoneLink from '../components/PhoneLink.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
 import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
+import { getPhotoById } from '../data/jobPhotos';
+import { pageTitle } from '../data/seo';
 
-const title = `24/7 Emergency Garage Door Repair Stittsville | ${site.phone}`;
+const title = pageTitle('24/7 Emergency Garage Door Repair Stittsville', { includePhone: true });
 const description = `24/7 emergency garage door repair in Stittsville. Door stuck open, car trapped, broken spring — under 90 min response. Call ${site.phone} now.`;
+const emergencyPhoto = getPhotoById('door-stuck-off-track-townhome');
 
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -15,7 +18,7 @@ const crumbs = [
 ];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} ogImage={emergencyPhoto?.src}>
   <Fragment slot="head">
     <BreadcrumbSchema crumbs={crumbs} />
   </Fragment>

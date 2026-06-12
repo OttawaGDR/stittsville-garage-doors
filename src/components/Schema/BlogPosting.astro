@@ -1,6 +1,6 @@
 ---
 import { site } from '../../data/site';
-import { absoluteUrl } from '../../data/seo';
+import { absoluteUrl, defaultOgImage } from '../../data/seo';
 import type { BlogPost } from '../../data/blog/types';
 interface Props {
   post: BlogPost;
@@ -25,7 +25,12 @@ const schema = {
     '@type': 'Organization',
     name: site.legal.entity,
     url: site.url,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${site.url}/images/logo-mark.svg`,
+    },
   },
+  image: absoluteUrl(defaultOgImage),
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   url,
   articleSection: post.category,

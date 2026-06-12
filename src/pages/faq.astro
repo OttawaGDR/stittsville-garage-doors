@@ -10,7 +10,9 @@ import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
 import { faqPageFaqs } from '../data/faqs';
 
-const title = `Garage Door FAQ | Stittsville Garage Doors | ${site.phone}`;
+import { pageTitle } from '../data/seo';
+
+const title = pageTitle('Garage Door FAQ');
 const description = `34 answers on Stittsville garage door repair — pricing, springs, openers, cold weather, emergencies, and booking. Call ${site.phone} for same-day service.`;
 
 const crumbs = [

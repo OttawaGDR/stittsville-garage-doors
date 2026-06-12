@@ -47,7 +47,7 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Chamberlain myQ garage door opener installation in Stittsville',
     width: 900,
     height: 1200,
-    services: [],
+    services: ['opener-repair', 'opener-installation'],
     featured: true,
   },
   {
@@ -56,7 +56,7 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Chamberlain belt-drive opener ceiling mount in Stittsville garage',
     width: 900,
     height: 1200,
-    services: [],
+    services: ['opener-installation', 'opener-repair'],
   },
   {
     id: 'opener-arm',
@@ -64,7 +64,7 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Garage door opener arm and reinforcement bracket repair in Stittsville',
     width: 900,
     height: 1200,
-    services: [],
+    services: ['opener-repair', 'panel-repair'],
   },
   {
     id: 'roller-bracket',
@@ -72,7 +72,7 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Nylon garage door roller in bottom bracket and vertical track, Stittsville',
     width: 900,
     height: 1200,
-    services: [],
+    services: ['maintenance', 'track-repair'],
     featured: true,
   },
   {
@@ -81,7 +81,7 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Worn vs new nylon garage door rollers during tune-up in Stittsville',
     width: 900,
     height: 1200,
-    services: [],
+    services: ['maintenance'],
   },
   {
     id: 'cable-bracket',
@@ -115,7 +115,7 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Grey raised-panel garage door installation on brick home in Stittsville',
     width: 900,
     height: 1200,
-    services: [],
+    services: ['new-door-installation'],
   },
   {
     id: 'door-keypad',
@@ -123,7 +123,7 @@ export const jobPhotos: JobPhoto[] = [
     alt: 'Black garage door with wireless keypad installed in Stittsville',
     width: 900,
     height: 1200,
-    services: [],
+    services: ['opener-installation'],
   },
   {
     id: 'jamb-rot',
@@ -278,7 +278,7 @@ export const jobPhotos: JobPhoto[] = [
     caption: 'Tune-up parts ready — springs, rollers, bottom bracket, and silicone lube',
     width: 768,
     height: 1024,
-    services: [],
+    services: ['maintenance'],
   },
   {
     id: 'door-stuck-off-track-townhome',
@@ -296,7 +296,7 @@ export const jobPhotos: JobPhoto[] = [
     caption: 'Worn rubber roller vs new nylon — common cause of loud grinding',
     width: 768,
     height: 1024,
-    services: [],
+    services: ['maintenance'],
   },
   {
     id: 'bottom-bracket-seal-after',
@@ -398,6 +398,37 @@ export const jobPhotos: JobPhoto[] = [
     services: ['opener-installation'],
   },
 ];
+
+export const serviceCardPhotoIds: Record<string, string> = {
+  'spring-repair': 'torsion-springs-removed',
+  'opener-repair': 'opener-internal-gears',
+  'opener-installation': 'chamberlain-red-opener',
+  'cable-repair': 'cable-set-rollers-bracket',
+  'track-repair': 'garage-door-off-track',
+  'panel-repair': 'panel-strut-bracket',
+  'new-door-installation': 'black-windows-single',
+  maintenance: 'maintenance-springs-rollers-lube',
+  'weather-seal': 'bottom-seal-retainer-bracket',
+};
+
+export const neighbourhoodPhotoIds: Record<string, string> = {
+  'jackson-trails': 'chamberlain-red-opener',
+  fairwinds: 'torsion-springs-removed',
+  'crossing-bridge-estates': 'wood-look-double',
+  amberwood: 'double-beige-raised',
+  wyldewood: 'door-stuck-off-track-townhome',
+  'bryanston-gate': 'cream-flush-windows',
+};
+
+export function getServiceCardPhoto(slug: string): JobPhoto | undefined {
+  const id = serviceCardPhotoIds[slug];
+  return id ? getPhotoById(id) : undefined;
+}
+
+export function getNeighbourhoodPhoto(slug: string): JobPhoto | undefined {
+  const id = neighbourhoodPhotoIds[slug];
+  return id ? getPhotoById(id) : undefined;
+}
 
 export function getHeroPhoto(): JobPhoto {
   return jobPhotos.find((p) => p.hero) ?? jobPhotos[0]!;

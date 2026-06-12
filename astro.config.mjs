@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 
 /** @param {import('@astrojs/sitemap').SitemapItem} item */
 function sitemapPriority(item) {
-  const pathname = new URL(item.url, 'https://stittsvillegaragedoors.ca').pathname;
+  const pathname = new URL(item.url, 'https://www.stittsvillegaragedoors.ca').pathname;
   if (pathname === '/') item.priority = 1;
   else if (pathname.startsWith('/services/') || pathname === '/emergency/' || pathname === '/pricing/')
     item.priority = 0.9;
@@ -18,7 +18,7 @@ function sitemapPriority(item) {
 }
 
 export default defineConfig({
-  site: 'https://stittsvillegaragedoors.ca',
+  site: 'https://www.stittsvillegaragedoors.ca',
   trailingSlash: 'always',
   output: 'static',
   adapter: vercel({ webAnalytics: { enabled: true } }),

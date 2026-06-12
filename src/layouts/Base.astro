@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { SEO } from 'astro-seo';
 import { site } from '../data/site';
-import { absoluteUrl, defaultOgImage, metaDescription, ogImageDimensions } from '../data/seo';
+import { absoluteUrl, defaultOgImage, defaultOgImageAlt, metaDescription, ogImageDimensions } from '../data/seo';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CtaBar from '../components/CtaBar.astro';
@@ -98,7 +98,7 @@ const safeDescription = metaDescription(description);
           siteName: site.name,
         },
         image: {
-          alt: `${site.name} — garage door repair in Stittsville, Ontario`,
+          alt: defaultOgImageAlt,
           width: ogImageDimensions.width,
           height: ogImageDimensions.height,
         },
@@ -108,7 +108,7 @@ const safeDescription = metaDescription(description);
         title,
         description: safeDescription,
         image: ogImageUrl,
-        imageAlt: `${site.name} — Stittsville garage door repair`,
+        imageAlt: defaultOgImageAlt,
       }}
     />
     <slot name="head" />

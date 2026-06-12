@@ -7,7 +7,9 @@ import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
 import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
 
-const title = `Contact Stittsville Garage Doors | ${site.phone}`;
+import { pageTitle } from '../data/seo';
+
+const title = pageTitle('Contact Stittsville Garage Doors', { includePhone: true });
 const description = `Contact Stittsville garage door repair. Call ${site.phone} or send a message — same-day service across Stittsville. Hours: ${site.hours}.`;
 
 const crumbs = [

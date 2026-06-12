@@ -2,7 +2,6 @@
 import { Fragment } from 'astro/jsx-runtime';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
-import PhoneLink from '../components/PhoneLink.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import NeighbourhoodGrid from '../components/NeighbourhoodGrid.astro';
@@ -12,13 +11,14 @@ import BeforeAfter from '../components/BeforeAfter.astro';
 import FAQSchema from '../components/Schema/FAQ.astro';
 import WebSiteSchema from '../components/Schema/WebSite.astro';
 import WebPageSchema from '../components/Schema/WebPage.astro';
-import { getHeroPhoto, getBeforeAfter, getPhotoById, getPhotosByIds, jobPhotos } from '../data/jobPhotos';
+import { getHeroPhoto, getBeforeAfter, getPhotoById, getPhotosByIds, getServiceCardPhoto, jobPhotos } from '../data/jobPhotos';
 import { site } from '../data/site';
 import { services } from '../data/services';
 import { homepageFaqs } from '../data/faqs';
 import { pricingPolicy } from '../data/pricing';
+import { defaultOgImage, pageTitle } from '../data/seo';
 
-const title = `Garage Door Repair Stittsville | Same-Day Service | ${site.phone}`;
+const title = pageTitle('Garage Door Repair Stittsville | Same-Day Service');
 const description =
   'Same-day garage door repair in Stittsville. Springs, openers, cables, tracks, panels — free on-site written quote, no dispatch fee. Call (613) 777-6401.';
 
@@ -48,18 +48,6 @@ const problemPhotos = {
 
 const recentInstall = jobPhotos.find((p) => p.id === 'cream-flush-windows')!;
 
-const serviceCardImages: Record<string, string> = {
-  'spring-repair': 'torsion-springs-removed',
-  'opener-repair': 'opener-internal-gears',
-  'opener-installation': 'chamberlain-red-opener',
-  'cable-repair': 'cable-set-rollers-bracket',
-  'track-repair': 'garage-door-off-track',
-  'panel-repair': 'panel-strut-bracket',
-  'new-door-installation': 'black-windows-single',
-  maintenance: 'maintenance-springs-rollers-lube',
-  'weather-seal': 'bottom-seal-retainer-bracket',
-};
-
 const whyCards = [
   {
     title: 'Same-day service',
@@ -80,7 +68,7 @@ const whyCards = [
 ];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} ogImage={defaultOgImage}>
   <Fragment slot="head">
     <WebSiteSchema />
     <WebPageSchema name="Garage Door Repair in Stittsville" description={description} path="/" />
@@ -188,7 +176,7 @@ const whyCards = [
         </p>
       </div>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((s) => <ServiceCard service={s} image={getPhotoById(serviceCardImages[s.slug] ?? '')} />)}
+        {services.map((s) => <ServiceCard service={s} image={getServiceCardPhoto(s.slug)} />)}
       </div>
       <p class="mt-8 text-center">
         <a href="/services/" class="font-semibold text-primary-700 no-underline hover:text-accent-600">
@@ -574,21 +562,6 @@ const whyCards = [
     </p>
     <div class="mt-8 max-w-3xl">
       <FaqAccordion faqs={homepageFaqs} id="homepage-faq" />
-    </div>
-  </section>
-
-  <section class="bg-primary-900 text-white section-pad">
-    <div class="container-page text-center">
-      <h2 class="text-white">Garage door not working?</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
-        Call {site.phone} — we answer 7 AM to 10 PM, 7 days a week. Emergency service available overnight when the door is stuck open or your vehicle is trapped inside.
-      </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <PhoneLink showIcon class="text-lg" />
-        <a href="/emergency/" class="btn-secondary border-white text-white hover:bg-white/10">
-          24/7 Emergency
-        </a>
-      </div>
     </div>
   </section>
 </Base>

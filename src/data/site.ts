@@ -1,7 +1,7 @@
 export const site = {
   name: 'Stittsville Garage Doors',
   tagline: "Stittsville's local garage door specialists",
-  url: 'https://stittsvillegaragedoors.ca',
+  url: 'https://www.stittsvillegaragedoors.ca',
   phone: '(613) 777-6401',
   phoneRaw: '+16137776401',
   email: 'stittsvillegd@gmail.com',

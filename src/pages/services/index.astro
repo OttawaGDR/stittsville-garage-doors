@@ -12,9 +12,10 @@ import FAQSchema from '../../components/Schema/FAQ.astro';
 import { site } from '../../data/site';
 import { services } from '../../data/services';
 import { pricingPolicy } from '../../data/pricing';
-import { metaDescription } from '../../data/seo';
+import { defaultOgImage, metaDescription, pageTitle } from '../../data/seo';
+import { getServiceCardPhoto } from '../../data/jobPhotos';
 
-const title = `Garage Door Services in Stittsville | ${site.phone}`;
+const title = pageTitle('Garage Door Services in Stittsville');
 const description = metaDescription(
   'Nine garage door services in Stittsville — springs, openers, cables, tracks, panels, new doors, weather seals & tune-ups. Free on-site quotes, same-day when trucks are west. Call (613) 777-6401.',
 );
@@ -53,7 +54,7 @@ const hubFaqs = [
 ];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} ogImage={defaultOgImage}>
   <Fragment slot="head">
     <BreadcrumbSchema crumbs={crumbs} />
     <FAQSchema faqs={hubFaqs} />
@@ -90,7 +91,7 @@ const hubFaqs = [
     </p>
 
     <div class="not-prose my-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard service={s} />)}
+      {services.map((s) => <ServiceCard service={s} image={getServiceCardPhoto(s.slug)} />)}
     </div>
 
     <h2>How to choose the right service</h2>
