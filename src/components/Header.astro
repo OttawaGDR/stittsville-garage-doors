@@ -5,12 +5,8 @@ import PhoneLink from './PhoneLink.astro';
 const nav = [
   { href: '/services/', label: 'Services' },
   { href: '/pricing/', label: 'Pricing' },
-  { href: '/neighbourhoods/', label: 'Neighbourhoods' },
-  { href: '/faq/', label: 'FAQ' },
-  { href: '/blog/', label: 'Blog' },
+  { href: '/neighbourhoods/', label: 'Areas' },
   { href: '/emergency/', label: 'Emergency' },
-  { href: '/reviews/', label: 'Reviews' },
-  { href: '/about/', label: 'About' },
   { href: '/contact/', label: 'Contact' },
 ];
 
@@ -18,7 +14,7 @@ const path = Astro.url.pathname;
 ---
 
 <header class="sticky top-0 z-40 border-b border-primary-100 bg-white/95 backdrop-blur">
-  <div class="container-page flex items-center gap-6 py-4 xl:gap-8">
+  <div class="container-page flex items-center gap-4 py-3 lg:gap-5 xl:gap-6">
     <a href="/" class="nav-link flex shrink-0 items-center no-underline hover:no-underline">
         <img
           src="/images/logo.svg"
@@ -29,7 +25,7 @@ const path = Astro.url.pathname;
           fetchpriority="high"
         />
     </a>
-    <nav class="hidden items-center gap-6 xl:flex" aria-label="Main">
+    <nav class="hidden items-center gap-4 lg:flex lg:gap-5" aria-label="Main">
       {
         nav.map((item) => (
           <a
@@ -46,19 +42,19 @@ const path = Astro.url.pathname;
     </nav>
     <a
       href="/#request-quote"
-      class="nav-link ml-auto hidden whitespace-nowrap rounded-lg border-2 border-accent-500 px-3 py-2.5 text-xs font-bold uppercase tracking-wide text-accent-600 no-underline transition hover:bg-accent-50 xl:ml-0 xl:inline-flex xl:items-center xl:justify-center"
+      class="nav-link ml-auto hidden whitespace-nowrap rounded-lg border-2 border-accent-500 px-3 py-2 text-xs font-bold uppercase tracking-wide text-accent-600 no-underline transition hover:bg-accent-50 lg:ml-0 lg:inline-flex lg:items-center lg:justify-center"
     >
       Free Quote
     </a>
     <PhoneLink
       showIcon
       singleLine
-      class="!hidden shrink-0 !px-4 !py-2.5 !text-sm xl:!inline-flex"
+      class="!hidden shrink-0 !px-3 !py-2 !text-sm lg:!inline-flex"
       ariaLabel={`Call ${site.name} at ${site.phone}`}
     />
     <button
       type="button"
-      class="ml-auto rounded border border-primary-100 p-2 xl:hidden"
+      class="ml-auto rounded border border-primary-100 p-2 lg:hidden"
       aria-label="Open menu"
       id="menu-toggle"
     >
@@ -67,7 +63,7 @@ const path = Astro.url.pathname;
       </svg>
     </button>
   </div>
-  <nav id="mobile-nav" class="hidden border-t border-primary-100 bg-white xl:hidden" aria-label="Mobile">
+  <nav id="mobile-nav" class="hidden border-t border-primary-100 bg-white lg:hidden" aria-label="Mobile">
     <ul class="container-page flex flex-col gap-2 py-4">
       {nav.map((item) => (
         <li>
@@ -76,6 +72,15 @@ const path = Astro.url.pathname;
           </a>
         </li>
       ))}
+      <li class="border-t border-primary-100 pt-3 mt-1">
+        <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-primary-500">More</p>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/faq/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">FAQ</a></li>
+          <li><a href="/blog/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">Blog</a></li>
+          <li><a href="/reviews/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">Reviews</a></li>
+          <li><a href="/about/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">About</a></li>
+        </ul>
+      </li>
       <li class="pt-2">
         <a
           href="/#request-quote"

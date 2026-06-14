@@ -5,17 +5,30 @@ import type { JobPhoto } from '../data/jobPhotos';
 interface Props {
   service: Service;
   image?: JobPhoto | null;
+  /** Shorter image area — used on homepage service grid */
+  compact?: boolean;
 }
 
-const { service, image = null } = Astro.props;
+const { service, image = null, compact = false } = Astro.props;
 ---
 
-<article class={`card flex h-full flex-col ${image ? 'overflow-hidden p-0' : ''}`}>
+<article
+  class:list={[
+    'card flex flex-col',
+    compact ? 'compact-service-card' : 'h-full',
+    image && !compact ? 'overflow-hidden p-0' : '',
+  ]}
+>
   {
     image && (
       <a
         href={`/services/${service.slug}/`}
-        class="block aspect-[4/3] w-full overflow-hidden bg-primary-50"
+        class:list={[
+          'block w-full shrink-0 overflow-hidden bg-primary-50',
+          compact
+            ? 'mx-auto mt-3 aspect-square w-full max-w-72 shrink-0 rounded-lg'
+            : 'aspect-[4/3] w-full',
+        ]}
         aria-label={service.fullName}
       >
         <img
@@ -30,15 +43,39 @@ const { service, image = null } = Astro.props;
       </a>
     )
   }
-  <div class={`flex flex-1 flex-col ${image ? 'p-6' : ''}`}>
-    <h3 class="text-xl">
+  <div
+    class:list={[
+      'flex flex-col',
+      image && (compact ? 'p-3' : 'p-6'),
+      !compact && 'flex-1',
+    ]}
+  >
+    <h3 class={compact ? 'text-base font-bold leading-snug' : 'text-xl'}>
       <a href={`/services/${service.slug}/`} class="nav-link text-primary-900 no-underline hover:text-primary-700">
         {service.fullName}
       </a>
     </h3>
-    <p class="mt-2 flex-1 text-sm text-primary-700">{service.summary}</p>
-    <a href={`/services/${service.slug}/`} class="btn-primary mt-4 text-center text-xs">
-      Learn more
-    </a>
+    <p
+      class:list={[
+        'mt-1.5 text-primary-700',
+        compact ? 'line-clamp-2 text-xs leading-snug' : 'mt-2 flex-1 text-sm',
+      ]}
+    >
+      {service.summary}
+    </p>
+    {
+      compact ? (
+        <a
+          href={`/services/${service.slug}/`}
+          class="nav-link mt-2 text-xs font-semibold text-accent-600 no-underline hover:text-accent-700"
+        >
+          Learn more →
+        </a>
+      ) : (
+        <a href={`/services/${service.slug}/`} class="btn-primary mt-4 text-center text-xs">
+          Learn more
+        </a>
+      )
+    }
   </div>
 </article>

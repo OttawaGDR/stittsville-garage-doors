@@ -90,8 +90,8 @@ const hubFaqs = [
       after visits on our <a href="/reviews/">reviews page</a>.
     </p>
 
-    <div class="not-prose my-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard service={s} image={getServiceCardPhoto(s.slug)} />)}
+    <div class="not-prose my-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {services.map((s) => <ServiceCard service={s} image={getServiceCardPhoto(s.slug)} compact />)}
     </div>
 
     <h2>How to choose the right service</h2>

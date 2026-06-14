@@ -175,8 +175,8 @@ const whyCards = [
           Not sure which problem you have? Call {site.phone} and describe what the door is doing. We will tell you whether it sounds like a <a href="/services/spring-repair/">garage door spring repair</a>, an <a href="/services/opener-repair/">opener repair</a>, or something that needs a <a href="/services/track-repair/">track realignment</a> before we drive out.
         </p>
       </div>
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((s) => <ServiceCard service={s} image={getServiceCardPhoto(s.slug)} />)}
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {services.map((s) => <ServiceCard service={s} image={getServiceCardPhoto(s.slug)} compact />)}
       </div>
       <p class="mt-8 text-center">
         <a href="/services/" class="font-semibold text-primary-700 no-underline hover:text-accent-600">
