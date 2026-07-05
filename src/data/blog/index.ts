@@ -7,8 +7,10 @@ import { repairVsReplaceGarageDoor } from './posts/repair-vs-replace-garage-door
 import { openerFlashingLights } from './posts/opener-flashing-lights';
 import { fallGarageDoorTuneUp } from './posts/fall-garage-door-tune-up';
 import { garageDoorSafetySensorsFrost } from './posts/garage-door-safety-sensors-frost';
+import { noisyGarageDoorSummer } from './posts/noisy-garage-door-summer';
 
 export const blogPosts: BlogPost[] = [
+  noisyGarageDoorSummer,
   springBrokeStittsvilleWinter,
   garageDoorRepairCostStittsville2026,
   garageDoorWontCloseColdWeather,

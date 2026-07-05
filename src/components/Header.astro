@@ -6,62 +6,84 @@ const nav = [
   { href: '/services/', label: 'Services' },
   { href: '/pricing/', label: 'Pricing' },
   { href: '/neighbourhoods/', label: 'Areas' },
+  { href: '/faq/', label: 'FAQ' },
   { href: '/emergency/', label: 'Emergency' },
+  { href: '/reviews/', label: 'Reviews' },
   { href: '/contact/', label: 'Contact' },
 ];
 
+const mobileMore = [
+  { href: '/blog/', label: 'Blog' },
+  { href: '/about/', label: 'About' },
+];
+
 const path = Astro.url.pathname;
+
+const navLinkClass = (href: string) =>
+  [
+    'nav-link text-sm font-semibold uppercase tracking-wide no-underline hover:text-accent-600',
+    path.startsWith(href.replace(/\/$/, '')) && href !== '/' ? 'text-accent-600' : 'text-primary-700',
+  ] as const;
 ---
 
 <header class="sticky top-0 z-40 border-b border-primary-100 bg-white/95 backdrop-blur">
-  <div class="container-page flex items-center gap-4 py-3 lg:gap-5 xl:gap-6">
-    <a href="/" class="nav-link flex shrink-0 items-center no-underline hover:no-underline">
+  <div class="container-page py-3">
+    <div class="flex items-center justify-between lg:hidden">
+      <a href="/" class="nav-link flex shrink-0 items-center no-underline hover:no-underline">
         <img
           src="/images/logo.svg"
           alt={site.name}
-          width="280"
+          width="222"
           height="56"
-          class="h-9 w-auto md:h-10"
+          class="block h-9 w-auto"
           fetchpriority="high"
         />
-    </a>
-    <nav class="hidden items-center gap-4 lg:flex lg:gap-5" aria-label="Main">
-      {
-        nav.map((item) => (
-          <a
-            href={item.href}
-            class:list={[
-              'nav-link text-sm font-semibold uppercase tracking-wide no-underline hover:text-accent-600',
-              path.startsWith(item.href.replace(/\/$/, '')) && item.href !== '/' ? 'text-accent-600' : 'text-primary-700',
-            ]}
-          >
-            {item.label}
-          </a>
-        ))
-      }
-    </nav>
-    <a
-      href="/#request-quote"
-      class="nav-link ml-auto hidden whitespace-nowrap rounded-lg border-2 border-accent-500 px-3 py-2 text-xs font-bold uppercase tracking-wide text-accent-600 no-underline transition hover:bg-accent-50 lg:ml-0 lg:inline-flex lg:items-center lg:justify-center"
-    >
-      Free Quote
-    </a>
-    <PhoneLink
-      showIcon
-      singleLine
-      class="!hidden shrink-0 !px-3 !py-2 !text-sm lg:!inline-flex"
-      ariaLabel={`Call ${site.name} at ${site.phone}`}
-    />
-    <button
-      type="button"
-      class="ml-auto rounded border border-primary-100 p-2 lg:hidden"
-      aria-label="Open menu"
-      id="menu-toggle"
-    >
-      <svg width="24" height="24" class="h-6 w-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+      </a>
+      <button
+        type="button"
+        class="rounded border border-primary-100 p-2"
+        aria-label="Open menu"
+        id="menu-toggle"
+      >
+        <svg width="24" height="24" class="h-6 w-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="hidden items-center justify-center gap-3 lg:flex xl:gap-4">
+      <a href="/" class="nav-link flex shrink-0 items-center no-underline hover:no-underline">
+        <img
+          src="/images/logo.svg"
+          alt={site.name}
+          width="222"
+          height="56"
+          class="block h-10 w-auto"
+          fetchpriority="high"
+        />
+      </a>
+      <nav class="flex flex-wrap items-center justify-center gap-3 xl:gap-4" aria-label="Main">
+        {
+          nav.map((item) => (
+            <a href={item.href} class:list={navLinkClass(item.href)}>
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <a
+        href="/#request-quote"
+        class="nav-link inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-lg border-2 border-accent-500 px-3 py-2 text-xs font-bold uppercase tracking-wide text-accent-600 no-underline transition hover:bg-accent-50"
+      >
+        Free Quote
+      </a>
+      <PhoneLink
+        showIcon
+        singleLine
+        class="shrink-0 !px-3 !py-2 !text-sm"
+        ariaLabel={`Call ${site.name} at ${site.phone}`}
+      />
+    </div>
   </div>
   <nav id="mobile-nav" class="hidden border-t border-primary-100 bg-white lg:hidden" aria-label="Mobile">
     <ul class="container-page flex flex-col gap-2 py-4">
@@ -72,13 +94,16 @@ const path = Astro.url.pathname;
           </a>
         </li>
       ))}
-      <li class="border-t border-primary-100 pt-3 mt-1">
+      <li class="mt-1 border-t border-primary-100 pt-3">
         <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-primary-500">More</p>
         <ul class="flex flex-col gap-1">
-          <li><a href="/faq/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">FAQ</a></li>
-          <li><a href="/blog/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">Blog</a></li>
-          <li><a href="/reviews/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">Reviews</a></li>
-          <li><a href="/about/" class="nav-link block py-1.5 text-sm text-primary-700 no-underline">About</a></li>
+          {mobileMore.map((item) => (
+            <li>
+              <a href={item.href} class="nav-link block py-1.5 text-sm text-primary-700 no-underline">
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </li>
       <li class="pt-2">
