@@ -3,6 +3,7 @@ import { Fragment } from 'astro/jsx-runtime';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import PhoneLink from '../components/PhoneLink.astro';
+import QuoteForm from '../components/QuoteForm.astro';
 import BreadcrumbSchema from '../components/Schema/Breadcrumb.astro';
 import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import { site } from '../data/site';
@@ -67,109 +68,16 @@ const status = Astro.url.searchParams.get('sent')
         </p>
       </div>
 
-      <div class="card">
-        <h2 class="text-2xl">Request a callback</h2>
-        <p class="mt-2 text-sm text-primary-600">
-          We email your request to {site.email} and call you back — usually the same day for Stittsville addresses.
-        </p>
-        <div
-          id="contact-sent"
-          class={`mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900${status === 'sent' ? '' : ' hidden'}`}
-          role="status"
-        >
-          <p class="font-semibold">Thanks — your message was received.</p>
-          <p class="mt-1">We will be in touch with you shortly at the number you provided. For urgent issues call <a href={`tel:${site.phoneRaw}`} class="font-semibold underline">{site.phone}</a>.</p>
-        </div>
-        <div
-          id="contact-error"
-          class={`mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900${status === 'error' ? '' : ' hidden'}`}
-          role="alert"
-        >
-          Something went wrong sending your message. Please call{' '}
-          <a href={`tel:${site.phoneRaw}`} class="font-semibold underline">
-            {site.phone}
-          </a>{' '}
-          or email{' '}
-          <a href={`mailto:${site.email}`} class="font-semibold underline">
-            {site.email}
-          </a>{' '}
-          directly.
-        </div>
-        <form class="mt-6 space-y-4" method="POST" action="https://formspree.io/f/xvzygnpo">
-          <input type="hidden" name="_subject" value="New contact message — Stittsville Garage Doors" />
-          <input type="hidden" name="_next" value={`${site.url}/contact/?sent=1`} />
-          <div class="absolute -left-[9999px]" aria-hidden="true">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
-          </div>
-          <div>
-            <label for="name" class="block text-sm font-semibold text-primary-900">Name</label>
-            <input type="text" id="name" name="name" required class="mt-1 w-full rounded-lg border border-primary-200 px-4 py-3" />
-          </div>
-          <div>
-            <label for="phone" class="block text-sm font-semibold text-primary-900">Phone</label>
-            <input type="tel" id="phone" name="phone" required class="mt-1 w-full rounded-lg border border-primary-200 px-4 py-3" />
-          </div>
-          <div>
-            <label for="address" class="block text-sm font-semibold text-primary-900">Address (Stittsville neighbourhood)</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              required
-              placeholder="e.g. 42 Bridlewood Drive, Jackson Trails"
-              class="mt-1 w-full rounded-lg border border-primary-200 px-4 py-3"
-            />
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-semibold text-primary-900">What&apos;s wrong?</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-              placeholder="Spring snapped, opener hums but door won't move, door off track..."
-              class="mt-1 w-full rounded-lg border border-primary-200 px-4 py-3"
-            />
-          </div>
-          <div>
-            <label for="best-time" class="block text-sm font-semibold text-primary-900">Best time to call</label>
-            <select id="best-time" name="best-time" class="mt-1 w-full rounded-lg border border-primary-200 px-4 py-3">
-              <option value="morning">Morning (7 AM – 12 PM)</option>
-              <option value="afternoon">Afternoon (12 PM – 5 PM)</option>
-              <option value="evening">Evening (5 PM – 10 PM)</option>
-              <option value="asap">As soon as possible</option>
-            </select>
-          </div>
-          <button type="submit" class="btn-primary w-full">Send message</button>
-        </form>
-        <p class="mt-4 text-xs text-primary-500">
-          Prefer email only? Write to <a href={`mailto:${site.email}?subject=Stittsville%20garage%20door%20repair`}>{site.email}</a> with the same details.
-        </p>
-      </div>
+      <QuoteForm
+        id="contact-form"
+        redirectTo={`${site.url}/contact/?sent=1`}
+        formSubject="New contact message — Stittsville Garage Doors"
+        title="Request a callback"
+        subtitle={`We call or email you back — usually the same day for Stittsville addresses.`}
+        submitLabel="Send message"
+        status={status}
+      />
     </div>
-
-    <script is:inline>
-      (function () {
-        var params = new URLSearchParams(window.location.search);
-        var sent = params.get('sent');
-        var err = params.get('error');
-        var sentBox = document.getElementById('contact-sent');
-        var errBox = document.getElementById('contact-error');
-        if (sent && sentBox) {
-          sentBox.classList.remove('hidden');
-          var form = sentBox.parentElement && sentBox.parentElement.querySelector('form');
-          if (form) form.style.display = 'none';
-          sentBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          var url = new URL(window.location.href);
-          url.searchParams.delete('sent');
-          window.history.replaceState({}, '', url.toString());
-        } else if (err && errBox) {
-          errBox.classList.remove('hidden');
-          errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      })();
-    </script>
 
     <div class="mt-16">
       <h2 class="text-center text-3xl">Stittsville service area</h2>

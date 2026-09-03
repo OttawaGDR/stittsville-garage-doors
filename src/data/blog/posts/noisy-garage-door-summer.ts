@@ -86,7 +86,6 @@ export const noisyGarageDoorSummer: BlogPost = {
   publishedAt: '2026-07-05',
   updatedAt: '2026-07-05',
   readMinutes: estimateReadMinutes(blocks),
-  featured: true,
   relatedSlugs: [
     'fall-garage-door-tune-up-stittsville',
     'opener-flashing-lights-troubleshooting',

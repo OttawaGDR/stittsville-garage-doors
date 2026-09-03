@@ -8,8 +8,10 @@ import { openerFlashingLights } from './posts/opener-flashing-lights';
 import { fallGarageDoorTuneUp } from './posts/fall-garage-door-tune-up';
 import { garageDoorSafetySensorsFrost } from './posts/garage-door-safety-sensors-frost';
 import { noisyGarageDoorSummer } from './posts/noisy-garage-door-summer';
+import { garageDoorOffTrack } from './posts/garage-door-off-track';
 
 export const blogPosts: BlogPost[] = [
+  garageDoorOffTrack,
   noisyGarageDoorSummer,
   springBrokeStittsvilleWinter,
   garageDoorRepairCostStittsville2026,
