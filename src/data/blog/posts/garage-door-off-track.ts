@@ -122,7 +122,6 @@ export const garageDoorOffTrack: BlogPost = {
   publishedAt: '2026-09-03',
   updatedAt: '2026-09-03',
   readMinutes: estimateReadMinutes(blocks),
-  featured: true,
   relatedSlugs: [
     'noisy-garage-door-stittsville-summer',
     'opener-flashing-lights-troubleshooting',

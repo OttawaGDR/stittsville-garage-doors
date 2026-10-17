@@ -9,8 +9,10 @@ import { fallGarageDoorTuneUp } from './posts/fall-garage-door-tune-up';
 import { garageDoorSafetySensorsFrost } from './posts/garage-door-safety-sensors-frost';
 import { noisyGarageDoorSummer } from './posts/noisy-garage-door-summer';
 import { garageDoorOffTrack } from './posts/garage-door-off-track';
+import { weatherSealBeforeWinter } from './posts/weather-seal-before-winter';
 
 export const blogPosts: BlogPost[] = [
+  weatherSealBeforeWinter,
   garageDoorOffTrack,
   noisyGarageDoorSummer,
   springBrokeStittsvilleWinter,
