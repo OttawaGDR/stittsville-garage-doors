@@ -5,7 +5,7 @@ import { neighbourhoods } from '../data/neighbourhoods';
 ---
 
 <footer class="border-t border-primary-100 bg-primary-900 text-primary-50">
-  <div class="container-page section-pad grid gap-12 sm:grid-cols-2 lg:grid-cols-6">
+  <div class="container-page section-pad grid min-w-0 gap-12 sm:grid-cols-2 lg:grid-cols-6">
     <div class="sm:col-span-2 lg:col-span-1">
       <a href="/" class="inline-block no-underline" aria-label={`${site.name} — home`}>
         <img
@@ -84,7 +84,7 @@ import { neighbourhoods } from '../data/neighbourhoods';
           </a>
         </li>
         <li>
-          <a href={`mailto:${site.email}`} class="hover:text-white">
+          <a href={`mailto:${site.email}`} class="break-all hover:text-white">
             {site.email}
           </a>
         </li>

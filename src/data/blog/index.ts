@@ -10,8 +10,10 @@ import { garageDoorSafetySensorsFrost } from './posts/garage-door-safety-sensors
 import { noisyGarageDoorSummer } from './posts/noisy-garage-door-summer';
 import { garageDoorOffTrack } from './posts/garage-door-off-track';
 import { weatherSealBeforeWinter } from './posts/weather-seal-before-winter';
+import { powerOutageManualRelease } from './posts/power-outage-manual-release';
 
 export const blogPosts: BlogPost[] = [
+  powerOutageManualRelease,
   weatherSealBeforeWinter,
   garageDoorOffTrack,
   noisyGarageDoorSummer,

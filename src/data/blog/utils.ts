@@ -6,7 +6,9 @@ export function slugifyHeading(text: string): string {
 }
 
 export function formatBlogDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-CA', {
+  // Date-only strings parse as UTC midnight, which is the previous evening in Toronto.
+  const value = /^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T15:00:00Z` : iso;
+  return new Date(value).toLocaleDateString('en-CA', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

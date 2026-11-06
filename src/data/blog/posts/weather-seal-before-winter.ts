@@ -94,7 +94,6 @@ export const weatherSealBeforeWinter: BlogPost = {
   publishedAt: '2026-10-17',
   updatedAt: '2026-10-17',
   readMinutes: estimateReadMinutes(blocks),
-  featured: true,
   relatedSlugs: [
     'fall-garage-door-tune-up-stittsville',
     'garage-door-wont-close-cold-weather-stittsville',
